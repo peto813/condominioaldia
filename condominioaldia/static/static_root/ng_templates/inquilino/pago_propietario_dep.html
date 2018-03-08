@@ -1,0 +1,95 @@
+<head>
+	<style type="text/css">
+		.bold{
+			font-weight: bold;
+		}
+
+
+		.show-hide {
+		  transition: all linear 1s;
+		}
+		.show-hide.ng-hide {
+			transition: all linear 1s;
+		  	opacity: 0;
+		}
+
+		.container{
+			padding-top: 50px;
+		}
+
+	</style>
+</head>
+	<form ng-submit="registerPayment()" name="registerPaymentForm" novalidate>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2>Pago por Deposito-Transferencia</h2>
+				<label>Balance Actual:</label><br>
+
+				<h4 ng-if="params.payment_type=='cobranza'">[[moneda]][[params.balance|number:2]]</h4>
+				<h4 ng-if="params.payment_type=='pp'"> [[moneda]][[deuda|number:2]]</h4>
+			</div>
+			<div class="panel-body">
+				<p>Seleccione una de nuestras entidades bancarias disponibles.</p>
+				<div class="form-group has-feedback">
+					<div class="input-group">
+						<select class="form-control" ng-model="bank" ng-change="selectAccount()" name="bank" required>
+							<option value="">Banco</option>
+							<option ng-repeat="account in bancos" value="[[account.id]]">[[account.banco]]</option>
+						</select>		
+					</div>			
+				</div>
+				<ol>
+					<li>Realice el deposito o transferencia en la cuenta seleccionada.</li>
+					<li>Tome fotografia de la pantalla o del comprobante de pago.</li>
+					<li><a href="">Registre</a> el pago.</li>
+				</ol>
+
+
+				<table ng-show="bank" class="show-hide table table-striped table-condensed table-bordered">
+					<tbody>
+						<tr>
+							<td class="bold">Banco:</td>
+							<td>[[chosen_bank.banco]]</td>
+						</tr>
+						<tr>
+							<td class="bold">Titular:</td>
+							<td>[[chosen_bank.titular]]</td>
+						</tr>
+						<tr>
+							<td class="bold">Numero de cuenta:</td>
+							<td>[[chosen_bank.nro_cuenta]]</td>
+						</tr>
+						<tr ng-if="chosen_bank.informacion_adicional">
+							<td class="bold">Informacion adicional:</td>
+							<td>[[chosen_bank.informacion_adicional]]</td>
+						</tr>
+						<tr>
+							<td class="bold">Monto:</td>
+							<td>
+								<div ng-if="params.payment_type=='cobranza'">
+									<strong>[[moneda]][[params.balance|number:2]]</strong>
+								</div>
+								<div ng-if="params.payment_type=='pp'" style="max-width: 300px;" class="form-group" ng-class="{ 'has-success' : registerPaymentForm.monto.$valid && (registerPaymentForm.monto.$touched || registerPaymentForm.$submitted||registerPaymentForm.monto.$dirty), 'has-error' : !registerPaymentForm.monto.$valid && (registerPaymentForm.monto.$touched || registerPaymentForm.$submitted||registerPaymentForm.monto.$dirty) }">
+									<div class="input-group">
+										<span class="input-group-addon">[[moneda]]</span>
+										<input class="form-control" type="text" min="0.01" ng-model="chosen_bank.monto" name="monto" ui-number-mask required>
+									</div>
+					              <div ng-messages="registerPaymentForm.monto.$error" style="color:maroon" role="alert">
+					                 <code ng-if="registerPaymentForm.monto.$touched || registerPaymentForm.$submitted" ng-message="required">
+					                  <strong>Ingrese monto</strong>
+					                 </code>
+					              </div>
+								</div>
+
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		<div class="panel-footer">
+			<input ng-disabled="!registerPaymentForm.$valid" ng-show="bank" class="btn btn-lg btn-success show-hide" type="submit" value="Registrar Pago">
+		</div>
+		</div>
+	</div>
+</form>

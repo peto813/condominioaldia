@@ -1,0 +1,94 @@
+
+<head>
+  <style type="text/css">
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+  background-color: #FEFFEF;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #FEFFEF;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+  color:black;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: white;
+  background-color: #F9CD0C;
+  font-weight:bold;
+}
+.badge{
+  background-color: red;
+  margin-left:5px;
+}
+
+
+  </style>
+</head>
+<div class="col-sm-3 col-md-2 sidebar" ng-controller="sideBarController">
+    <ul class="nav nav-sidebar" ng-if="userType == 'condominio'">
+        <li class="active"><a href="">Inicio<span class="sr-only">(current)</span></a></li>
+        <li><a href="#/inmuebles">Inmuebles</a></li>
+        <li><a href="#">Junta de Condominio</a></li>
+        <li><a href="#">Votaciones</a></li>
+        <li><a href="#">Relaciones de Cuotas</a></li>
+        <li><a href="#">Ingresos</a></li>
+        <li><a href="#">Egresos</a></li>
+        <li><a href="#">Cartelera</a></li>
+        <li><a href="#">Parginas Amarillas</a></li>
+        <li><a href="#">SMS/Email</a></li>
+    </ul>
+
+    <ul class="nav nav-sidebar" ng-if="userType == 'inquilino'">
+      <li><a href="">Inicio</a></li>
+      <li><a href="">Pagos</a></li>
+      <li><a href="">Junta de Condominio</a></li>
+      <li><a href="">Votaciones</a></li>
+      <li><a href="">Relaciones de Cuotas</a></li>
+      <li><a href="">Ingresos del Condominio</a></li>
+      <li><a href="">Egresos del Condominio</a></li>
+      <li><a href="">Parginas Amarillas</a></li>
+    </ul>     
+</div> 
+
+
+<!--               <li>Inicio<</li>
+              <li>Pagos</li>
+              <li>Junta de Condominio</li>
+            
+                <li>Votaciones
+                </a>
+                </li>
+                </ul>
+                
+                <ul class="nav nav-sidebar">
+                  <li>Relaciones de Cuotas</a></li>
+                  <li">Ingresos del Condominio</a></li>
+                  <li><a href="">Egresos del Condominio</a></li>
+                  <li><a href="">Parginas Amarillas</a></li>
+                </ul>
+          </ul>  -->

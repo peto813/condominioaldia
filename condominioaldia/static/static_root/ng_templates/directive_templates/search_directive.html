@@ -1,0 +1,11 @@
+<form ng-submit="search()" name="searchForm" id="searchForm" novalidate>
+	<div class="form-group">
+	  <div class="input-group" id="searchDiv">
+	    <div class="input-group-addon"><i class="fa fa-search"></i></div>
+	    <input type="text" placeholder="Buscar" class="form-control" id="search" name="search" ng-model="searchString">
+	    <span class="input-group-btn">
+	      <button type="submit" ng-disabled="!searchString" class="btn btn-info" >Ok</button>
+	    </span>
+	  </div> 		
+	</div>
+</form>  

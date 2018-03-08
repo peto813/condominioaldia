@@ -1,0 +1,1 @@
+{% load i18n %}{% load humanize %}{% autoescape off %}{% blocktrans %}{{condo_name}} {{month}} bill!{% endblocktrans %}{% endautoescape %}

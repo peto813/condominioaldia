@@ -1,0 +1,58 @@
+
+<form ng-submit ="agregarColumna()" name="agregarColumnaForm" novalidate>
+  <div class="modal-header">
+    <h3 class="text-center">Agregar Columna</h3>
+    <!-- <h4 class="text-center">[[minDate|date:'MMMM yyyy':'UTC'|capitalize]]</h4> -->
+  </div>
+  <div class="modal-body">
+
+      <p class="bg-warning text-center"><b>Atencion:</b> Cada columna generada sera registrada como un egreso, <u>no</u> como una cobranza y sera restada del balance de la cuenta seleccionada.</p>
+    <div class="form-group has-feedback" ng-class="{ 'has-success' : agregarColumnaForm.titulo.$valid && (agregarColumnaForm.titulo.$touched || agregarColumnaForm.$submitted||agregarColumnaForm.titulo.$dirty), 'has-error' : !agregarColumnaForm.titulo.$valid && (agregarColumnaForm.titulo.$touched || agregarColumnaForm.$submitted||agregarColumnaForm.titulo.$dirty) }">
+      <label class="sr-only">Nombre</label>
+      <div class="input-group"> 
+        <span class="input-group-addon"">
+          <i class="fa fa-pencil"></i>
+        </span>
+        
+        <input type="text" placeholder="Titulo" name="titulo" ng-model="extraColumnFormdata.titulo" class="form-control" autocomplete="off" required>
+      </div>
+      
+      <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : agregarColumnaForm.titulo.$valid && (agregarColumnaForm.titulo.$dirty||agregarColumnaForm.titulo.$touched), 'glyphicon-remove': (agregarColumnaForm.titulo.$invalid && (agregarColumnaForm.titulo.$dirty || agregarColumnaForm.$submitted||agregarColumnaForm.titulo.$touched )) }" aria-hidden="true"></span>
+      <div class="text-center">
+        <div ng-messages="agregarColumnaForm.titulo.$error" style="color:maroon" role="alert">
+           <code ng-if="agregarColumnaForm.titulo.$touched || agregarColumnaForm.$submitted" ng-message="required">
+            <strong>Campo obligatorio</strong>
+           </code>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group has-feedback" ng-class="{ 'has-success' : agregarColumnaForm.banco.$valid && (agregarColumnaForm.banco.$touched || agregarColumnaForm.$submitted||agregarColumnaForm.banco.$dirty), 'has-error' : !agregarColumnaForm.banco.$valid && (agregarColumnaForm.banco.$touched || agregarColumnaForm.$submitted||agregarColumnaForm.banco.$dirty) }">
+      <label class="sr-only">Nombre</label>
+<!--       <input type="text" placeholder="Titulo" name="titulo" ng-model="extraColumnFormdata.titulo" class="form-control" autocomplete="off" required> -->
+      <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-university"></i>
+          </span>
+            <select class="form-control" name="banco" ng-model="extraColumnFormdata.banco" required>
+                <option value="">Banco</option>
+                <option ng-repeat="cuenta in cuentas" value="[[cuenta.id]]">[[cuenta.banco]]</option>
+            </select>
+      </div>
+
+      <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : agregarColumnaForm.banco.$valid && (agregarColumnaForm.banco.$dirty||agregarColumnaForm.banco.$touched), 'glyphicon-remove': (agregarColumnaForm.banco.$invalid && (agregarColumnaForm.banco.$dirty || agregarColumnaForm.$submitted||agregarColumnaForm.titulo.$touched )) }" aria-hidden="true"></span>
+      <div class="text-center">
+        <div ng-messages="agregarColumnaForm.titulo.$error" style="color:maroon" role="alert">
+           <code ng-if="agregarColumnaForm.titulo.$touched || agregarColumnaForm.$submitted" ng-message="required">
+            <strong>Campo obligatorio</strong>
+           </code>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+      <input type="submit" value="Aceptar" class="btn btn-success" ng-disabled="!agregarColumnaForm.$valid">
+      <button type="button" class="btn btn-default" ng-click="cancel()">Cerrar</button>
+  </div>
+</form>

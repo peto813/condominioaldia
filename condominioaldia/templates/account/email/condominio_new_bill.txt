@@ -1,0 +1,12 @@
+{% load i18n %}{% autoescape off %}
+{% blocktrans %}Dear {{condo_name}},{% endblocktrans %}
+
+{% blocktrans %}You have a new statement for {{month}} in the amount of {{currency}} {{monto}}. For further details please go to:
+
+{{site_url}}{% endblocktrans %}
+
+{% trans "You may also pay online with our select payment methods!" %}
+
+{% blocktrans %}Thanks for using {{site_name}}!{% endblocktrans %}
+
+{% endautoescape %}

@@ -1,0 +1,49 @@
+<style>
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+</style>
+<form ng-submit="submitSearchBetweenDates()" name="searchBetweenDates" novalidate>
+	<div class="modal-header">
+		<h3 class="text-center">Busqueda por fechas</h3>
+	</div>
+	<div class="modal-body">
+   <!--  <pre>Selected date is: <em>[[dt | date:'fullDate' ]]</em></pre> -->
+
+    <div class="row">
+      <div class="col-md-6">
+      <label>Desde:</label>
+      	
+        <p class="input-group">
+          <input type="text" close-text="Cerrar" current-text="Hoy" clear-text="borrar" class="form-control" uib-datepicker-popup="[[format]]" ng-model="dtFrom" is-open="popup1.opened" datepicker-options="dateOptions" max-date="maxDate"  ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
+      </div>
+
+      <div class="col-md-6">
+      <label>Hasta:</label>
+   
+        <p class="input-group">
+          <input type="text" close-text="Cerrar" current-text="Hoy" clear-text="borrar"  class="form-control" uib-datepicker-popup="[[format]]" ng-model="dtTill" is-open="popup2.opened" datepicker-options="dateOptions" max-date="maxDate" ng-required="true" close-text="Close" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
+      </div>
+    </div>
+
+	</div>
+	<div class="modal-footer">
+		<button type="submit" ng-disabled="!searchBetweenDates.$valid" class="btn btn-success btn-block">Buscar</button>
+		<button type="button" ng-click="cancel()" class="btn btn-danger btn-block">Cerrar</button>
+	</div>
+</form>

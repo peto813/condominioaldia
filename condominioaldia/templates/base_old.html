@@ -1,0 +1,128 @@
+{% load staticfiles %}
+{% load i18n %} 
+<!DOCTYPE html>
+<html lang="es" ng-app="condominioAlDiaApp" ng-keypress="helpModal($event)" ng-cloak>
+  <head>
+    <meta charset="ISO 8859-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:bold" rel="stylesheet" type="text/css">
+ <!-- <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css"> -->
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+    
+<style>
+.ng-cloak { visibility: hidden; }
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Open Sans", Georgia, Times, serif;
+}
+p, div {
+    /*font-family: 'Nobile', Helvetica, Arial, sans-serif;*/
+    font-family: "Droid Sans", "Open Sans", "Raleway";
+
+
+}
+body { 
+
+    background: url(static/img/textures/cream_dust.png) repeat 0 0;
+}
+
+@media (min-width: 1200px) {
+    .text-center-lg {
+        text-align: center;
+    }
+}
+/*.inquilino, .condominio-retrasado, .need_account, .condominio-inactivo {
+  padding-top: 90px;
+}*/
+.waitForServer {
+
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color:white;
+    background: rgba( 0, 0, 0, .2 ) ;
+
+}
+
+
+
+  .ta-hidden-input{
+    visibility: hidden;
+  }
+
+@media (max-width: 768px) {
+    .text-center-xs {
+        text-align: center;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .text-center-sm {
+        text-align: center;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .text-center-md {
+        text-align: center;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .text-center-lg {
+        text-align: center;
+    }
+}
+
+</style>
+
+</head>
+  <body><!--ng-class="{ 'inquilino' : userData.user_type == 'inquilino', 'condominio-retrasado' : userData.user_type == 'condominio'&&retrasado==true, 'need_account':need_account==true||has_bank_account==false, 'condominio-inactivo': userData.detalles_usuario.activo==false}"-->
+
+
+    <div class="waitForServer" data-loading>
+        <i class="fa fa-spinner fa-pulse fa-fw fa-5x"></i>
+        <span class="sr-only">Cargando...</span>
+    </div>
+    {% block index %}{% endblock index %}
+    {% block error_page %}{% endblock error_page %}
+    {% block email_verify %}{% endblock email_verify %}
+      <script src="{% static '/js/js_libs/mainlib.js' %}"></script>
+      <script src="{% static '/js/app_js/modalControllers.js' %}"></script>
+      <script src="{% static '/js/app_js/controllers.js' %}"></script>
+      <script src="{% static '/js/app_js/filters.js' %}"></script>
+      <script src="{% static '/js/app_js/services.js' %}"></script>
+      <script src="{% static '/js/app_js/directives.js' %}"></script>
+      <script src="{% static '/js/app_js/app.js' %}"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAql7WqIgZEKNSrXGITziVoXeESEniSCTI&libraries=places" async defer></script>
+
+
+<!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular-rangy.min.js'></script> -->
+<script src="{% static '/js/js_libs/textangular/rangy-core.js' %}"></script>
+<script src="{% static '/js/js_libs/textangular/rangy-selectionsaverestore.js' %}"></script>
+<script src="{% static '/js/js_libs/textangular/textAngularSetup.js' %}"></script>
+<script src="{% static '/js/js_libs/textangular/textAngular.js' %}"></script>
+
+<!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular-sanitize.min.js'></script>
+<script src="{% static '/js/js_libs/textAngular.min.js' %}"></script> -->
+<script src="{% static '/js/js_libs/textangular/textAngular-sanitize.js' %}"></script>
+  </body>
+</html>

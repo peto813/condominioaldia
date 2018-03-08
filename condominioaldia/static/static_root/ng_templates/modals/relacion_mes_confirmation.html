@@ -1,0 +1,69 @@
+<head>
+	<style type="text/css">
+		.bold{
+			font-weight: bold;
+		}
+
+/*div.hr hr {
+  display: none;
+}*/
+	</style>
+</head>
+<form ng-submit="crearRelacion()" novalidate name="relacionForm">
+	<div class="modal-header">
+		<h3 class="text-center">Confirme su informacion</h3>
+	</div>
+	<div class="modal-body">
+		<p align="justify" class="bg-info">
+			A continuacion vera los datos segun nuestros calculos (columna izquierda), y debera llenar los datos segun aparecen es sus estados de cuenta y asegurarse de que todo concuerde.
+		</p>
+		<div>
+			<div class="hr"><hr /></div>
+			<div class="row" style="font-weight: bold;height:40px;font-size: 14px;margin-top: 25px;">
+				<div class="col-xs-2 bold text-center">Cuenta</div>
+				<div class="col-xs-5 bold text-center">Balance (Condominioaldia)</div>
+				<div class="col-xs-5 bold text-center">Balance (Estado de cuenta)</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-2 bold text-center"></div>
+				<div class="col-xs-5 bold text-center">[[context.relacion_date|date:'dd-MM-yyyy']]</div>
+				<div class="col-xs-5 bold text-center">[[context.relacion_date|date:'dd-MM-yyyy']]</div>
+			</div>
+			<div class="hr"><hr /></div>		
+		</div>
+
+		<div class="row" ng-repeat="cuenta in context.cuentas" style="margin-top:25px;">
+			<div class="col-xs-2 text-center">[[cuenta.banco|capitalize]]</div>
+			<div class="col-xs-5 text-center">
+				[[userData.detalles_usuario.pais.moneda]][[cuenta.balance|number:2]]
+			</div>
+			<div class="col-xs-5 text-center" style="border-left: 1px solid #F4F3F2">
+				<div class="form-group has-feedback" ng-class="{ 'has-success' : relacionForm.[[get_name(cuenta)]].$valid && (relacionForm.[[get_name(cuenta)]].$touched || relacionForm.$submitted||relacionForm.[[get_name(cuenta)]].$dirty), 'has-error' : !relacionForm.[[get_name(cuenta)]].$valid && (relacionForm.[[get_name(cuenta)]].$touched || relacionForm.$submitted||relacionForm.[[get_name(cuenta)]].$dirty) }">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<i class="fa fa-university"></i>
+						</span>
+						<input ui-number-mask ui-negative-number type="text" must-equal ="cuenta.balance" ng-model="relacionVerificationData[[get_name(cuenta)]]" name="[[get_name(cuenta)]]" class="form-control" placeholder="Balance" required>
+					</div>
+ 					<span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : relacionForm.[[get_name(cuenta)]].$valid &&( relacionForm.[[get_name(cuenta)]].$dirty || relacionForm.[[get_name(cuenta)]].$touched), 'glyphicon-remove': (relacionForm.[[get_name(cuenta)]].$invalid && (relacionForm.[[get_name(cuenta)]].$touched ||relacionForm.[[get_name(cuenta)]].$dirty || relacionForm.$submitted )) }" aria-hidden="true">
+                    </span> 
+				    <div class="text-center">
+				        <div ng-messages="relacionForm[[get_name(cuenta)]].$error" style="color:maroon" role="alert">
+				           <code ng-if="relacionForm[[get_name(cuenta)]].$touched || relacionForm.$submitted" ng-message="required">
+				            <strong>Campo obligatorio</strong>
+				           </code>
+				           <code ng-if="relacionForm[[get_name(cuenta)]].$touched || relacionForm.$submitted" ng-message="mustEqual">
+				            <strong>Monto no concuerda</strong>
+				           </code>				           
+				        </div>
+				    </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<input type="submit" id='agregaralista' value="Crear Relacion" class="btn btn-info" ng-disabled="!relacionForm.$valid||relacionForm.$pristine">
+
+		<button type="button" class="btn btn-default" ng-click="cancel()">Cerrar</button>
+	</div>
+</form>

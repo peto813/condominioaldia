@@ -1,0 +1,112 @@
+{% extends "pdf/base_pdf.html" %}
+{% load staticfiles %}
+{% load tz %}
+{% load humanize %}
+{% load template_filters %}
+{% block extra_style %}
+    <style type="text/css">
+        body {
+            font-family:  "Courier New", "monospace", "monospaced", "mono" ;
+            color: #333333;
+            font-size: 14px;
+        }
+/*        .total{
+        	font-size: 18px;
+        }*/
+        .text-center{
+        	text-align: center;
+        }
+        .pull-right{
+        	text-align: right;
+        }
+        .pull-left{
+        	text-align: left;
+        }
+
+        table{
+            font-size: 12px;
+            vertical-align: bottom;
+            border: 0.5px solid rgb(244,243,242);
+        }
+        td, th{
+            padding-top:5px;
+            vertical-align: middle;
+        }
+
+		.header-table td{
+			padding:5px;
+		}
+        .footer{
+        }
+        .bold{
+            font-weight: bold;
+        }
+    </style>
+{% endblock %}
+
+{%block page_header%}
+    <h1 class="text-center">Egresos de {{mes|utc|date:"F Y"}}</h1>
+{%endblock%}
+
+{% block content %}
+
+    <div id="content">
+        
+        <div style="margin-top: 10px;">
+        	<table class="header-table">
+        		<tr style="height:100px">
+        			<td style="border-right:0.5px solid rgb(244,243,242)">
+        				
+        <p alignment = "left"><span style="font-size: 16px;"><b>{{condominio.user.first_name}}</b></span>
+        <b><span size="9">RIF: {{condominio.rif}}</span></b><br/>
+        {{condominio.direccion}} <br/>
+        {{condominio.estado}}, {{condominio.municipio}}, {{condominio.parroquia}}<br/>
+        <b><span size="9">TELEFONOS: </span></b><span size="9"> {{condominio.telefono1}} - {{condominio.telefono2}}</span><br/>
+        <b><span size="9">EMAIL:</span></b> <span size="9">{{condominio.user.email}}</span></p>
+        			</td>
+        			<td align="center">
+                        
+
+        			</td>
+        		</tr>
+        	</table>
+<!--             <p class="text-center" style="font-size: 18px;font-weight: bold;">EGRESOS</p>
+            <hr> -->
+	        <table class="text-center" id="content_table" repeat="1">
+		          <thead>
+                    
+    		            <tr>
+    		              <th>Descripcion</th>
+    		              <th>Fecha</th>
+    		              <th>Monto</th>
+    		          	</tr>
+                        <tr>
+                          <th class="bold">-</th>
+                          <th class="bold">-</th>
+                          <th class="bold">
+                          {{condominio.pais.moneda}} 
+                          {{egresos|sum_key:'monto'|decimal_places:'2'|intcomma}}</th>
+                        </tr>                 
+		        </thead>
+ 		        <tbody>
+                    {% for egreso in egresos %}
+    		        	<tr>
+    		        		<td>{{egreso.tipo_egreso|title}}</td>
+                            <td>{{egreso.fecha_facturacion|utc|date:"d-F-Y"}}</td>
+    		        		<td>{{egreso.condominio.pais.moneda}} {{egreso.monto|decimal_places:'2'|intcomma}}</td>
+    		        	</tr>
+                    {% endfor %}
+
+		        </tbody>
+            </table>        
+        </div>
+    </div>
+
+{% endblock %}
+
+    {%block page_foot%}
+        <hr>
+        <div class="text-center" style="font-weight: bold;font-size: 12px;">
+            Pagina <pdf:pagenumber> de <pdf:pagecount>
+        </div>
+    {%endblock%}

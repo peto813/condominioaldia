@@ -1,0 +1,60 @@
+<head>
+  <style type="text/css">
+    .extra-info{
+      font-size: 13px;
+    }
+    .well {
+      background: rgb(251,245,215)!important;
+    }
+  </style>
+</head>
+<form ng-submit="asignarMiembroJC()" class="center-block" name = "juntaCondominioForm" id="juntaCondominioForm" novalidate>
+      <div style="text-align:center;font-weight:bold;" class="modal-header">
+        <h3 style="font-weight:bold;">Registro de Junta de Condominio</h3>
+      </div> 
+      <div class="modal-body">
+<!--           <div class="well extra-info">
+            <p>Balance inicial <b>negativo implica deuda</b>. De la misma forma, balance inicial <b>positivo implica saldo a favor.</b></p>
+          </div> -->
+            
+          <div class="form-group has-feedback" ng-class="{ 'has-success' : juntaCondominioForm.inmueble.$valid && (juntaCondominioForm.inmueble.$touched || juntaCondominioForm.$submitted||juntaCondominioForm.inmueble.$dirty), 'has-error' : !juntaCondominioForm.inmueble.$valid && (juntaCondominioForm.inmueble.$touched || juntaCondominioForm.$submitted||juntaCondominioForm.inmueble.$dirty) }">
+            <label for="inmueble" class="sr-only"></label>
+            <select  name="inmueble" ng-model="juntaCondominioFormData.inmueble" placeholder="Correo Electronico" class="form-control" id="inmueble" required>
+              <option value="">Seleccione Inquilino</option>
+              <option ng-repeat="inmueble in inmuebles" value="[[inmueble.id]]">[[inmueble.inquilino.user.first_name]] ([[inmueble.nombre_inmueble]])</option>
+            </select>
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : juntaCondominioForm.inmueble.$valid && (juntaCondominioForm.inmueble.$dirty||juntaCondominioForm.inmueble.$touched), 'glyphicon-remove': (juntaCondominioForm.inmueble.$invalid && (juntaCondominioForm.inmueble.$dirty || juntaCondominioForm.$submitted||juntaCondominioForm.inmueble.$touched )) }"  aria-hidden="true"></span>
+
+          <div class="validationDiv text-center">
+            <div ng-messages="juntaCondominioForm.inmueble.$error" style="color:maroon" role="alert">
+               <code ng-if="juntaCondominioForm.inmueble.$touched || juntaCondominioForm.$submitted" ng-message="required">
+                <strong>Seleccione un inquilino</strong>
+               </code>
+            </div>
+          </div>
+          </div>
+
+          <div class="form-group has-feedback" ng-class="{ 'has-success' : juntaCondominioForm.cargo.$valid && (juntaCondominioForm.cargo.$touched || juntaCondominioForm.$submitted||juntaCondominioForm.cargo.$dirty), 'has-error' : !juntaCondominioForm.cargo.$valid && (juntaCondominioForm.cargo.$touched || juntaCondominioForm.$submitted||juntaCondominioForm.cargo.$dirty) }">
+            <label for="cargo" class="sr-only">Cargo:</label>
+            <input type="text" name="cargo" ng-disabled="residente_encontrado" ng-model="juntaCondominioFormData.cargo" placeholder="Cargo" class="form-control" id="cargo" required>
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : juntaCondominioForm.cargo.$valid && (juntaCondominioForm.cargo.$dirty||juntaCondominioForm.cargo.$touched), 'glyphicon-remove': (juntaCondominioForm.cargo.$invalid && (juntaCondominioForm.cargo.$dirty || juntaCondominioForm.$submitted||juntaCondominioForm.cargo.$touched )) }" aria-hidden="true"></span>
+            <div class="validationDiv text-center">
+              <div ng-messages="juntaCondominioForm.cargo.$error" style="color:maroon" role="alert">
+                 <code ng-if="juntaCondominioForm.cargo.$touched || juntaCondominioForm.$submitted" ng-message="required">
+                  <strong>Defina el Cargo</strong>
+                 </code>
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+          </div>
+  
+      </div>
+      <div class="modal-footer">
+        <input type="submit" id='agregaralista' value="Agregar" class="btn btn-success btn-block" ng-disabled="!juntaCondominioForm.$valid||juntaCondominioForm.$submitted">
+  
+        <button type="button" class="btn btn-default btn-block" ng-click="cancel()">Cerrar</button>
+      </div>
+</form>

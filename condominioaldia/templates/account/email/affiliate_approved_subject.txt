@@ -1,0 +1,1 @@
+{% load account %}{% load i18n %}{% blocktrans %}Your affiliate account has been approved{% endblocktrans %}

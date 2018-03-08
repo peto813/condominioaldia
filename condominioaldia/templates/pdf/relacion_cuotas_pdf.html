@@ -1,0 +1,146 @@
+{% extends "pdf/base_pdf.html" %}
+{% load staticfiles %}
+{% load tz %}
+{% load humanize %}
+{% load template_filters %}
+{% block extra_style %}
+    <style type="text/css">
+        body {
+            font-family:  "Courier New", "monospace", "monospaced", "mono";
+            color: #333333;
+            font-size: 14px;
+        }
+/*        .total{
+        	font-size: 18px;
+        }*/
+        .text-center{
+        	text-align: center;
+        }
+        .pull-right{
+        	text-align: right;
+        }
+        .pull-left{
+        	text-align: left;
+        }
+
+        table{
+            font-size: 10px;
+            vertical-align: bottom;
+            border: 0.5px solid rgb(244,243,242);
+        }
+        td, th{
+            padding-top:5px;
+            vertical-align: middle;
+        }
+/*		tr{
+			border-bottom: 1px solid black;
+		}*/
+		.header-table td{
+			padding:2.5px;
+            font-size: 14px;
+		}
+/*		.client-data{
+			font-size: 16px
+		}*/
+/*		.header-table tr{
+			border-bottom: 0.5px solid rgb(244,243,242);
+		}*/
+        .footer{
+        }
+    </style>
+{% endblock %}
+
+{%block page_header%}
+    <h1 class="text-center">Cuotas de {{mes|utc|date:"F Y"}}</h1>
+{%endblock%}
+
+{% block content %}
+
+    <div id="content">
+
+        
+        <div style="margin-top: 10px;">
+            <table class="header-table">
+                <tr style="height:100px">
+                    <td style="border-right:0.5px solid rgb(244,243,242);">
+                        <p alignment = "left"><span style="font-size: 16px;"><b>{{condominio.user.first_name}}</b></span><br>
+                        <b><span size="9">RIF: {{condominio.rif}}</span></b><br/>
+                        {{condominio.direccion}} <br/>
+                        {{condominio.estado}}, {{condominio.municipio}}, {{condominio.parroquia}}<br/>
+                        <b><span size="9">TELEFONOS: </span></b><span size="9"> {{condominio.telefono1}} - {{condominio.telefono2}}</span><br/>
+                        <b><span size="9">EMAIL:</span></b> <span size="9">{{condominio.user.email}}</span></p>
+                    </td>
+                    <td>
+                        <p align="center"><b><u>Cuentas Bancarias</u></b></p>
+                        {% for cuenta in cuentas %}
+                        <span><b>{{cuenta.banco|title}} :</b> {{cuenta.nro_cuenta}}</span><br>
+                        {% endfor %}
+<!--                         <span><b>{% lorem 1 w random %} :</b> 12345678912345678910</span><br>
+                        <span><b>{% lorem 1 w random %} :</b> 12345678912345678910</span><br>
+                        <span><b>{% lorem 1 w random %} :</b> 12345678912345678910</span><br> -->
+                    </td>
+                </tr>
+            </table>
+
+	        <table class="text-center" id="content_table" repeat="1">
+		          <thead>
+                        <tr>
+                            {% for column in columns %}
+                                <th>{{column}}</th>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>-</th>
+                            <th>{{condominio.pais.moneda}}{{balance_previo|decimal_places:'2'|intcomma|accounting}}</th>
+                            <th>{{condominio.pais.moneda}}{{sum_pagos|decimal_places:'2'|intcomma|accounting}}</th>
+                            <th>{{condominio.pais.moneda}}{{sum_cuotas|decimal_places:'2'|intcomma|accounting}}</th>
+                            {% for col in columns %}
+                                {% for column in dynamic_cols %}
+                                    {% if col == column %}
+                                        <th>
+                                        {{condominio.pais.moneda}}
+                                        {{facturas|get_sum:column|decimal_places:'2'|intcomma|accounting}}
+                                        </th>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                            <th>{{condominio.pais.moneda}}{{sum_deuda_nueva|decimal_places:'2'|intcomma|accounting}}</th>
+                        </tr>   
+		          </thead>
+                <tbody>
+                    {% for factura in facturas %}
+                        <tr>
+                            <td>{{factura.nombre_inmueble}}</td>
+                            <td>{{factura.inmueble.inquilino.user.get_full_name|title}}</td>
+                            <td>
+                                {{condominio.pais.moneda}}{{factura.deuda_previa|decimal_places:'2'|intcomma|accounting}}
+                            </td>
+                            <td>
+                                {{condominio.pais.moneda}}{{factura.pagos|decimal_places:'2'|intcomma}}
+                            </td>
+                            <td>{{condominio.pais.moneda}}{{factura.cuota|decimal_places:'2'|intcomma|accounting}}</td>
+                            {% for col in columns %}
+                                {% if col in dynamic_cols %}
+                                    <td>{{condominio.pais.moneda}}{{col|get_data:factura|intcomma:2}}</td>
+                                {% endif %}
+                            {% endfor %}
+                            <td>{{condominio.pais.moneda}}{{factura.monto|decimal_places:'2'|intcomma|accounting}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+	        </table>
+        </div>
+    </div>
+
+{% endblock %}
+
+    {%block page_foot%}
+        <hr>
+<!--     <div class="footer text-center">
+        Este documento <b>no</b> es una factura valida. <br>
+    </div> -->
+    <div class="text-center" style="font-weight: bold;font-size: 12px;">
+        Pagina <pdf:pagenumber> de <pdf:pagecount>
+    </div>
+    {%endblock%}

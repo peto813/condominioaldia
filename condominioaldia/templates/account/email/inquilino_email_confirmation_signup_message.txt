@@ -1,0 +1,19 @@
+{% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Welcome dear owner!
+
+You're receiving this e-mail because {{ condominio }} has registered you with us in {{ site_name }}. In a nutshell, we are a tool built to simplify everything related to your condominium. To name a few of our services:  your monthly bill online, check your condominiums expenses and income, participate in polls, etc. In other words,  you will have an efficient and more transparent administration; and best of all... paper free!.
+Feel free to explore the Frequently asked questions section, or contact us via live chat if you have any questions or comments.
+{% endblocktrans %}
+
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Ok, down to business! Your credentials are:{% endblocktrans %}
+
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Username :{% endblocktrans %} {{user.email}}
+{% if signup %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Password :{% endblocktrans %} {{password}}
+{% endif %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}For your security, please change your password in your user settings panel as soon as possible.{% endblocktrans %}
+
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+To complete your registration process, please click on the following link {{ activate_url }}
+{% endblocktrans %}{% endautoescape %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Thank you from {{ site_name }}!
+{{ site_domain }}{% endblocktrans %}

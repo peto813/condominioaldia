@@ -1,0 +1,200 @@
+
+<head>
+  <style type="text/css">
+      .banned{
+        text-decoration: line-through;
+        color:red;
+      }
+      input[type="search"]{        
+        border-radius: 15px;
+        border-right:none;
+      }
+      .arrendatario{
+        font-size: 12px;
+      }
+      .fa-cog .fa{
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+      .fa-trash{
+        color:red;
+      }
+      .fa-ban{
+        color:red;
+      }
+      .fa-check{
+        color:green;
+      }
+      #ingresosTable, #ingresosTable th{
+        text-align: center;
+
+      }
+      caption{
+        font-weight: bold;
+      }
+      .fa-cog{
+        cursor: pointer;
+      }
+      input[type="text"],input[type="number"]{        
+        font-size: 14px;
+      }
+      .button-row{
+        margin-bottom: 10px;
+      }
+
+      .captionDiv{
+        margin:5px;
+      }
+
+      .table-responsive{
+        overflow-y: initial;
+      }
+
+@media (max-width: 767px) {
+    .table-responsive .dropdown-menu {
+        position: static !important;
+    }
+
+}
+@media (min-width: 768px) {
+    .table-responsive {
+        overflow: visible;
+    }
+}
+
+.panel-body .form-group{
+  max-width: 300px;
+}
+#totalMonto{
+  background-color: gold;
+}
+
+  </style>
+</head>
+<div class="main-content">
+      <div class="panel panel-default">
+      
+      <div class="panel-heading" style="height:inherit;">
+        <h2 class="text-center">Ingresos </h2>
+        <h4 class="text-center">( [[active_month|date:'MMMM yyyy':'UTC'|capitalize]] )</h4>
+      </div><!--panel-heading-->
+      
+
+      <div class="panel-body">
+        <div class="row button-row">
+           <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+              <button ng-if="userData.user_type == 'condominio'" title="Registrar pago" class="btn btn-success" ng-click="agregarPagoModal()" type="button">
+                <i class="fa fa-university" aria-hidden="true"></i>
+              </button>
+              <button ng-click="open1()" title="Buscar por mes" class="btn btn-info" type="button">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </button>  
+              <help-element></help-element>
+
+        <p class="input-group">
+          <input type="text" show-button-bar ="false" ng-change="queryDate()" uib-datepicker-popup="[[format]]" ng-model="dt" is-open="popup1.opened" datepicker-popup="MM/yyyy"  datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-show="false">
+        </p>
+
+          
+          </div>
+          <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+              <div class="input-group" id="searchElement">
+                <input type="search" name="search" id="search" placeholder="Buscar" class="form-control" ng-model="search">     
+                <span class="input-group-addon" style="border-radius: 0 15px 15px 0;background: transparent;"><i class="fa fa-search" aria-hidden="true"></i></span>
+              </div>
+            <!-- <input type="text" class="form-control" placeholder="Buscar" name="search" ng-model="search" id="search"> -->
+          </div>
+
+        </div>
+
+        <div class="table-responsive panel panel-default">
+
+        <table class="table table-condensed table-bordered" id ="ingresosTable">
+           
+          <thead>
+            <tr>
+              <th ng-if="userData.user_type == 'condominio'">Acciones</th>
+              <th>Fecha</th>
+              <th>Banco</th>
+              <th>Nombre</th>
+              <th>Inmueble</th>
+              <th ng-if="userData.user_type == 'condominio'">Estado</th>
+              <th ng-if="userData.user_type == 'condominio'">Comprobante</th>
+              <th>Monto</th>
+            </tr>
+            <tr>
+              <th ng-if="userData.user_type == 'condominio'"><span class="badge">[[ingresos.length]]</span></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th ng-if="userData.user_type == 'condominio'"></th>
+              <th ng-if="userData.user_type == 'condominio'"></th>
+              <th></th>
+
+              <th id="totalMonto"> [[filtered_ingresos|filter:{aprobado:true}|sumKeys:'monto'|number:2|accounting:userData.detalles_usuario.pais.moneda]]</th>
+            </tr>   
+          </thead>
+            <tbody>
+              <tr ng-repeat="ingreso in ingresos | filter:search as filtered_ingresos" ng-class="{'warning':!ingreso.aprobado}">
+                <td ng-if="userData.user_type == 'condominio'">
+                  <span uib-dropdown on-toggle="toggled(open)">
+                    <span href id="simple-dropdown" uib-dropdown-toggle>
+                      <i title="acciones" class="fa fa-cog fa-2x" aria-hidden="true"></i>
+                    </span>
+                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                      <li>
+                        <a ng-click ="verIngreso(ingreso)" href><i class="fa fa-search"></i> Ver detalles</a>
+                        <a ng-if="canApprove(ingreso)&&userData.user_type == 'condominio'" ng-click ="aprobarPago(ingreso)" href>
+                        <i class="fa fa-check"></i>
+                         Aprobar
+                        </a>
+                        <a ng-if="canApprove(ingreso)&&userData.user_type == 'condominio'" ng-click ="rechazarPagoModal(ingreso)" href>
+                        <i class="fa fa-ban"></i>
+                         Rechazar
+                        </a>
+<!--                         <a ng-if="ingreso.cerrado ==false&&userData.user_type == 'condominio'" ng-click ="agregarPagoModal(ingreso)" href>
+                        <i class="fa fa-pencil"></i>
+                         Modificar
+                        </a> -->
+                        <a ng-if="ingreso.cerrado ==false&&ingreso.posted_by == userData.id&&userData.user_type == 'condominio'" ng-click ="eliminarPago(ingreso)" href>
+                        <i class="fa fa-trash"></i>
+                         Eliminar
+                        </a>
+                      </li>
+                    </ul>
+                  </span>
+                </td>
+                <td>[[ingreso.fecha_facturacion|date:'dd/MM/yyyy'|capitalize]]</td>
+                <td>[[ingreso.banco_dep]]</td>
+                <td><p>[[ingreso.propietario|capfirstlettereachword]]</p>
+                    <p class="arrendatario" ng-if="ingreso.arrendatario">Arr: ( [[ingreso.arrendatario|capfirstlettereachword]] )</p>
+                </td>
+
+                <td>[[ingreso.inmueble_data.nombre_inmueble]]</td>
+                <td ng-if="userData.user_type == 'condominio'">
+                  <span ng-if="ingreso.aprobado!=false">[[getEstado(ingreso)|capitalize]]</span>
+                  <a ng-if="ingreso.aprobado==false" href="" ng-click="getRejectReason(ingreso, 'Razon de rechazo')" title="Ver detalles">[[getEstado(ingreso)|capitalize]]</a>
+                </td>
+                <td ng-if="userData.user_type == 'condominio'">
+                  <a target="_blank" ng-if="ingreso.comprobante_pago" ng-href="[[ingreso.comprobante_pago]]"><button title="Ver comprobante" type="button" class="btn btn-default"><i class="fa fa-picture-o"></i></button>
+                  </a>
+                  <span ng-if="!ingreso.comprobante_pago">No aplica</span>
+                </td>
+                <td ng-class="{'banned': ingreso.aprobado==false}">[[ingreso.monto|number:2|accounting:userData.detalles_usuario.pais.moneda]]
+        <!--           <i ng-if="ingreso.aprobado ==false" class="fa fa-ban"></i>  -->
+                </td>
+              </tr>
+            </tbody>
+        </table>
+        </div>
+
+      </div><!--panel body-->
+    </div><!--panel-warning-->
+</div>
+  
+  
+
+
+
+
+

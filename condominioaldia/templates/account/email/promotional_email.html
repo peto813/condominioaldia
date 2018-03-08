@@ -1,0 +1,116 @@
+{% load staticfiles %}
+{% load i18n %} 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>{% trans "Welcome" %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body style="margin: 0; padding: 0;">
+<table align="center" bordercolor="black" border="3" cellpadding="0" style="max-width: 600px;" cellspacing="0" width="100%">
+
+<!--PROBLEM WITH BORDERS-->
+ <tr width="100%">
+  <td align="center" bgcolor="transparent" width="100%" style="max-width: 600px;">
+  	<img src="{{logo}}" style="max-width: 600px;width:100%">
+  </td>
+ </tr>
+
+ <tr>
+	<td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;max-width: 600px">
+	 <table border="1" cellpadding="0" cellspacing="0" width="100%">
+	  <tr>
+	   <td bgcolor="black" align="center" style=";color: white; font-family: 'Bookman Old Style', sans-serif; font-size: 24px;font-weight:900;">
+	   	{% trans "Condominum management web app" %}
+	   </td>
+	  </tr>
+	  <tr>
+	   <td style="color: #153643; font-family: 'Bookman Old Style', sans-serif; font-size: 16px; line-height: 20px;padding:0px 15px 0px 15px;">
+
+	    <p align="justify">
+	    {% blocktrans %}Welcome{% endblocktrans %} {{recipient_name|title}},
+	    {% blocktrans %}we would like to extend our invitation for you to join us in our newest condominium management web application.{% endblocktrans %}</p>
+	    <p align="center">¡<a href="{{url}}">{% trans "Visit us now" %}</a>!</p>
+	    
+	   </td>
+	  </tr>
+	  <tr>
+	   <td>
+		<table border="1" cellpadding="0" cellspacing="0" width="100%">
+		 <tr>
+		  <td width="260" valign="top" style="color: #153643; font-family: 'Bookman Old Style', sans-serif; font-size: 16px; line-height: 20px;">
+		  	<p align="center" style="color: #153643; font-family: 'Bookman Old Style', sans-serif; font-size: 16px; line-height: 20px;font-weight:bold;">{% trans "Condominiums" %}</p>
+		  <ul>
+		  	<li>{% trans "Manage finances" %}</li>
+		  	<li>{% trans "Create polls" %}</li>
+		  	<li>{% trans "Virtual billboard" %}</li>
+		  	<li>{% trans "Bulk messaging" %}</li>
+		  	<li>{% trans "Process automation" %}</li>
+		  </ul>
+		   <!-- <img height="140" src="/static/img/logos/clock.png"> -->
+		  </td>
+		  <td style="font-size: 0; line-height: 0;" width="20">
+		   &nbsp;
+		  </td>
+		  <td width="260" valign="top" style="color: #153643; font-family: 'Bookman Old Style', sans-serif; font-size: 16px; line-height: 20px;">
+		  	<p align="center" style="color: #153643; font-family: 'Bookman Old Style', sans-serif; font-size: 16px; line-height: 20px;font-weight:bold;">{% trans "Owners" %}</p>
+		  <ul>
+		  	<li>{% trans "View financial history" %}</li>
+		  	<li>{% trans "Online payments" %}</li>
+		  	<li>{% trans "Manage all properties" %}</li>
+		  	<li>{% trans "Mini blog" %}</li>
+		  	<li>{% trans "Reduced corruption" %}</li>
+		  </ul>
+		  <!--  <img height="140" src="/static/img/logos/fblogo.ico"> -->
+		  </td>
+		 </tr>
+		</table>
+	   </td>
+	  </tr>
+	  <tr>
+	   <td bgcolor="transparent" valign="top" style="font-family: 'Bookman Old Style', sans-serif; font-size: 16px;line-height: 20px;">
+		  	<p align="center" style="color: #153643; font-family: 'Bookman Old Style', sans-serif; font-size: 16px; line-height: 20px;font-weight:bold;">{% trans "Affiliates" %}</p>
+		  <ul>
+		  	<li>{% trans "Earn money every month with our affiliate business plan" %}</li>
+		  	<li>{% trans "Three different plans help you maximize your earnings" %}</li>
+		  	<li>{% trans "Keep track of your earnings with our dedicated interface" %}</li>
+		  </ul>
+	   </td>
+	  </tr>
+	 </table>
+	</td>
+ </tr>
+ <tr>
+ 					<!--problem here-->
+  <td bgcolor="transparent" style="padding: 30px 30px 30px 30px;" >
+	<table border="1" cellpadding="0" cellspacing="0" width="100%">
+	 <tr>
+		<td width="75%" align="center" style="color: black; font-family: 'Bookman Old Style', sans-serif; font-size: 14px;">
+		<b> &reg; Fractal Software, C.A. 2016</b><br/>
+		<b>{% trans "All rights reserved." %}</b>
+		</td>
+		<td align="right">
+		 <table border="0" cellpadding="0" cellspacing="0">
+		  <tr>
+		   <td>
+		    <a href="http://www.twitter.com/">
+		     <img src="{{tw_icon}}" alt="Twitter" width="38" height="38" style="display: block;" border="0" />
+		    </a>
+		   </td>
+		   <td style="font-size: 0; line-height: 0;" width="20">&nbsp;</td>
+		   <td>
+		    <a href="http://www.facebook.com/">
+		     <img src="{{fb_icon}}" alt="Facebook" width="38" height="38" style="display: block;" border="0" />
+		    </a>
+		   </td>
+		  </tr>
+		 </table>
+		</td>
+	 </tr>
+	</table>
+  </td>
+ </tr>
+</table>
+</body>
+</html>

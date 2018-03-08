@@ -1,0 +1,12 @@
+{% load account %}{% load i18n %}{% blocktrans %}
+Dear {{affiliate}}, 
+
+You have a new comission payment derived from {{condominio}}. As soon as we receive a payment from them we will schedule your comission in the amount of {{currency}}{{monto}}.  We will be letting you know via E-mail when the payment has been received and scheduled. To check the status of your comissions log into your account at: 
+
+{{site_url}}
+
+If you have further questions, feel free to drop us an email or use our live chat!
+
+Thank you for using {{site_name}}
+
+{% endblocktrans %}

@@ -1,0 +1,45 @@
+
+
+      <ul class="nav navbar-nav navbar-right">
+
+                      <!--AUTHENTICATED ELEMENTS-->
+        <li><a ng-if ="userAuthenticated">[[nombre_completo|capfirstlettereachword]]</a></li>
+        <li><a href="#/perfil" ng-if ="userAuthenticated"><i class="fa fa-user"></i>  Perfil</a></li>
+        <li><a href="#/inicio" class=" hidden-sm hidden-md hidden-lg hidden-xl"><i class="fa fa-home fa-lg"></i> Inicio<span class="sr-only">(current)</span></a></li>
+        <li class=" hidden-sm hidden-md hidden-lg hidden-xl" ng-class="{active : currentView =='/inmuebles'}"><a href="#/inmuebles"> <i class="fa fa-building fa-lg"></i> Inmuebles</a></li>
+        <li class=" hidden-sm hidden-md hidden-lg hidden-xl" ng-class="{active : currentView =='/junta_condominio'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/junta_condominio"><i class="fa fa-users fa-lg"></i> Junta de Condominio</a></li>
+        <li ng-if="userData.detalles_usuario.activo==true" ng-class="{active : currentView =='/encuestas'}" class=" hidden-sm hidden-md hidden-lg hidden-xl" ng-if="userData.detalles_usuario.activo==true"><a href="#/encuestas"><i class="fa fa-handshake-o fa-lg"></i> Encuestas</a></li>
+
+        <uib-accordion class="hidden-sm hidden-md hidden-lg hidden-xl" close-others="oneAtATime">
+
+          <div class="accordion"  ng-if="userData.detalles_usuario.activo==true" uib-accordion-group template-url="static/ng_templates/partials/accordionCustomTemplate.html"  is-open="accordionOpen">
+            <uib-accordion-heading  ng-class="{'custom-style': true}"><i class="fa fa-university fa-lg"></i> 
+              <span>Finanzas</span> <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+            </uib-accordion-heading>
+                <li ng-class="{active : currentView =='/bancos'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/bancos"><i class="fa fa-university fa-lg"></i> Bancos</a>
+                </li>
+                <li ng-class="{active : currentView =='/cobranzas'}">
+                  <a href="#/cobranzas"><i class="fa fa-money fa-lg"></i> Cobranzas</a>
+                </li>
+                <li ng-class="{active : currentView =='/ingresos'}"><a href="#/ingresos"><i class="fa fa-plus fa-lg"></i> Ingresos</a>
+                </li>
+                <li ng-class="{active : currentView =='/egresos'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/egresos"><i class="fa fa-minus fa-lg"></i> Egresos</a>
+                </li>
+                
+<!--                 <li ng-class="{active : currentView =='/facturacion_condominio'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/facturacion_condominio"><i class="fa fa-file-text-o fa-lg"></i> Facturacion</a>
+                </li> -->
+                <li ng-class="{active : currentView =='/relacion_mes'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/relacion_mes"><i class="fa fa-balance-scale fa-lg"></i> Relaciones de Cuotas</a>
+                </li>
+                <li ng-class="{active : currentView =='/resumen_condominio'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/resumen_condominio"><i class="fa fa-flag fa-lg"></i> Resumen</a>
+                </li>
+          </div>
+        </uib-accordion>
+
+        <li ng-if="userData.detalles_usuario.activo==true" class="hidden-sm hidden-md hidden-lg hidden-xl" ng-class="{active : currentView =='/cartelera'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/cartelera"><i class="fa fa-bars fa-lg"></i> Cartelera</a></li>
+        <li ng-if="userData.detalles_usuario.activo==true" class="hidden-sm hidden-md hidden-lg hidden-xl" ng-class="{active : currentView =='/paginas_amarillas'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/paginas_amarillas"><i class="fa fa-book fa-lg"></i> Parginas Amarillas</a></li>
+        <li ng-if="userData.detalles_usuario.activo==true" class="hidden-sm hidden-md hidden-lg hidden-xl" ng-if="userData.detalles_usuario.activo==true"><a href="#"><i class="fa fa-envelope fa-lg"></i> SMS/Email</a></li>
+
+
+        <li><a href=""   ng-click="salir()" ng-if ="userAuthenticated"><i class="fa fa-sign-out" aria-hidden="true"></i>
+ Salir</a></li>
+      </ul>

@@ -1,0 +1,8 @@
+                <!-- AFFILIATE MENU -->
+<ul class="nav navbar-nav navbar-right" ng-if="userData.user_type == 'affiliate'">
+<li><a class="text-center"  ng-if ="userAuthenticated">[[nombre_completo|capfirstlettereachword]]</a></li>
+<li><a href="#/perfil" class="text-center" ng-if ="userAuthenticated">Perfil</a></li>
+<li><a href="#/ingresos_afiliado" class="text-center" ng-if ="userAuthenticated">Ingresos</a></li>
+<li><a href="#/banco_afiliado" class="text-center" ng-if ="userAuthenticated">Bancos</a></li>
+<li><a href="" class="text-center"  ng-click="salir()" class="text-center" ng-if ="userAuthenticated">Salir</a></li>
+</ul>

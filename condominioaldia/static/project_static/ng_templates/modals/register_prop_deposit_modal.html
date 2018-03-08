@@ -1,0 +1,89 @@
+<head>
+  <style type="text/css">
+    .bold{
+      font-weight: bold;
+    }
+  </style>
+</head>
+<form ng-submit ="registroPago()" name="registroPagoForm" novalidate>
+  <div class="modal-header">
+    <h2 class="text-center">Registrar Deposito-Transferencia</h2>
+  </div>
+  <div class="modal-body">
+
+
+    <table class="table table-striped table-condensed">
+      <tbody>
+            <tr>
+              <td class="bold">Banco:</td>
+              <td>[[context.banco]]</td>
+            </tr>
+            <tr>
+              <td class="bold">Titular:</td>
+              <td>[[context.titular]]</td>
+            </tr>
+            <tr>
+              <td class="bold">Numero de cuenta:</td>
+              <td>[[context.nro_cuenta]]</td>
+            </tr>
+            <tr class="bold">
+              <td class="bold">Monto:</td>
+              <td>[[moneda]][[context.monto|number:'2']]</td>
+            </tr>            
+      </tbody>
+    </table>
+    
+    <div class="form-group has-feedback" ng-class="{ 'has-success' : registroPagoForm.nro_referencia.$valid && (registroPagoForm.nro_referencia.$touched || registroPagoForm.$submitted||registroPagoForm.nro_referencia.$dirty), 'has-error' : !registroPagoForm.nro_referencia.$valid && (registroPagoForm.nro_referencia.$touched || registroPagoForm.$submitted||registroPagoForm.nro_referencia.$dirty) }">
+      <label class="sr-only">Nombre</label>
+      <input type="text" placeholder="Nro de referencia/deposito" name="nro_referencia" ng-model="depTransData.nro_referencia" class="form-control" autocomplete="off" required>
+      <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : registroPagoForm.nro_referencia.$valid && (registroPagoForm.nro_referencia.$dirty||registroPagoForm.nro_referencia.$touched), 'glyphicon-remove': (registroPagoForm.nro_referencia.$invalid && (registroPagoForm.nro_referencia.$dirty || registroPagoForm.$submitted||registroPagoForm.nro_referencia.$touched )) }" aria-hidden="true"></span>
+      <div class="text-center">
+        <div ng-messages="registroPagoForm.nro_referencia.$error" style="color:maroon" role="alert">
+           <code ng-if="registroPagoForm.nro_referencia.$touched || registroPagoForm.$submitted" ng-message="required">
+            <strong>Campo obligatorio</strong>
+           </code>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group has-feedback" ng-class="{ 'has-success' : registroPagoForm.comprobante_pago.$valid && (registroPagoForm.comprobante_pago.$touched || registroPagoForm.$submitted||registroPagoForm.comprobante_pago.$dirty), 'has-error' : !registroPagoForm.comprobante_pago.$valid && (registroPagoForm.comprobante_pago.$touched || registroPagoForm.$submitted||registroPagoForm.comprobante_pago.$dirty) }">
+        <label for="comprobante_pago" class="sr-only">Comprobante</label>
+        <div class="input-group">
+          <input type="text" name="comprobante" ng-model="depTransData.comprobante_pago.name" placeholder="Comprobante de pago" class="form-control" required readonly>
+         <span class = "input-group-btn">
+            <button class="btn btn-default"
+                ng-model="depTransData.comprobante_pago"
+                ngf-select="select($event, $file)"
+                ng-required="true"
+                ngf-pattern="'image/*,application/pdf'"
+                ngf-max-height="4000" 
+                ngf-max-size="5MB"
+                name="comprobante_pago"
+                type="button"
+                >
+                Comprobante de deposito
+                </button>
+                </i>
+         </span>
+        </div>
+      </div>
+
+      <div style="margin-top: 10px;" ng-show="f.progress >= 0">
+        <uib-progressbar value="f.progress">[[f.progress]] %</uib-progressbar>
+      </div>
+
+      <div style="height:20px;margin-bottom:15px;">
+        <h4 ng-show="selectedFile" class="text-center">[[depTransData.comprobante_pago.name]] ( [[depTransData.comprobante_pago.size/1000000 | number: 2]] MB )<a ng-click="picPreview( 'md', selectedFile)" style="margin-left:5px;" href="">Ver</a>
+        </h4>
+        <div class="text-center">
+          <code ng-show="registroPagoForm.paymentProofFile.$error.required && registroPagoForm.comprobante_pago.$touched"><b>No ha cargado un comprobante</b></code><br>
+              <code ng-show="registroPagoForm.comprobante_pago.$error.maxSize"></b>Archivo muy grande <b></code>
+              <code ng-show="registroPagoForm.comprobante_pago.$error.pattern"></b>Solo pdf, png, jpeg, jpg<b> </code>        
+        </div>
+      </div>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-default" ng-click="cancel()">Cerrar</button>
+      <input type="submit"  value="Aceptar" class="btn btn-success" ng-disabled="!registroPagoForm.$valid">
+  </div>
+</form>

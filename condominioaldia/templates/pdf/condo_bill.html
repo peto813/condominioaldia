@@ -1,0 +1,160 @@
+{% extends "pdf/base_pdf.html" %}
+{% load staticfiles %}
+{% load tz %}
+{% load humanize %}
+{% load template_filters %}
+{% block extra_style %}
+    <style type="text/css">
+        body {
+            font-family:  "Courier New", "monospace", "monospaced", "mono";
+            color: #333333;
+            font-size: 12px;
+        }
+        .text-center{
+        	text-align: center;
+        }
+        .pull-right{
+        	text-align: right;
+        }
+        .pull-left{
+        	text-align: left;
+        }
+		table{
+		   vertical-align: bottom;
+		}
+        th{
+            font-weight: bold;
+        }
+
+        #content_table{
+            margin-top: 10px;
+        }
+
+		#content_table td{
+            border:1px solid rgb(244,243,242);
+            padding-top: 2.5px;
+		}
+        #content_table th{
+            padding-top: 2.5px;
+            border:1px solid rgb(244,243,242);
+        }
+		.client-data{
+			font-size: 14px
+		}
+		.header-table tr{
+			padding:2.5px;
+		}
+        h1 {
+            margin:0px;
+            padding: 0px;
+        }
+        .grand-total{
+            font-size: 18px;
+            background-color: rgb(255,240,89);
+        }
+    </style>
+{% endblock %}
+
+{%block page_header%}
+    <h1 class="text-center">Factura de {{factura.mes|utc|date:"F Y"}}</h1>
+{%endblock%}
+
+{% block content %}
+
+    <div id="content">
+        <div>
+        	<table class="header-table">
+        		<tr style="height:180px;border:1px solid rgb(244,243,242);">
+        			<td alignment = "left">
+                        <img  width="300" height="42" src="/static/img/logos/pdflogo.png"><br>
+                        <span style="font-size: 12px;"><b>{{factura.condominio.pais.razon_social|title}}</b></span><br/>
+                        <b><span size="9">RIF: {{factura.condominio.pais.rif_empresa}}</span></b><br/>
+                        {{factura.condominio.pais.address|title}} {{factura.condominio.pais.state|title}}, {{factura.condominio.pais.city|title}}, {{factura.condominio.pais.zip_code}}<br/>
+                        <b><span size="9">TELEFONOS:</span></b><span size="9">{{factura.condominio.pais.phone1}} - {{factura.condominio.pais.phone2}}</span><br/>
+                        <b><span size="9">EMAIL:</span></b><span size="9">{{factura.condominio.pais.email}}</span><br/>
+        			</td>
+        			<td style="padding-left: 5px;">
+                        <p class="client-data text-center" style="font-size:18px;"><b><u>Cliente</u></b></p>
+                        <span>
+                            <b>NRO DE CONTROL: <span style="color:red">{{factura.nro_control}}</span></b><br>
+                        </span>
+        				<span class="client-data"><b>Razon Social:</b> {{factura.razon_social}}</span><br>
+        				<span class="client-data"><b>RIF: </b>{{factura.rif}}</span><br>
+                        <span class="total"><b>Fecha de corte:</b> {{due_date|utc|date:"d-m-Y"}}</span><br>
+                        <span class="total"><b>Fecha:</b> {{factura.created|utc|date:"d-m-Y"}}</span><br>
+                        <br>
+                        <span class="grand-total"><b>TOTAL:{{factura.condominio.pais.moneda}}{{factura.monto|decimal_places:'2'|abs|intcomma}}</b></span>
+        			</td>
+        		</tr>
+        	</table>
+	        <table class="text-center" id="content_table" repeat="1">
+		          <thead>
+                    
+    		            <tr>
+    		              <th>Descripción</th>
+    		              <th>Monto</th>
+    		              <th>Comisión</th>
+                          <th>Adeudado</th>
+    		          	</tr>
+                    
+		        </thead>
+		        <tbody>
+                    {% for egreso in egresos %}
+    		        	<tr>
+    		        		<td>{{egreso.tipo_egreso|title}}</td>
+    		        		<td>{{egreso.condominio.pais.moneda}} {{egreso.monto|decimal_places:'2'|intcomma}}</td>
+    		        		<td>{{egreso.condominio.comission}}</td>
+                            <td>{{egreso.condominio.pais.moneda}}{{egreso.monto|multiply:egreso.condominio.comission|intcomma}}</td>
+    		        	</tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><b>Sub-total:</b></td>
+                        <td>
+                            <b>
+                              {{factura.condominio.pais.moneda}} 
+                              {{factura.sub_total|floatformat:"2"|intcomma}}  
+                            </b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><b>IVA<span style="font-size:10px;">({{factura.condominio.pais.iva|multiply:100}} %)</span>:</b></td>
+                        <td>
+                            <b>
+                            {{factura.condominio.pais.moneda}} {{factura.iva|floatformat:"2"|intcomma}}
+                            </b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><b>Total:</b></td>
+                        <td>
+                            <b>
+                            {{factura.condominio.pais.moneda}} {{factura.monto|floatformat:"2"|intcomma}}
+                            </b>
+                        </td>
+                    </tr>
+		        </tbody>
+	        </table>
+        </div>
+    </div>
+
+{% endblock %}
+
+    {%block page_foot%}
+        
+
+    	<h5>Este documento va in tachadura ni enmienda</h5>
+    	<hr>
+		<p class="text-center" style="font-size: 10px;">
+
+       Impreso por:<b> Inversiones KELM 2020, C.A. RIF J-40456452-7 </b>
+       Calle Cementerio Local Nro 23-A- Sector Centro -Puerto La Cruz - Telf: 0281.268.54.52<br/> 
+        Reg: Nor Oriental Nro Providencia SENIAT /07/01305 de Fecha 21/04/2016 Email : inversioneskelm@gmail.com<br/>
+        Talonario- Control : Desde el Nro <b>{{factura.talonario.nro_control_desde}}</b> Hasta el Nro <b>{{factura.talonario.nro_control_hasta}}</b> - Fecha de Impresion: 23-11-2016
+		</p>
+        <div class="text-center" style="font-weight: bold;font-size: 12px;">
+            Pagina <pdf:pagenumber> de <pdf:pagecount>
+        </div>
+    {%endblock%}

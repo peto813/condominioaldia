@@ -1,0 +1,13 @@
+{% load account %}{% load i18n %}{% blocktrans %}
+Dear {{name}}, 
+
+Your affiliate account has been approved by our analysts!, welcome to {{site_name}}; now you can enjoy our services by logging in.
+
+What are your next steps? 
+
+1. Provide prospect condominiums with your affiliation link ( log into your account to obtain it).
+
+2. Once any condominium registers with your link you will receive a comission out of every payment we receive at the end of the billing period.
+
+If you have any questions, feel free to ask by using our live chat!
+{% endblocktrans %}

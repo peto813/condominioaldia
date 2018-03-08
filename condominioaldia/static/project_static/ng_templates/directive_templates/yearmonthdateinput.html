@@ -1,0 +1,17 @@
+<div class="form-inline">
+    <div class="form-group">
+        <label for = "id_year" class="sr-only">Año:</label>
+        <select ng-change="selectorsChange('year')" id="id_year" ng-model="year" name="year" required="[[required]]">
+            <option value="" disabled>----</option>
+            <option ng-repeat="year in yearList | orderBy:reverse">[[ year ]]</option>
+        </select>       
+    </div>
+    <div class="form-group">
+        <label for = "id_month" class="sr-only">Mes:</label>
+        <select ng-disabled="!year" ng-change="selectorsChange('month')"  id="id_month" ng-model="month" name="month" required="[[required]]">
+            <option value="" disabled>--------</option>
+            <option value="[[ month.value ]]" ng-repeat="month in monthList"  ng-disabled="setnullification(year, month.value)">[[ month.name ]]</option>
+        </select>        
+    </div>
+</div>
+

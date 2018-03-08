@@ -1,0 +1,377 @@
+
+<head>
+    <style type="text/css">
+
+.bottomaligned {position:absolute; bottom:0;  margin-bottom:7px; left: 0;}
+
+
+  body{
+    padding-top: [[marginTop]];
+  }
+    @media (min-width: 767px) {
+      .perfil .panel-body, .perfil .panel-default
+      {
+        min-height: 505px;
+      }
+
+    }
+
+    .logoImage{
+      min-height: 100px;
+      min-width: 100px;
+    }
+
+
+    .validationDiv{
+      height: 25px;
+      text-align: center;
+    }
+
+
+
+    .panel-default {
+
+
+        -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+           -moz-animation: fadein 2s; /* Firefox < 16 */
+            -ms-animation: fadein 2s; /* Internet Explorer */
+             -o-animation: fadein 2s; /* Opera < 12.1 */
+                animation: fadein 2s;
+    }
+
+/*    .main-panel{
+      height: calc(90vh );
+    }*/
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+    </style>
+</head>
+<div class="row">
+  <div class="col-md-2">
+    <!-- <div ng-if="userAuthenticated" ng-include="'static/ng_templates/partials/sidebar.html'"></div> -->
+    <div class="row">
+      <div class="panel panel-default">
+      <div class="panel-heading" style="min-height: 60px;">
+        
+      </div>
+      <div class="panel-body">
+        <b>Miembro desde:</b><br> 
+        [[::perfilData.date_joined|date:'MMMM yyyy'|capitalize]]
+      </div>
+      <div class="panel-footer"></div>
+      </div>
+<!--       <div class="col-xs-12">
+        
+      </div>
+      <div class="col-xs-12"></div>
+      <div class="col-xs-12"></div> -->
+    </div>
+  </div>
+  <div class="col-md-10 perfil">
+<!--     <h2 class="page-header text-center">Perfil</h2> -->
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8" >
+        <form ng-submit="updateContacInfo(contactInfo.logo)" name="profileForm" id="profileForm"  enctype="multipart/form-data" novalidate>
+
+          <div class="panel panel-default panel-shadow">
+            <div class="panel-heading ">
+              <h4 class="text-center">Mis Datos</h4>
+            </div>
+            <div class="panel-body" id="userProfilePanel">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 bt" align="center">
+                  <div ng-if="perfilData.user_type == 'condominio'">
+                    <p><b>Logo</b></p>
+                    <button ng-show="!contactInfo.logo" style="background: transparent;color:black;" class="btn btn-default"
+                        ng-model="contactInfo.logo"
+                        ngf-select= "select($file, $invalidFiles)"
+                        ngf-pattern="'image/*'"
+                        ngf-max-height="4000" 
+                        ngf-max-size="2MB"
+                        name="logo"
+                        type="button"
+                        >
+                        <i class="fa fa-picture-o fa-3x" aria-hidden="true"></i>
+                      </button>
+
+                        <div>
+                          <div ng-show="f.progress >= 0">
+                            <uib-progressbar value="f.progress">[[f.progress]] %</uib-progressbar>
+                          </div>
+                        </div>
+
+                        <img 
+                        ngf-pattern="'image/*'"
+                        ngf-max-height="4000" 
+                        ngf-max-size="2MB"
+                        name="logo"
+                        style="cursor: pointer;" 
+                        ngf-select= "select($file, $invalidFiles)"
+                        ng-model="contactInfo.logo" 
+                        ng-show="contactInfo.logo" 
+                        ngf-thumbnail="contactInfo.logo" 
+                        class="img-rounded img-responsive" 
+                        alt="No logo" 
+                        width="304" 
+                        height="236">
+
+                        <a href="" ng-click="contactInfo.logo = null;profileForm.$setDirty()" ng-show="contactInfo.logo">Borrar</a>
+                        <p>[[contactInfo.logo.name]]</p>
+
+                      <i ng-show="profileForm.logo.$error.required">required</i><br>
+                      <i ng-show="profileForm.logo.$error.pattern">Solo imagenes</i><br>
+                      <i ng-show="profileForm.logo.$error.maxSize">File too large</i><br>
+
+                  </div> 
+                </div>
+                  
+                <div class=" col-md-9 col-lg-9 "> 
+                    <table class="table table-user-information">
+                      <tbody>
+                        <tr>
+                          <td><b>Tipo de usuario:</b></td>
+                          <td>[[::perfilData.user_type|capitalize]]</td>
+                        </tr>
+                        <tr ng-if="userData.user_type=='condominio'">
+                          <td><b>Pais</b></td>
+                          <td>[[::perfilData.detalles_usuario.pais.nombre|capfirstlettereachword]]</td>
+                        </tr>
+                        <tr>
+                          <td><b>Nro Fiscal:</b></td>
+                          <td>[[::perfilData.detalles_usuario.rif|capfirstlettereachword]]</td>
+                        </tr>
+
+                        <tr ng-if="userData.user_type=='condominio'">
+                          <td><b>Direccion</b></td>
+                          <td>[[::perfilData.detalles_usuario.direccion|capfirstlettereachword]]</td>
+                        </tr>
+                        <tr ng-if="userData.user_type=='condominio'">
+                          <td><b>Estado</b></td>
+                          <td>[[::perfilData.detalles_usuario.estado|capfirstlettereachword]]</td>
+                        </tr>
+                        <tr ng-if="userData.user_type=='condominio'">
+                          <td><b>Municipio</b></td>
+                          <td>
+                          [[::perfilData.detalles_usuario.municipio|capfirstlettereachword]]
+                          </td>
+                        </tr>
+                        <tr ng-if="userData.user_type=='condominio'">
+                          <td><b>Parroquia</b></td>
+                          <td>
+                            [[::perfilData.detalles_usuario.parroquia|capfirstlettereachword]]
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><b>Correo Electronico</b></td>
+                          <td>[[::perfilData.email]]</td>
+                        </tr>
+                          <td><b>Telefonos</b></td>
+                          <td>
+                            <div name = "logo" ng-model="logo" file-input-ext-target externalthumbnail-id="logoimg" ext-chosen-file-id = 'chosenFileName' save-status="saveStatus" extensions = "['jpg', 'pdf', 'jpeg', 'png']">
+                            </div>
+                            <div class="form-group has-feedback" ng-class="{ 'has-success' : profileForm.telefono1.$valid && profileForm.telefono1.$touched, 'has-error' : profileForm.telefono1.$invalid && (profileForm.telefono1.$touched || profileForm.$submitted) }">
+                              <div class="row">
+                                <div class="col-xs-12">
+                                  <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1">
+                                      <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+                                    </span>
+                                    <input class="input-md form-control" type="text" name="telefono1" ui-us-phone-number placeholder = "Telefono 1"  ng-pattern = '/^[0-9- ()]*$/'  type="text" ng-model="contactInfo.telefono1">
+<!--                                     <input minlength="10" maxlength="12"  ng-pattern = '/^[0-9- ()]*$/'> -->
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true" ng-class="{ 'glyphicon-ok' : profileForm.telefono1.$valid && ( profileForm.telefono1.$dirty || profileForm.telefono1.$touched), 'glyphicon-remove' : profileForm.telefono1.$invalid && (profileForm.telefono1.$touched || profileForm.telefono1.$dirty) }"></span>
+                                  </div> 
+                                </div>    
+                              </div>
+                              <div class="validationDiv">
+                                <!--FRONT-END VALIDATION-->
+                               <div ng-messages="profileForm.telefono1.$error" style="color:maroon;margin-top:5px;" role="alert">
+                                 <code ng-if="profileForm.telefono1.$touched || profileForm.$submitted" ng-message="required">
+                                  <strong>Este campo es obligatorio</strong>
+                                 </code>
+                                 <code ng-if="profileForm.telefono1.$touched || profileForm.$submitted" ng-message="minlength">
+                                  <strong>Minimo 10 digitos</strong>
+                                 </code>
+                                 <code ng-if="profileForm.telefono1.$touched || profileForm.$submitted" ng-message="pattern">
+                                  <strong>Telefono invalido</strong>
+                                 </code>
+                               </div>             
+                              </div> 
+                            </div>
+           
+                            <div class="form-group has-feedback" ng-class="{ 'has-success' : profileForm.telefono2.$valid && profileForm.telefono2.$touched, 'has-error' : profileForm.telefono2.$invalid && (profileForm.telefono2.$touched || profileForm.$submitted) }">
+                              <div class="row">
+                                <div class="col-xs-12">
+                                 <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1">
+                                      <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                                    </span>
+                                     <input ng-pattern = '/^[0-9- ()]*$/' class="input-md form-control" placeholder = "Telefono 2" type="text" name="telefono2" ui-us-phone-number type="text" ng-model="contactInfo.telefono2">
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true" ng-class="{ 'glyphicon-ok' : profileForm.telefono2.$valid && ( profileForm.telefono2.$dirty || profileForm.telefono2.$touched), 'glyphicon-remove' : profileForm.telefono2.$invalid && (profileForm.telefono2.$touched || profileForm.telefono2.$dirty) }"></span>
+                                  </div>
+                                </div>      
+                              </div>
+                              <div class="validationDiv">
+                                <!--FRONT-END VALIDATION-->
+                                 <div ng-messages="profileForm.telefono2.$error" style="color:maroon;margin-top:5px;" role="alert">
+                                   <code ng-if="profileForm.telefono2.$touched || profileForm.$submitted" ng-message="minlength">
+                                    <strong>Minimo 10 digitos</strong>
+                                   </code>
+                                   <code ng-if="profileForm.telefono2.$touched || profileForm.$submitted" ng-message="pattern">
+                                    <strong>Telefono invalido</strong>
+                                   </code>
+                                 </div>             
+                              </div> 
+                            </div>  
+                          </td>     
+                    
+                      </tbody>
+                    </table>
+                </div> <!--col-lg-9-->  
+              </div><!--row-->
+
+
+            </div><!--panel-body-->
+            <div class="panel-footer">
+              <div class="row">
+                <div class="col-xs-12">
+                  <input ng-disabled="profileForm.$pristine || !profileForm.$valid" value="Guardar" class="btn btn-lg btn-info btn-block" type="submit">
+                </div>
+              </div>
+            </div>
+          </div><!--panel panel-warning-->
+
+        
+      </div><!--col-lg-8 toppad-->
+    </form>
+<form ng-submit="pwdChange()" name="cambioClaveForm" id="cambioClaveForm" autocomplete="off" novalidate>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+    <div class="panel panel-default panel-shadow">
+      <div class="panel-heading">
+        <h4 class="text-center">Seguridad</h4>
+      </div>
+      <div class="panel-body" ng-style="{'height' : otherElHeight('userProfilePanel')}">
+        <dir class="nonFieldErr">
+          <div ng-if="errors.old_password">
+            <code ng-repeat="oldPwdErr in errors.old_password">
+              <b>[[oldPwdErr]]</b>
+            </code>
+          </div>
+          <div ng-if="errors.new_password1">
+            <code ng-repeat="newPwdErr1 in errors.new_password1">
+              <b>[[newPwdErr1]]</b>
+            </code>
+          </div>
+          <div ng-if="errors.new_password2">
+            <code ng-repeat="newPwdErr2 in errors.new_password2">
+              <b>[[newPwdErr2]]</b>
+            </code>
+          </div>         
+        </dir>
+        <div class="form-group {% if form.old_password.errors %}has-error{% endif %} has-feedback" ng-class="{ 'has-success' : cambioClaveForm.old_password.$valid, 'has-error' : cambioClaveForm.old_password.$invalid && (cambioClaveForm.old_password.$touched || cambioClaveForm.$submitted) }">
+          <label for ="id_old_password">Contraseña anterior</label>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">
+              <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+            </span>
+            <span class="glyphicon form-control-feedback" aria-hidden="true" ng-class="{ 'glyphicon-ok' : cambioClaveForm.old_password.$valid, 'glyphicon-remove' : cambioClaveForm.old_password.$invalid && (cambioClaveForm.old_password.$touched || cambioClaveForm.$submitted) }"></span>
+            <input type="password" placeholder="Contraseña actual" name="old_password" ng-model="pwdData.old_password" class="form-control" required>
+          </div>
+          
+          <div class="validationDiv">
+             <div ng-messages="cambioClaveForm.old_password.$error" style="color:maroon;margin-top:5px;" role="alert">
+               <code ng-if="cambioClaveForm.old_password.$touched || cambioClaveForm.$submitted" ng-message="required">
+                <strong>Ingrese su clave actual</strong>
+               </code>
+               <code ng-if="cambioClaveForm.old_password.$touched || cambioClaveForm.$submitted" ng-message="servervalidation">
+                <strong>Clave anterior invalida</strong>
+               </code> 
+             </div>              
+                    
+          </div>
+        </div>
+
+        <div class="form-group {% if form.new_password1.errors %}has-error{% endif %} has-feedback" ng-class="{ 'has-success' : cambioClaveForm.new_password1.$valid, 'has-error' : cambioClaveForm.new_password1.$invalid && (cambioClaveForm.new_password1.$touched || cambioClaveForm.$submitted) }">
+          <label for ="id_new_password1">Nueva contraseña</label>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">
+              <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+            </span>
+
+                                        <!--error here-->
+            <input type="password" placeholder="Nueva contraseña" name="new_password1" ng-model="pwdData.new_password1" class="form-control" not-eq-to="pwdData.old_password" different-than required>
+            <span class="glyphicon form-control-feedback" aria-hidden="true" ng-class="{ 'glyphicon-ok' : cambioClaveForm.new_password1.$valid, 'glyphicon-remove' : cambioClaveForm.new_password1.$invalid && (cambioClaveForm.new_password1.$touched || cambioClaveForm.$submitted) }"></span>
+
+
+          </div>
+          <div class="validationDiv">
+
+             <div ng-messages="cambioClaveForm.new_password1.$error" style="color:maroon;margin-top:5px;" role="alert">
+               <code ng-if="cambioClaveForm.new_password1.$touched || cambioClaveForm.$submitted" ng-message="required"><strong>Ingrese una clave nueva</strong></code>
+               <code ng-if="cambioClaveForm.new_password1.$touched || cambioClaveForm.$submitted" ng-message="different"><strong>Debe ser diferente a la anterior</strong></code>
+             </div>              
+          </div>
+        </div>
+
+        <div class="form-group has-feedback" ng-class="{ 'has-success' : cambioClaveForm.new_password2.$valid, 'has-error' : cambioClaveForm.new_password2.$invalid && (cambioClaveForm.new_password2.$touched || cambioClaveForm.$submitted) }">
+          <label for ="id_password">Confirmar Contraseña</label>
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">
+              <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+            </span>
+            <input type="password" placeholder="Confirmar contraseña" name="new_password2" ng-model="pwdData.new_password2" class="form-control" compare-to ="pwdData.new_password1" password-match required>
+            <span class="glyphicon form-control-feedback" aria-hidden="true" ng-class="{ 'glyphicon-ok' : cambioClaveForm.new_password2.$valid, 'glyphicon-remove' : cambioClaveForm.new_password2.$invalid && (cambioClaveForm.new_password2.$touched || cambioClaveForm.$submitted) }"></span>
+          </div>
+          
+          <div class="validationDiv">
+             <div ng-messages="cambioClaveForm.new_password2.$error" style="color:maroon;margin-top:5px;" role="alert">
+               <code ng-if="cambioClaveForm.new_password2.$touched || cambioClaveForm.$submitted"" ng-message="passwordMatch">
+                <strong>Claves no coinciden</strong>
+               </code>
+             </div>             
+          </div>         
+        </div>
+      </div><!--panel-body-->
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-xs-12">
+                <input ng-disabled="cambioClaveForm.$pristine || !cambioClaveForm.$valid" value="Cambiar Contraseña" class="btn btn-lg btn-info btn-block " type="submit">
+              </div>
+            </div>
+          </div>
+    </div><!--panel-warning-->
+
+  </div><!--col-lg-4 toppad-->
+</form>
+
+
+
+  </div><!--row-->
+</div><!--col-md-10-->

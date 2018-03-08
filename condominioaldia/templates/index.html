@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block index %}
+<head>	
+
+
+    
+
+  	<style type="text/css">
+  		body{
+  			padding-top: 90px;
+/*        font-family: "Helvetica","Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;*/
+  /*      font-family: "Helvetica",Verdana,Arial,sans-serif;*/
+  		}
+/*      #alertsDiv{
+        margin-top: -30px;
+        margin-bottom: 0px;
+      }*/
+
+
+/*.panel-shadow{
+  box-shadow: 10px 10px 5px #888888;
+}*/
+.alertMsg{
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    text-align: center;
+    top:50px;
+    left:0;
+    height:30px;
+    padding-top: 8px;
+    padding-bottom: 18px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+      @media only screen and (max-width: 328px) {
+        .alertMsg{
+            position: fixed;
+            width: 100%;
+            z-index: 99;
+            text-align: center;
+            top:100px;
+            left:0;
+            height:30px;
+            padding-top: 8px;
+            padding-bottom: 18px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        body{
+          padding-top: 120px;
+        }
+        .inquilino, .condominio-retrasado, .need_account{
+          padding-top: 140px;
+        }
+      }
+
+      .main-content{
+        margin-top:[[marginTop]];
+      }
+
+    @media only screen and (min-width: 768px) {
+      .main-content{
+        margin-left: 250px;
+        margin-top:[[marginTop]];
+      }
+    }
+
+  	</style>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/logos/minilogo.png" />
+
+     <!-- <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css"> -->
+
+
+    <!--      <link rel="icon" type="image/png" href="/static/img/logos/minilogo.png" /> -->
+</head>
+	<title ng-bind-template ="[[ title ]]"></title>
+	<div id="navbar" ng-include="'static/ng_templates/partials/navbar.html'"></div>
+  <div ng-if="showSidebar" ng-include="'static/ng_templates/partials/sidebar.html'"></div>
+  
+		<div class="container-fluid">
+      <div ng-controller="alertsController">
+          <div ng-if="url!='/select_inmueble'&&userData.user_type == 'inquilino'" uib-alert  ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" >
+          <span ng-bind="alert.msg"></span>
+          </div>
+          <div uib-alert ng-if="url!='/select_inmueble'&&userData.user_type == 'inquilino'&&show_property_tag==true" ng-class="'alert-' + (alert.type || 'warning')" class="alertMsg" style="background: white;border-color:transparent;color:black;font-weight:bold;box-shadow: 2px 2px 10px #2E353D;">
+          <span style="font-family:serif;" ng-bind="condominio_nombre"></span>
+            <span style="font-family:serif;" ng-bind="nombre_inmueble"></span>
+          </div>
+          <div ng-if="userData.user_type == 'condominio'" uib-alert  ng-repeat="alert in alerts" ng-class="'alert-' + (alert.type || 'warning')" class="alertMsg" >
+            <span style="font-weight: normal;" ng-bind="alert.msg"></span>
+          </div>
+
+          <div ng-if="userData.user_type == 'affiliate'&&need_account" uib-alert ng-class="'alert-' + (alert.type || 'warning')" class="alertMsg" ng-cloak>
+            <span style="font-weight: normal;" ng-bind="account_message"></span>
+          </div>
+
+      </div>
+      <div>
+        <ui-view class="page [[ pageClass ]]"></ui-view>
+      </div>
+  		
+		</div>
+{% endblock index %}

@@ -1,0 +1,14 @@
+{% load account %}{% load i18n %}{% blocktrans %}
+Dear {{affiliate}}, 
+
+Condominium: {{condominio_name}} 
+Fiscal Number : {{rif}} 
+Country: {{pais}}
+
+Has registered as an affiliate condominium to your account. To view further details please login to your account at:
+
+{{site_url}}
+
+
+If you have any questions, feel free to ask by using our live chat!
+{% endblocktrans %}

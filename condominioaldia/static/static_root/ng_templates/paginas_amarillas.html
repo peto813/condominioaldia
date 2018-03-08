@@ -1,0 +1,122 @@
+
+<head>
+  <style type="text/css">
+
+
+      #condoinmuebletable, #condoinmuebletable th{
+        text-align: center;
+
+      }
+      .form-group{
+        padding-left: 0px;
+      }
+
+      input[type="text"],input[type="number"]{
+        font-size: 14px;
+      }
+      .button-row{
+        margin-bottom: 10px;
+      }
+      #searchElement{
+        max-width: 190px;
+      }
+
+      .fa-cog{
+        cursor: pointer;
+      }
+      .fa-cog .fa{
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+      .fa-ban{
+        color:red;
+      }
+@media (max-width: 767px) {
+    .table-responsive .dropdown-menu {
+        position: static !important;
+    }
+}
+@media (min-width: 768px) {
+    .table-responsive {
+        overflow: visible;
+    }
+  </style>
+</head>
+<div class="main-content">
+
+      <div class="panel panel-default">
+      
+      <div class="panel-heading" style="height:inherit;">
+        <div class="row">
+        <h2 style="text-align:center;">Paginas Amarillas</h2>
+
+          </div><!--row-->
+      </div><!--panel-heading-->
+      
+
+      <div class="panel-body">
+        <div class="row button-row">
+           <div ng-if="userData.user_type == 'condominio'" class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+              <button  title="Agregar contacto" class="btn btn-success" ng-click="agregarRegistro()" type="button">
+                <i class="fa fa-plus"></i>
+              </button>
+              <help-element></help-element>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3" id="searchDiv">
+              <div class="input-group" id="searchElement">
+                <input type="search" name="search" id="search" placeholder="Buscar" class="form-control" ng-model="search">     
+                <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+              </div>
+          </div>
+        </div>
+        <div class="table-responsive panel panel-default">
+          <table class="table table-condensed table-bordered" cellspacing="0" id ="condoinmuebletable">
+            <thead>
+              <tr>
+                <th ng-if="userData.user_type == 'condominio'"><input ng-model="selectedAll" name="select_all" type="checkbox" ng-change="checkAll()"></th>
+                <th>Nombre</th>
+                <th>Fijo</th>
+                <th>Mobil</th>
+                <th>E-mail</th>
+              </tr>        
+            </thead>
+              <tbody>
+
+                <tr ng-repeat="registro in pagAmarillas|filter:search">
+                  <td ng-if="userData.user_type == 'condominio'">
+                    <span uib-dropdown on-toggle="toggled(open)">
+                      <span href id="simple-dropdown" uib-dropdown-toggle>
+                        <i title="acciones" class="fa fa-cog fa-2x" aria-hidden="true"></i>
+                      </span>
+                      <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                        <li>
+                          <a ng-click ="agregarRegistro(registro)" href>
+                          <i class="fa fa-pencil"></i>
+                            Modificar
+                          </a>
+                          <a ng-click ="eliminarRegistro(registro)" href>
+                          <i class="fa fa-ban"></i>
+                            Eliminar
+                          </a>
+                        </li>
+                      </ul>
+                    </span>
+                  </td>
+                  <td>[[registro.nombre|capitalize]]</td>
+                  <td>[[registro.mobil]]</td>
+                  <td>[[registro.fijo]]</td>
+                  <td>[[registro.email]]</td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+      </div><!--panel body-->
+    </div><!--panel-warning-->
+</div>
+  
+  
+
+
+
+
+

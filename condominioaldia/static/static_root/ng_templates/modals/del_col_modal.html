@@ -1,0 +1,30 @@
+
+<form ng-submit ="delCol()" name="delColForm" novalidate>
+  <div class="modal-header">
+    <h2 class="text-center">Eliminar Columna</h2>
+    <!-- <h4 class="text-center">[[minDate|date:'MMMM yyyy':'UTC'|capitalize]]</h4> -->
+  </div>
+  <div class="modal-body">
+
+    <div class="form-group has-feedback" ng-class="{ 'has-success' : delColForm.columna.$valid && (delColForm.columna.$touched || delColForm.$submitted||delColForm.columna.$dirty), 'has-error' : !delColForm.columna.$valid && (delColForm.columna.$touched || delColForm.$submitted||delColForm.columna.$dirty) }">
+      <label for="columna" class="sr-only">Columna</label>
+      <select name="columna" ng-model="columna" class="form-control" ng-change="setcolumna()" required>
+        <option value="">Columna</option>
+        <option ng-repeat="col in cols">[[col]]</option>
+      </select> 
+      <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : delColForm.columna.$valid && (delColForm.columna.$dirty||delColForm.columna.$touched), 'glyphicon-remove': (delColForm.columna.$invalid && (delColForm.columna.$dirty || delColForm.$submitted||delColForm.columna.$touched )) }" aria-hidden="true"></span>
+      <div class="text-center">
+        <div ng-messages="delColForm.columna.$error" style="color:maroon" role="alert">
+           <code ng-if="delColForm.columna.$touched || delColForm.$submitted" ng-message="required">
+            <strong>Campo obligatorio</strong>
+           </code>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+      <input type="submit"  value="Aceptar" class="btn btn-success btn-block" ng-disabled="!delColForm.$valid">
+      <button type="button" class="btn btn-default btn-block" ng-click="cancel()">Cerrar</button>
+  </div>
+</form>

@@ -1,0 +1,88 @@
+<head>
+  <style type="text/css">
+    .extra-info{
+      font-size: 13px;
+    }
+    .well {
+      background: rgb(251,245,215)!important;
+    }
+  </style>
+</head>
+<form ng-submit="crearCuenta()" class="center-block" name = "crearCuentaForm" id="crearCuentaForm" novalidate>
+      <div  class="modal-header text-center">
+        <h3 ng-if="tipo=='agregar'" style="font-weight:bold;">Registro de cuenta</h3>
+        <h3 ng-if="tipo=='modificar'" style="font-weight:bold;">Modificacion de cuenta</h3>
+        <p class="bg-warning" style="text-align:justify"style="text-align:justify"style="text-align:justify">Estimado afiliado, recomendamos se <b>asegure de que todos los datos sean los correctos</b> con la finalidad de evitar inconvenientes en el momento de efectuarle el pago.</p>
+        <p><b>Solo podra registrar una cuenta bancaria por pais.</b></p>
+      </div>
+      <div class="modal-body">
+          <div class="form-group has-feedback" ng-class="{ 'has-success' : crearCuentaForm.pais.$valid && (crearCuentaForm.pais.$touched || crearCuentaForm.$submitted||crearCuentaForm.pais.$dirty), 'has-error' : !crearCuentaForm.pais.$valid && (crearCuentaForm.pais.$touched || crearCuentaForm.$submitted||crearCuentaForm.pais.$dirty) }">
+            <label for="pais" class="sr-only"></label>
+
+            <select class="form-control" ng-model="cuentaData.pais" name="pais" required>
+              <option value="">Pais</option>
+              <option ng-repeat="pais in paises" value="[[pais]]">[[pais|capitalize]]</option>
+            </select>
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : crearCuentaForm.pais.$valid && (crearCuentaForm.pais.$dirty||crearCuentaForm.pais.$touched), 'glyphicon-remove': (crearCuentaForm.pais.$invalid && (crearCuentaForm.pais.$dirty || crearCuentaForm.$submitted||crearCuentaForm.pais.$touched )) }"  aria-hidden="true"></span>
+
+            <div class="validationDiv text-center">
+              <div ng-messages="crearCuentaForm.pais.$error" style="color:maroon" role="alert">
+                 <code ng-if="crearCuentaForm.pais.$touched || crearCuentaForm.$submitted" ng-message="required">
+                  <strong>Seleccione un pais</strong>
+                 </code>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="form-group has-feedback" ng-class="{ 'has-success' : crearCuentaForm.titular.$valid && (crearCuentaForm.titular.$touched || crearCuentaForm.$submitted||crearCuentaForm.titular.$dirty), 'has-error' : !crearCuentaForm.titular.$valid && (crearCuentaForm.titular.$touched || crearCuentaForm.$submitted||crearCuentaForm.titular.$dirty) }">
+            <label for="titular" class="sr-only"></label>
+            <input type="text" name="titular" ng-model="cuentaData.titular" placeholder="Titular" class="form-control" id="titular" required>
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : crearCuentaForm.titular.$valid && (crearCuentaForm.titular.$dirty||crearCuentaForm.titular.$touched), 'glyphicon-remove': (crearCuentaForm.titular.$invalid && (crearCuentaForm.titular.$dirty || crearCuentaForm.$submitted||crearCuentaForm.titular.$touched )) }"  aria-hidden="true"></span>
+
+            <div class="validationDiv text-center">
+              <div ng-messages="crearCuentaForm.titular.$error" style="color:maroon" role="alert">
+                 <code ng-if="crearCuentaForm.titular.$touched || crearCuentaForm.$submitted" ng-message="required">
+                  <strong>Ingrese titular</strong>
+                 </code>
+              </div>
+            </div>
+          </div>
+
+           <div class="form-group has-feedback" ng-class="{ 'has-success' : crearCuentaForm.banco.$valid && (crearCuentaForm.banco.$touched || crearCuentaForm.$submitted||crearCuentaForm.banco.$dirty), 'has-error' : !crearCuentaForm.banco.$valid && (crearCuentaForm.banco.$touched || crearCuentaForm.$submitted||crearCuentaForm.banco.$dirty) }">
+            <label for="banco" class="sr-only"></label>
+            <input type="text" name="banco" ng-model="cuentaData.banco" placeholder="Banco" class="form-control" id="banco" required>
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : crearCuentaForm.banco.$valid && (crearCuentaForm.banco.$dirty||crearCuentaForm.banco.$touched), 'glyphicon-remove': (crearCuentaForm.banco.$invalid && (crearCuentaForm.banco.$dirty || crearCuentaForm.$submitted||crearCuentaForm.banco.$touched )) }"  aria-hidden="true"></span>
+
+            <div class="validationDiv text-center">
+              <div ng-messages="crearCuentaForm.banco.$error" style="color:maroon" role="alert">
+                 <code ng-if="crearCuentaForm.banco.$touched || crearCuentaForm.$submitted" ng-message="required">
+                  <strong>Ingrese banco</strong>
+                 </code>
+              </div>
+            </div>
+          </div>
+
+
+           <div class="form-group has-feedback" ng-class="{ 'has-success' : crearCuentaForm.nro_cuenta.$valid && (crearCuentaForm.nro_cuenta.$touched || crearCuentaForm.$submitted||crearCuentaForm.nro_cuenta.$dirty), 'has-error' : !crearCuentaForm.nro_cuenta.$valid && (crearCuentaForm.nro_cuenta.$touched || crearCuentaForm.$submitted||crearCuentaForm.nro_cuenta.$dirty) }">
+            <label for="nro_cuenta" class="sr-only"></label>
+            <input type="text" name="nro_cuenta" ng-model="cuentaData.nro_cuenta" placeholder="Numero de cuenta" class="form-control" id="nro_cuenta" required>
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : crearCuentaForm.nro_cuenta.$valid && (crearCuentaForm.nro_cuenta.$dirty||crearCuentaForm.nro_cuenta.$touched), 'glyphicon-remove': (crearCuentaForm.nro_cuenta.$invalid && (crearCuentaForm.nro_cuenta.$dirty || crearCuentaForm.$submitted||crearCuentaForm.nro_cuenta.$touched )) }"  aria-hidden="true"></span>
+
+            <div class="validationDiv text-center">
+              <div ng-messages="crearCuentaForm.banco.$error" style="color:maroon" role="alert">
+                 <code ng-if="crearCuentaForm.banco.$touched || crearCuentaForm.$submitted" ng-message="required">
+                  <strong>Ingrese numero de cuenta</strong>
+                 </code>
+              </div>
+            </div>
+          </div>
+</div>
+
+      <div class="modal-footer">
+        <input ng-if="tipo=='agregar'" type="submit" id='agregaralista' value="Agregar" class="btn btn-success btn-block" ng-disabled="!crearCuentaForm.$valid">
+        <input ng-if="tipo=='modificar'" type="submit" id='agregaralista' value="Modificar" class="btn btn-info btn-block" ng-disabled="!crearCuentaForm.$valid||crearCuentaForm.$pristine">
+        <button type="button" class="btn btn-default btn-block" ng-click="cancel()">Cerrar</button>
+      </div>
+</form>

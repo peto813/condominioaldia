@@ -1,0 +1,8 @@
+{% load account %}{% load i18n %}{% blocktrans %}
+Dear {{condominio}}, 
+
+{{inquilino}} has made a payment in the amount of {{currency}} {{monto}}. The payment needs to be reviewed and approved/rejected by you. Please login to {{site_name}} and go to the 'Income' section.
+
+Thank you for using {{site_name}}
+
+{% endblocktrans %}

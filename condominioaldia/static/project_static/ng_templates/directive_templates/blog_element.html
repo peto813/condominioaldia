@@ -1,0 +1,31 @@
+<head>
+	<style type="text/css">
+		.see-more{
+			cursor: pointer;
+		}
+	</style>
+</head>
+<div ng-repeat="item in context.results" class="panel panel-default">
+	<div class="panel-heading" style="padding-top:2.5px;padding-bottom:2.5px;">
+		<div class="row">
+			<div class="col-md-8">
+				<span><b>Por:</b></span>
+				<span style="margin-left: 5px;">[[item.publisher.first_name|capitalize]]</span>
+				
+			</div>
+			<div class="col-md-4">
+				<span><b>Publicado:</b></span>
+				<span style="margin-left: 5px;">[[item.created|timeago]]</span>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body" style="word-wrap: break-word;overflow-y: auto;">
+		[[item.body|capitalize]]
+	</div>
+</div>
+<!-- <div ng-if="context.page_count>1&&context.current_page!=context.page_count">
+	<span class="fa-stack fa-lg text-center-xs see-more">
+	  <i class="fa fa-circle-o fa-stack-2x"></i>
+	  <i class="fa fa-plus fa-stack-1x" ng-click="getMore()"></i>
+	</span> Ver mas
+</div> -->

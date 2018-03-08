@@ -1,0 +1,203 @@
+
+<head>
+  <style type="text/css">
+      #latestRelacion thead tr th{
+        vertical-align:top!important;
+      }
+      .compact{
+        width:200px;
+      }
+      .inputd{
+        text-align:center;
+        vertical-align: middle;
+        display: inline-block;
+        padding:0px;
+      }
+      .fa-cog .fa{
+        font-size: 1.5em;
+      }
+      .fa-ban{
+        color:red;
+      }
+      .inactive{
+        background-color: #F1F1F1;
+        color:black;
+      }
+      .inactive a{
+        color:black;
+      }
+
+
+      #search{
+        max-width: 300px;
+        border-radius: 15px;
+        text-align: center;
+      }
+      .arrendatario{
+        font-size: 12px;
+      }
+      #alertModal{
+        text-align: center;
+        font-size: 14px;
+      }
+      #egresosTable, #egresosTable th{
+        text-align: center;
+
+      }
+      caption{
+        font-weight: bold;
+      }
+      .fa-cog{
+        cursor: pointer;
+      }
+      input[type="text"],input[type="number"]{        
+        font-size: 14px;
+      }
+      .button-row{
+        margin-bottom: 10px;
+      }
+
+      .captionDiv{
+        margin:5px;
+      }
+
+      .table-responsive{
+        overflow-y: initial;
+      }
+
+      @media (max-width: 767px) {
+          .table-responsive .dropdown-menu {
+              position: static !important;
+          }
+
+      }
+      @media (min-width: 768px) {
+          .table-responsive {
+              overflow: visible;
+          }
+      }
+      @media (max-width: 768px) {
+        #searchForm{
+          margin-bottom: 10px;
+        }
+
+      }
+      .panel-body .form-group{
+        max-width: 300px;
+      }
+      #totalMonto{
+        background-color: rgb(255,240,89);
+      }
+
+  </style>
+</head>
+<div class="main-content">
+
+      <div class="panel panel-default">
+      
+      <div class="panel-heading">
+        <h2 class="text-center">Egresos Detallados</h2>
+        <h4 class="text-center">( [[context.active_month|date:'MMMM yyyy':'UTC'|capitalize]] )</h4>
+      </div><!--panel-heading-->
+      
+
+      <div class="panel-body">
+
+        <uib-tabset active="1" >
+          <uib-tab index="0" classes="inactive" select="redirect()">
+            <uib-tab-heading>
+              <b>Por alicuota (Ley horizontal)</b>
+            </uib-tab-heading>
+          </uib-tab>
+
+          <uib-tab index="1"  >
+            <uib-tab-heading>
+              Detallados
+            </uib-tab-heading>
+          </uib-tab>
+        </uib-tabset><br><br>
+
+
+        <div class="row button-row">
+           <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+              <button ng-if="userData.user_type == 'condominio'" title="Registrar egreso" class="btn btn-success" ng-click="addEgreso()" type="button">
+                <i class="fa fa-share-square-o" aria-hidden="true"></i>
+              </button>
+<!--               <button ng-if="egresos.length>0" title="Ver PDF" class="btn btn-info" ng-click="getEgresosPDF()" type="button">
+                <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+              </button> -->
+              <button ng-click="open1()" title="Buscar por mes" class="btn btn-info" type="button">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </button>  
+
+
+        <p class="input-group">
+          <input type="text" show-button-bar ="false" ng-change="queryDate()" uib-datepicker-popup="[[format]]" ng-model="dt" is-open="popup1.opened"  datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-show="false">
+        </p>
+
+          
+          </div>
+          <div class="col-xs-12 col-sm-5 col-md-4 col-lg-7">
+            <input type="text" class="form-control" placeholder="Buscar" name="search" ng-model="search" id="search">
+          </div>
+          <div class="col-xs-12 col-sm-3">
+<!--                 <span ng-if="column.type!='original'" class="pull-right">
+ -->         <button ng-disabled="added_cols_arr.length==0" ng-click="saveCol()" ng-if="column.type!='original'" title="Guardar" class="btn btn-primary btn-sm pull-right">
+                    <i class="fa fa-floppy-o fa-2x"></i>
+              </button>
+            <!--     </span> -->
+          </div>
+        </div>
+
+    <div class="table-responsive">
+      <table id="latestRelacion" class="table table-striped table-condensed table-bordered">
+        <thead class="text-center">
+              <tr>
+                <th class="text-center"><input type="checkbox" ng-change="checkUncheck(master)" ng-model="master"></th>
+                <th class="text-center" ng-repeat="column in inmuebles.cols">[[column.name]]
+
+                <div ng-if="column.type!='original'" class="text-center">([[column.banco_name]])</div>
+                </th>
+              </tr>
+              <tr class="bg-warning">
+                <th class="text-center">-</th>
+                <th class="text-center" ng-repeat="column in inmuebles.cols">
+                  [[get_total(column)]]
+                </th>
+              </tr>
+
+        </thead>
+        <tbody class="text-center">
+          
+          <tr ng-repeat="row in inmuebles.rows|customCheckFilter: master : filter1|customFilterInmueble:filter1:categories as filtered_inmuebles track by row.inmueble">
+            <td><input string-to-number type="number" ng-model="row.id" hidden><input type="checkbox" ng-checked="masterCheck" ng-model="row.ischecked"></td>
+
+            <td ng-repeat="column in inmuebles.cols" ng-class="{'compact':column.type!='original'}">
+              <form name="relacionForm" novalidate>
+              <span ng-if="column.type=='original'">[[getData(row, column)]]</span>
+              <div class="form-group has-feedback" ng-if="column.type!='original'" ng-class="{ 'has-success' : relacionForm.extra_data.$valid && (relacionForm.extra_data.$touched || relacionForm.$submitted||relacionForm.extra_data.$dirty), 'has-error' : !relacionForm.extra_data.$valid && (relacionForm.extra_data.$touched || relacionForm.$submitted||relacionForm.extra_data.$dirty), 'inputd':column.type!='original' }">
+                <div class="input-group" >
+                  <span class="input-group-addon">
+                    [[userData.detalles_usuario.pais.moneda]]
+                  </span>
+                  <input ui-number-mask="2" name="extra_data" class="form-control" step="0.01" min="0" type="text" ng-model="row.extra_cols[getExtraColIndex(column)]['monto']" required>
+                </div>          
+              </div>
+              </form>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>    
+    </div>  
+
+      </div><!--panel body-->
+    </div><!--panel-warning-->
+</div>
+  
+  
+
+
+
+
+

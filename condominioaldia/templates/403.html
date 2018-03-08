@@ -1,0 +1,19 @@
+{% extends 'base_error.html' %}
+{% block css %}
+		<style type="text/css">
+			body{
+				background-color: white;
+				padding-top:70px;
+				font-family: "Times New Roman", Georgia, Serif;
+			}
+			p{
+				margin:0px;
+			}
+		</style>
+{% endblock css %}
+{% block body %}
+
+	<p style="text-align: center;font-size: 180px;font-weight: bold;">403</p>
+	<p style="text-align: center;font-size: 40px;">FORBIDDEN: Access Denied</p>
+	<p style="text-align: center;font-size: 22px;">You do not have permission to access the requested resource. <a href="/">Go back</a></p>
+{% endblock body %}

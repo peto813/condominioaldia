@@ -1,0 +1,208 @@
+<head>
+    <style type="text/css">
+        .banescologo{
+          display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        form{
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 400px;
+        }
+
+        .normal-left{
+          text-align: left;
+        }
+        .big-center-especial, .big-center{
+          text-align: center;
+          font-weight: bold;
+        }
+
+        .normal-center{
+          text-align: center;
+        }
+        .normal-right{
+          text-align: right;
+        }
+
+
+
+        #voucher table{
+          background-color: white;
+          margin-right: auto;
+          margin-left: auto;
+          
+        }
+
+        #voucher table td{
+          padding-right:10px;
+          padding-left:10px;
+
+        }
+
+        #voucher > table {
+          border:1px solid;
+        }
+
+        .errorlist, .voucherHeader{
+          text-align: center;
+          list-style: none;
+          padding:0px;
+        }
+        #paymentForm{
+          margin:0 auto;
+          box-shadow: 10px 10px 5px #888888;
+          padding-bottom:30px;
+          max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+       
+<div class="container" >
+  <div id="paymentForm">
+    <h2 class="text-center">Pago con Tarjeta de credito</h2>
+    <h4 class="text-center">Monto : [[::instapago.monto|number:2|accounting:userData.detalles_usuario.pais.moneda]]</h4>
+    <hr>
+    <form ng-submit ="submitIstapago()"  name="instaPagoPaymentForm"  novalidate>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group has-feedback" ng-class="{ 'has-success': instaPagoPaymentForm.name_on_card.$valid,'has-error': instaPagoPaymentForm.name_on_card.$invalid && (instaPagoPaymentForm.$submitted || instaPagoPaymentForm.name_on_card.$touched) }">
+        <label for="id_name_on_card" class="sr-only">Nombre del tarjetahabiente</label>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i  class="fa fa-user" aria-hidden="true"></i>
+            </span>
+
+            <input ng-pattern="/^[ña-zA-Z ]*$/" ng-model="instapago.name_on_card" placeholder="Nombre del tarjetahabiente" type="text" name="name_on_card" class="form-control" required>
+            <span ng-class="{'glyphicon-ok' : instaPagoPaymentForm.name_on_card.$valid && (instaPagoPaymentForm.name_on_card.$touched || instaPagoPaymentForm.$submitted), 'glyphicon-remove' : instaPagoPaymentForm.name_on_card.$invalid && (instaPagoPaymentForm.$submitted || instaPagoPaymentForm.name_on_card.$touched) }" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+          </div>
+
+          <div ng-messages="instaPagoPaymentForm.name_on_card.$error" style="color:maroon;text-align:center;height:20px;" role="alert">
+              <code ng-if="instaPagoPaymentForm.name_on_card.$touched || instaPagoPaymentForm.$submitted" ng-message="required">
+                <strong>Este campo es obligatorio</strong>
+                <code ng-if="instaPagoPaymentForm.name_on_card.$touched || instaPagoPaymentForm.$submitted" ng-message="number">
+                  <strong>Solo valores numericos</strong>
+                </code>
+             </code>
+          </div>
+        </div>
+
+        <div class="form-group has-feedback" ng-class="{ 'has-success': instaPagoPaymentForm.card_number.$valid,'has-error': instaPagoPaymentForm.card_number.$invalid && (instaPagoPaymentForm.$submitted || instaPagoPaymentForm.card_number.$touched) }">
+                <label for="card_number" class="sr-only">No. Tarjeta</label>
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i  class="fa fa-credit-card" aria-hidden="true"></i>
+                    </span>
+
+                    <input ng-model="instapago.card_number" placeholder="Numero de Tarjeta" type="text" name="card_number" class="form-control" minlength="15" maxlength="16" cc-validate ng-pattern="/^[0-9]*$/" required>
+
+                    <span ng-class="{'glyphicon-ok' : instaPagoPaymentForm.card_number.$valid && (instaPagoPaymentForm.card_number.$touched || instaPagoPaymentForm.$submitted), 'glyphicon-remove' : instaPagoPaymentForm.card_number.$invalid && (instaPagoPaymentForm.$submitted || instaPagoPaymentForm.card_number.$touched) }" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                  </div>
+
+                  <div ng-messages="instaPagoPaymentForm.card_number.$error" style="color:maroon;text-align:center;height:20px;" role="alert">
+                      <code ng-if="instaPagoPaymentForm.card_number.$touched || instaPagoPaymentForm.$submitted" ng-message="required">
+                        <strong>Este campo es obligatorio</strong>
+                     </code>
+                        <code ng-if="instaPagoPaymentForm.card_number.$touched || instaPagoPaymentForm.$submitted" ng-message="ccValidate">
+                          <strong>Numero de tarjeta invalido</strong>
+                        </code>
+                  </div>
+                </div>
+
+<div class="row">
+  <div class="col-xs-6">
+    <div class="form-group has-feedback" ng-class="{ 'has-success': instaPagoPaymentForm.cvc.$valid,'has-error': instaPagoPaymentForm.cvc.$invalid && (instaPagoPaymentForm.$submitted || instaPagoPaymentForm.cvc.$touched) }">
+      <label for="cvc">Codigo de seguridad</label>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i  class="fa fa-list-ol" aria-hidden="true"></i>
+        </span>
+
+        <input ng-model="instapago.cvc" placeholder="CVC" type="text" name="cvc" class="form-control"  minlength="3" maxlength="3" ng-pattern="/^[0-9]*$/" required>
+
+        <span ng-class="{'glyphicon-ok' : instaPagoPaymentForm.cvc.$valid && (instaPagoPaymentForm.cvc.$touched || instaPagoPaymentForm.$submitted), 'glyphicon-remove' : instaPagoPaymentForm.cvc.$invalid && (instaPagoPaymentForm.$submitted || instaPagoPaymentForm.cvc.$touched) }" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        </div>
+
+      <div ng-messages="instaPagoPaymentForm.cvc.$error" style="color:maroon;text-align:center;" role="alert">
+        <code ng-if="instaPagoPaymentForm.cvc.$touched || instaPagoPaymentForm.$submitted" ng-message="required">
+          <strong>Este campo es obligatorio</strong>
+        </code>
+
+        <code ng-if="instaPagoPaymentForm.cvc.$touched || instaPagoPaymentForm.$submitted" ng-message="minlength">
+          <strong>Minimo tres digitos</strong>
+        </code>
+        <code ng-if="instaPagoPaymentForm.cvc.$touched || instaPagoPaymentForm.$submitted" ng-message="pattern">
+          <strong>Solo numeros</strong>
+        </code>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <div class="form-group has-feedback" ng-class="{ 'has-success': instaPagoPaymentForm.exp.$valid,'has-error': instaPagoPaymentForm.exp.$invalid && (instaPagoPaymentForm.$submitted || instaPagoPaymentForm.exp.$touched) }">
+      <label for="exp">Fecha de Vencimiento</label>
+      <div class="input-group" >
+        <span class="input-group-addon">
+          <i  class="fa fa-calendar" aria-hidden="true"></i>
+        </span>
+
+        <input uib-datepicker-popup="[[format]]" type="text" name="exp" ng-model="instapago.exp" class="form-control" placeholder="MM-YY" maxlength="5" required>
+
+        <span ng-class="{'glyphicon-ok' : instaPagoPaymentForm.exp.$valid && (instaPagoPaymentForm.exp.$touched || instaPagoPaymentForm.$submitted), 'glyphicon-remove' : instaPagoPaymentForm.exp.$invalid && (instaPagoPaymentForm.$submitted || instaPagoPaymentForm.exp.$touched) }" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        </div>
+
+      <div ng-messages="instaPagoPaymentForm.exp.$error" style="color:maroon;text-align:center;" role="alert">
+        <code ng-if="instaPagoPaymentForm.exp.$touched || instaPagoPaymentForm.$submitted" ng-message="required">
+          <strong>Este campo es obligatorio</strong>
+        </code>
+        <code ng-if="instaPagoPaymentForm.exp.$touched || instaPagoPaymentForm.$submitted" ng-message="date">
+          <strong >Introduzca la fecha en formato MM-YY</strong>
+        </code>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<div class="form-group has-feedback" ng-class="{ 'has-success': instaPagoPaymentForm.rif.$valid,'has-error': instaPagoPaymentForm.rif.$invalid && (instaPagoPaymentForm.$submitted || instaPagoPaymentForm.rif.$touched) }">
+  <label for="rif" class="sr-only">Cedula</label>
+  <div class="input-group">
+    <span class="input-group-addon">
+      <i class="fa fa-id-card-o" aria-hidden="true"></i>
+    </span>
+
+    <input ng-model="instapago.rif" placeholder="Cedula" type="text" name="rif" class="form-control" ng-pattern="/^[0-9]*$/" required>
+
+
+    <span ng-class="{'glyphicon-ok' : instaPagoPaymentForm.rif.$valid && (instaPagoPaymentForm.rif.$touched || instaPagoPaymentForm.$submitted), 'glyphicon-remove' : instaPagoPaymentForm.rif.$invalid && (instaPagoPaymentForm.$submitted || instaPagoPaymentForm.rif.$touched) }" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+    </div>
+
+  <div ng-messages="instaPagoPaymentForm.rif.$error" style="color:maroon;text-align:center;" role="alert">
+    <code ng-if="instaPagoPaymentForm.rif.$touched || instaPagoPaymentForm.$submitted" ng-message="required">
+      <strong>Este campo es obligatorio</strong>
+    </code>
+  </div>
+</div>
+    <input type="submit" ng-disabled="instaPagoPaymentForm.$invalid || processingPayment" class="btn btn-success btn-block btn-lg" value="Pagar">
+    </div>
+  </div>
+  </form>
+    <div>
+       
+      <div class="row">
+        <div class="col-xs-12">
+          <p class="text-center" style="margin:25px;">Esta transacción será procesada de forma segura gracias a la popenInstaPagoVoucherlataforma de:</p>
+          <img alt="no logo" class="banescologo img-responsive" ng-src="/static/img/logos/logobanesco.png">
+        </div>
+      </div>
+    </div>  
+  </div>
+</div><!--container-->
+</body>

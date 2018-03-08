@@ -1,0 +1,9 @@
+{% load account %}{% load i18n %}{% blocktrans %}
+Dear {{name}}, 
+
+It seems that your account has been temporarily limited due to some delay with your payments in an amount of {{currency}} {{monto}}. Please login to your account and use any of our preferred payment solutions to get you up and running again.
+
+If you have any questions, feel free to ask by using our live chat!
+
+Thank you for using {{site_name}}
+{% endblocktrans %}

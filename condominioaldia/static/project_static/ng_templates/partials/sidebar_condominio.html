@@ -1,0 +1,52 @@
+<head>
+  <style type="text/css">
+  .fa-exclamation-triangle{
+    color: gold;
+/*    text-shadow: 0px 0px 0.5px black, 0px 0px 0.5px black;*/
+  }  
+
+  .accordion{
+       background: #2E353D; 
+  }
+  .accordion a, .accordion >a,{
+
+    font-size: 13px!important;
+  }
+
+  </style>
+</head>
+<!--     <ul style="border: 1px solid #F4F3F2;border-radius: 10px;z-index: 1;" class="nav nav-sidebar" ng-if="userData.user_type == 'condominio'">
+ -->        
+ <li ng-class="{active : currentView =='/inicio'}"><a href="#/inicio"><i class="fa fa-home fa-lg"></i> Inicio<span class="sr-only">(current)</span></a></li>
+        <li ng-class="{active : currentView =='/inmuebles'}"><a href="#/inmuebles"><i class="fa fa-building fa-lg"></i> Inmuebles</a></li>
+        <li ng-class="{active : currentView =='/junta_condominio'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/junta_condominio"><i class="fa fa-users fa-lg"></i> Junta de Condominio</a></li>
+<!--         <li ng-class="{active : currentView =='/encuestas'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/encuestas"><i class="fa fa-handshake-o fa-lg"></i> Encuestas</a></li> -->
+
+  <uib-accordion ng-if="userData.detalles_usuario.activo==true" close-others="oneAtATime">
+
+    <div class="accordion" uib-accordion-group is-open="accordionOpen">
+      <uib-accordion-heading>
+        <i class="fa fa-university fa-lg"></i> Finanzas <i title="Pago(s) pendientes" ng-if="retrasado==true" class="fa fa-exclamation-triangle"></i> <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+      </uib-accordion-heading>
+
+      <ul class="nav nav-sidebar">
+
+          <li ng-click="change_view('bancos')" ng-class="{active : currentView =='/bancos'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/bancos"><i class="fa fa-university fa-lg"></i> Bancos</a></li>
+          <li ng-class="{active : currentView =='/cobranzas'}">
+          <a href="#/cobranzas"><i class="fa fa-money fa-lg"></i> Cobranzas</a></li>
+          <li ng-class="{active : currentView =='/ingresos'}">
+          <a href="#/ingresos"><i class="fa fa-plus fa-lg"></i> Ingresos</a></li>
+          <li ng-class="{active : currentView =='/egresos'||currentView =='/egresos_detallados'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/egresos"><i class="fa fa-minus fa-lg"></i> Egresos</a></li>
+
+<!--          <li ng-class="{active : currentView =='/facturacion_condominio'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/facturacion_condominio"><i class="fa fa-file-text-o fa-lg"></i> Facturación <i title="Pago(s) pendientes" ng-if="retrasado==true" class="fa fa-exclamation-triangle"></i></a></li> -->
+          <li ng-class="{active : currentView =='/relacion_mes'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/relacion_mes"><i class="fa fa-balance-scale fa-lg"></i> Relaciones de Cuotas</a></li>
+          <li ng-class="{active : currentView =='/resumen_condominio'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/resumen_condominio"><i class="fa fa-flag fa-lg"></i> Resumen</a></li>
+      </ul>
+
+    </div>
+  </uib-accordion>
+
+        <li ng-class="{active : currentView =='/cartelera'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/cartelera"><i class="fa fa-bars fa-lg"></i> Cartelera</a></li>
+<!--         <li ng-class="{active : currentView =='/paginas_amarillas'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/paginas_amarillas"><i class="fa fa-book fa-lg"></i> Parginas Amarillas</a></li>
+        <li ng-class="{active : currentView =='/sms_email'}" ng-if="userData.detalles_usuario.activo==true"><a href="#/sms_email"><i class="fa fa-envelope fa-lg"></i> SMS/Email</a></li> -->
+<!--     </ul> -->

@@ -1,0 +1,59 @@
+ <head>
+   <style type="text/css">
+     .bold{
+        font-weight: bold;
+     }
+   </style>
+ </head>
+
+  <div class="modal-header">
+    <h2 class="text-center">Detalles de Condominio</h2>
+  </div>
+  <div class="modal-body">
+    <table class="table table-user-information">
+        <tbody>
+          <tr>
+            <td class="bold">Nombre:</td>
+            <td>[[::condominio.condominio.nombre]]</td>
+          </tr>
+          <tr>
+            <td class="bold">Rif:</td>
+            <td>
+                [[::condominio.condominio.rif]]
+            </td>
+          </tr>                
+          <tr>
+            <td class="bold">Direccion:</td>
+            <td>
+                [[::condominio.condominio.direccion]]
+            </td>
+          </tr>
+          <tr>
+            <td class="bold">Estado:</td>
+            <td>
+                [[::condominio.condominio.estado]]
+            </td>
+          </tr> 
+          <tr>
+            <td class="bold">Municipio:</td>
+            <td>
+                [[::condominio.condominio.municipio]]
+            </td>
+          </tr>
+          <tr>
+            <td class="bold">Parroquia:</td>
+            <td>
+                [[::condominio.condominio.parroquia]]
+            </td>
+          </tr>  
+             
+        </tbody>
+    </table>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger btn-block" ng-click="cancel()">Cerrar</button>
+  </div>
+
+
+

@@ -1,0 +1,76 @@
+<head>
+	<style type="text/css">
+		.bold{
+			font-weight: bold;
+		}
+
+
+		.show-hide {
+		  transition: all linear 1s;
+		}
+		.show-hide.ng-hide {
+			transition: all linear 1s;
+		  	opacity: 0;
+		}
+
+		.container{
+			padding-top: 50px;
+		}
+
+	</style>
+</head>
+<div class="container">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h2>Pago por Deposito-Transferencia</h2>
+			<h4><i>Factura de [[factura.mes|date:'MMMM yyyy':'UTC'|capitalize]]</i></h4>
+		</div>
+		<div class="panel-body">
+			<p>Seleccione una de nuestras entidades bancarias disponibles.</p>
+			<div class="form-group">
+				<div class="input-group">
+					<select class="form-control" ng-model="bank" ng-change="selectAccount()" name="bank" required>
+						<option value="">Banco</option>
+						<option ng-repeat="account in accounts" value="[[account.id]]">[[account.banco]]</option>
+					</select>		
+				</div>			
+			</div>
+			<ol>
+				<li>Realice el deposito o transferencia en la cuenta seleccionada.</li>
+				<li>Tome fotografia de la pantalla o del comprobante de pago.</li>
+				<li><a href="">Registre</a> el pago.</li>
+			</ol>
+
+
+			<table ng-show="bank" class="show-hide table table-striped table-condensed table-bordered">
+				<tbody>
+					<tr>
+						<td class="bold">Banco:</td>
+						<td>[[chosen_bank.banco]]</td>
+					</tr>
+					<tr>
+						<td class="bold">Titular:</td>
+						<td>[[chosen_bank.titular]]</td>
+					</tr>
+					<tr>
+						<td class="bold">Numero de cuenta:</td>
+						<td>[[chosen_bank.nro_cuenta]]</td>
+					</tr>
+					<tr ng-if="chosen_bank.informacion_adicional">
+						<td class="bold">Informacion adicional:</td>
+						<td>[[chosen_bank.informacion_adicional]]</td>
+					</tr>
+					<tr>
+						<td class="bold">Monto:</td>
+						<td class="warning">
+							<b>
+								[[userData.detalles_usuario.pais.moneda]] [[factura.monto|abs|number:2]]
+							</b>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<button ng-show="bank" class="btn btn-lg btn-success show-hide" type="button" ng-click="registerPaymentModal()">Registrar Pago</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,9 @@
+{% load account %}{% load i18n %}{% blocktrans %}
+Dear {{name}}, 
+
+Your account has been restored.You may now take advantage of all of the services we have to offer.
+
+If you have any questions, feel free to ask by using our live chat!
+
+Thank you for using {{site_name}}
+{% endblocktrans %}

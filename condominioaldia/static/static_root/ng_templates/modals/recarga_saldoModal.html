@@ -1,0 +1,38 @@
+
+								<!--	recarga saldo Sms -->
+<script type="text/ng-template" id="recargaSaldoModal.html">
+	<form ng-submit="redirectPaymentMethod()" method="post" name="recargaSaldoForm" novalidate>{% csrf_token %}
+		<div style="text-align:center;" class="modal-header">
+			<h3 style="font-weight:bold;text-align:center;">Recarga de Saldo</h3>
+		</div>
+		<div class="modal-body">
+			<div class="form-group has-feedback" ng-class="{ 'has-success' : recargaSaldoForm.paymentMethod.$valid && recargaSaldoForm.paymentMethod.$touched, 'has-error' : (recargaSaldoForm.paymentMethod.$invalid && (recargaSaldoForm.paymentMethod.$touched || recargaSaldoForm.$submitted)) }">
+				<label for="id_paymentMethod" class="sr-only">Payment Method:</label>
+				<div class="input-group">
+					<span class="input-group-addon">
+						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+					</span>
+					<select class="form-control" name="paymentMethod" id="id_paymentMethod" ng-model="paymentMethod" required>
+						<option value="" disabled>Metodo de Pago</option>
+						<option value="DT">Deposito/Transferencia</option>
+						<option value="TC">Tarjeta de Credito</option>
+						<option value="MP">Mercado Pago</option>
+					</select>
+					<span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : recargaSaldoForm.paymentMethod.$valid && recargaSaldoForm.paymentMethod.$dirty, 'glyphicon-remove': (recargaSaldoForm.paymentMethod.$invalid && (recargaSaldoForm.paymentMethod.$dirty || recargaSaldoForm.$submitted )) }" aria-hidden="true"></span>
+				</div>
+
+
+        <div style="position:relative;font-size:14px;height:20px;text-align:center;" ng-messages="recargaSaldoForm.paymentMethod.$error || recargaSaldoForm.sms.$error" style="color:maroon" role="alert">
+           <code ng-if="recargaSaldoForm.sms.$touched || recargaSaldoForm.paymentMethod.$touched || recargaSaldoForm.$submitted" ng-message="required">
+            <strong>Seleccione una opcion</strong>
+           </code>
+      	</div>
+
+			</div>
+		</div>
+			<div class="modal-footer">
+				<input type="submit" class="btn btn-md btn-info btn-block" value="Continuar">
+				<button type="button" class="btn btn-default btn-block" ng-click="cancel()">Cerrar</button>
+			</div>
+	</form>
+</script>

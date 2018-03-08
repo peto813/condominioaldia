@@ -1,0 +1,89 @@
+
+
+{% load staticfiles %}
+
+<head>
+	<style type="text/css">
+	.btn:active
+{
+    box-shadow:none;
+}
+		.container{
+			padding-top: 80px;
+		}
+		#message{
+			font-size: 25px;
+		}
+		.fa-ban{
+			color:red;
+			font-weight: bold;
+		}
+		#formTab{
+			text-align: center;
+			width: 75%;
+			min-width: 150px;
+			background-color: white;
+			padding:20px;
+/*			border-radius: 10px;
+			border:1px solid black;
+			box-shadow: 10px 10px 5px #888888;*/
+			max-width: 680px;
+			margin-top: 150px;
+			padding: 20px; 
+	
+			margin: 0 auto;
+		}
+		#serverAnswer {
+			font-weight: bold;
+			font-size: 60px;
+			margin-bottom: 18px;
+		}
+	</style>
+	  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<title>Condominioaldia</title>
+</head>
+<nav class="navbar-inverse navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+<a href="{% url 'index' %}" class="navbar-brand"> 
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="240" height="21" viewBox="0 0 240 21">
+  <image xlink:href="data:img/png;base64,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" width="240" height="21"/>
+</svg>
+
+      </a>
+    </div>
+  </div>
+</nav>
+	<div class="container">
+		{% if account_verified == True %}
+					<form id="formTab">
+						<!-- <h1 class="text-center"> Bienvenido a Condominioaldia</h1> -->
+
+						<p class="text-center" id="serverAnswer">{{message}}</p>
+						<p><i class="fa fa-check-circle fa-5x"></i></p>
+<!-- 						<div class="col-md-4 text-center"> 
+							<a href="{% url 'index' %}" class="text-center">
+								<button style="margin-top: 20px;"  type="button" class="btn btn-success btn-lg">Volver</button>
+							</a>
+						</div>	 -->
+<div class="form-group">
+   <label class="col-md-4 control-label" for="singlebutton"></label>
+   <div class="col-md-4 center-block">
+      <a href="{% url 'index' %}" class="text-center"><button style="margin-top: 20px;"  type="button" class="btn btn-success btn-lg btn-block">Volver</button></a>
+   </div>  
+</div><!--  -->
+					</form>
+		{% else %}
+
+
+					<form id="formTab">
+						<p class="text-center" id="serverAnswer"> Ooops!</p>
+						<p class="text-center" id="message">{{message}}</p><i class="fa fa-ban fa-5x"></i>
+<!-- 						<a href="{% url 'index' %}"><button type="button" class="btn btn-danger btn-lg btn-block">Cerrar</button></a>		 -->	
+					</form>
+
+
+		{% endif %}
+	</div>

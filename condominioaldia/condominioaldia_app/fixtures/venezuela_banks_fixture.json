@@ -1,0 +1,250 @@
+[
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 1,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco Industrial de Venezuela",
+            "pre_fill_prefix": "0003"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 2,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco de Venezuela",
+            "pre_fill_prefix": "0102"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 3,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Venezolano de Credito",
+            "pre_fill_prefix": "0104"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 4,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco Mercantil",
+            "pre_fill_prefix": "0105"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 5,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco Provincial",
+            "pre_fill_prefix": "0108"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 6,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Bancaribe",
+            "pre_fill_prefix": "0114"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 7,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco Exterior",
+            "pre_fill_prefix": "0115"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 8,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "BOD",
+            "pre_fill_prefix": "0116"
+        }
+    }, 
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 9,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco Caroni",
+            "pre_fill_prefix": "0128"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 10,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banesco",
+            "pre_fill_prefix": "0134"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 11,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco Sofitasa",
+            "pre_fill_prefix": "0137"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 12,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco Plaza",
+            "pre_fill_prefix": "0138"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 13,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco de la Gente Emprendedora",
+            "pre_fill_prefix": "0146"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 14,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco del Pueblo Soberano",
+            "pre_fill_prefix": "0149"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 15,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco Fondo Comun",
+            "pre_fill_prefix": "0151"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 16,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "100 % Banco",
+            "pre_fill_prefix": "0156"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 17,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "DelSur Banco",
+            "pre_fill_prefix": "0157"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 18,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco del Tesoro",
+            "pre_fill_prefix": "0163"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 19,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco Agricola de Venezuela",
+            "pre_fill_prefix": "0166"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 20,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Bancrecer",
+            "pre_fill_prefix": "0168"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 21,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Mi Banco Microfinanciero",
+            "pre_fill_prefix": "0172"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 22,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco Internacional de Desarrollo",
+            "pre_fill_prefix": "0173"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 23,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banplus",
+            "pre_fill_prefix": "0174"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 24,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco Bicentenario",
+            "pre_fill_prefix": "0175"
+        }
+    }, 
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 25,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco Espirito Santo",
+            "pre_fill_prefix": "0176"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 26,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco de la FANB",
+            "pre_fill_prefix": "0177"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 27,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Citibank",
+            "pre_fill_prefix": "0190"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 28,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco Nacional de Credito",
+            "pre_fill_prefix": "0191"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 29,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Instituto Municipal de Credito Popular",
+            "pre_fill_prefix": "0601"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 30,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Banco Activo",
+            "pre_fill_prefix": "0171"
+        }
+    },
+    { "model": "condominioaldia_app.banco_pais",
+        "pk": 31,
+        "fields": {
+            "pais": "Venezuela",
+            "name": "Bancamiga",
+            "pre_fill_prefix": "0172"
+        }
+    } 
+]

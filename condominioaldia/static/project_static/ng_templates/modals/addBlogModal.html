@@ -1,0 +1,15 @@
+<form ng-submit="postBlog()" name="blogForm" novalidate>
+	<div class="modal-header">
+		<h3 class="text-center">Subir al blog</h3>
+	</div>
+	<div class="modal-body">
+		<div class="form-group">
+			<textarea class="form-control" max-length="250" placeholder="Mensaje" ng-model="blogData.body" required></textarea>
+		</div>
+		<label>Restan [[250-blogData.body.length ]] caracteres.</label>
+	</div>
+	<div class="modal-footer">
+      <input type="submit"  value="Registrar" class="btn btn-success" ng-disabled="!blogForm.$valid">
+      <button type="button" class="btn btn-default" ng-click="cancel()">Cerrar</button>	
+	</div>
+</form>

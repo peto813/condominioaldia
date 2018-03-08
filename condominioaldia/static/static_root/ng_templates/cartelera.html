@@ -1,0 +1,126 @@
+
+<head>
+  <style type="text/css">
+
+      .fa-cog .fa{
+        font-size:1.5em;
+        font-weight: bold;
+      }
+      .fa-ban{
+        color:red;
+      }
+      #carteleraTable, #carteleraTable th{
+        text-align: center;
+
+      }
+      caption{
+        font-weight: bold;
+      }
+      .fa-cog{
+        cursor: pointer;
+      }
+      input[type="text"],input[type="number"]{        
+        font-size: 14px;
+      }
+      .button-row{
+        margin-bottom: 10px;
+      }
+/*      #searchElement{
+        max-width: 190px;
+      }*/
+      .captionDiv{
+        margin:5px;
+      }
+
+      .table-responsive{
+        overflow-y: initial;
+      }
+
+@media (max-width: 767px) {
+    .table-responsive .dropdown-menu {
+        position: static !important;
+    }
+}
+@media (min-width: 768px) {
+    .table-responsive {
+        overflow: visible;
+    }
+}
+  </style>
+</head>
+<div class="main-content">
+      <div class="panel panel-default">
+      <div class="panel-heading" style="height:inherit;">
+        <div class="row">
+        <h2 style="margin-left:15px;text-align:center;">Cartelera</h2>
+          </div><!--row-->
+      </div><!--panel-heading-->
+      
+
+      <div class="panel-body">
+        <div class="row button-row">
+           <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+              <button title="Agregar a cartelera" class="btn btn-success" ng-click="carteleraModal()" type="button">
+                <i class="fa fa-plus"></i>
+              </button>
+              <help-element></help-element>
+          </div>
+<!--           <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3" id="searchDiv">
+              <div class="input-group" id="searchElement">
+                <input type="search" name="search" id="search" placeholder="Buscar" class="form-control" ng-model="search">     
+                <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+              </div>
+          </div> -->
+        </div>
+<!--         <div class="row text-center captionDiv">
+          <caption class="text-center"><span class="bg-success">Solvente</span> | <span class="bg-danger">Moroso</span></caption>
+        </div> -->
+        <div class="table-responsive panel panel-default">
+
+        <table class="table table-condensed table-bordered" id ="carteleraTable">
+           
+          <thead>
+            <tr>
+              <th>Acciones</th>
+              <th>Titulo</th>
+              <th>Creado</th>
+            </tr>           
+          </thead>
+            <tbody>
+              <tr ng-repeat="anuncio in cartelera">
+                <td>
+                  <span uib-dropdown on-toggle="toggled(open)">
+                    <span href id="simple-dropdown" uib-dropdown-toggle>
+                      <i title="acciones" class="fa fa-cog fa-2x" aria-hidden="true"></i>
+                    </span>
+                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                      <li>
+                        <a ng-click ="verAnuncio(anuncio)" href>
+                        <i class="fa fa-search"></i>
+                          Ver
+                        </a>
+                        <a ng-click ="eliminarAnuncio(anuncio)" href>
+                        <i class="fa fa-ban"></i>
+                          Eliminar
+                        </a>
+                      </li>
+                    </ul>
+                  </span>
+                </td>
+                <td>[[anuncio.titulo|capitalize]]</td>
+                <td>[[anuncio.created|date:'MMMM dd, yyyy'|capitalize]]</td>
+              </tr>
+            </tbody>
+        </table>       
+        </div>
+
+      </div><!--panel body-->
+    </div><!--panel-warning-->
+</div>
+  
+  
+
+
+
+
+

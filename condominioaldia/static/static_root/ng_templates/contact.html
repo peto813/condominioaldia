@@ -1,0 +1,133 @@
+<head>
+    <style type="text/css">
+.jumbotron {
+background: #2C2C2C;
+color: #FFF;
+border-radius: 0px;
+}
+.jumbotron-sm { padding-top: 24px;
+padding-bottom: 24px; }
+.jumbotron small {
+color: #FFF;
+}
+.h1 small {
+font-size: 24px;
+}
+.fa-phone{
+    font-size:1.3em;
+}
+</style>
+
+</head>
+<div class="jumbotron jumbotron-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <h1 class="h1">
+                    Contactenos <small style="color: #F4D300">O utilice nuestro chat en vivo!</small></h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <form ng-submit="sendEmail()" name="contactUsForm" novalidate>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-sm">
+                
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="form-group has-feedback" ng-class="{ 'has-success' : contactUsForm.name.$valid && (contactUsForm.name.$touched || contactUsForm.$submitted || contactUsForm.name.$dirty), 'has-error' : !contactUsForm.name.$valid && (contactUsForm.name.$touched || contactUsForm.$submitted || contactUsForm.name.$dirty) }" >
+                            <label for="name">Nombre</label>
+                            <input ng-model="formData.name" type="text" class="form-control" name="name" id="name" placeholder="Introduzca su nombre" required>
+                            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : contactUsForm.name.$valid && ( contactUsForm.name.$dirty || contactUsForm.name.$touched ), 'glyphicon-remove': (contactUsForm.name.$invalid && (contactUsForm.name.$dirty || contactUsForm.$submitted || contactUsForm.name.$touched)) }" aria-hidden="true"></span>
+                             <div style="position:relative;font-size:14px;height:20px;text-align:center;" ng-messages="contactUsForm.name.$error" style="color:maroon" role="alert">
+                               <code ng-if="contactUsForm.name.$touched || contactUsForm.$submitted" ng-message="required">
+                                <strong>Este campo es requerido</strong>
+                               </code>
+                             </div>
+                        </div>
+
+                        <div class="form-group has-feedback" ng-class="{ 'has-success' : contactUsForm.email.$valid && (contactUsForm.email.$touched || contactUsForm.$submitted || contactUsForm.email.$dirty), 'has-error' : !contactUsForm.email.$valid && (contactUsForm.email.$touched || contactUsForm.$submitted || contactUsForm.email.$dirty) }" >
+                            <label for="email">
+                                Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input name="email" ng-model="formData.email" type="email" class="form-control" id="email" placeholder="Introduzca su correo electronico" required></div>
+
+                            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : contactUsForm.email.$valid && ( contactUsForm.email.$dirty || contactUsForm.email.$touched ), 'glyphicon-remove': (contactUsForm.email.$invalid && (contactUsForm.email.$dirty || contactUsForm.$submitted || contactUsForm.email.$touched)) }" aria-hidden="true"></span>
+    
+                         <div style="position:relative;font-size:14px;height:20px;text-align:center;" ng-messages="contactUsForm.email.$error" style="color:maroon" role="alert">
+                           <code ng-if="contactUsForm.email.$touched || contactUsForm.$submitted" ng-message="required">
+                            <strong>Este campo es requerido</strong>
+                           </code>
+                         </div>
+
+                        </div>
+                        <div class="form-group has-feedback" ng-class="{ 'has-success' : contactUsForm.subject.$valid && (contactUsForm.subject.$touched || contactUsForm.$submitted || contactUsForm.subject.$dirty), 'has-error' : !contactUsForm.subject.$valid && (contactUsForm.subject.$touched || contactUsForm.$submitted || contactUsForm.subject.$dirty) }" >
+                            <label for="subject">
+                                Subject</label>
+                            <select id="subject" ng-model="formData.subject" name="subject" class="form-control" required>
+                                <option value="" selected="">Seleccione:</option>
+                                <option value="service">Servicio al cliente</option>
+                                <option value="suggestions">Sugerencias</option>
+                                <option value="product">Soporte del producto</option>
+                            </select>
+                            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : contactUsForm.subject.$valid && ( contactUsForm.subject.$dirty || contactUsForm.subject.$touched ), 'glyphicon-remove': (contactUsForm.subject.$invalid && (contactUsForm.subject.$dirty || contactUsForm.$submitted || contactUsForm.subject.$touched)) }" aria-hidden="true"></span>
+                            <div style="position:relative;font-size:14px;height:20px;text-align:center;" ng-messages="contactUsForm.subject.$error" style="color:maroon" role="alert">
+                               <code ng-if="contactUsForm.subject.$touched || contactUsForm.$submitted" ng-message="required">
+                                <strong>Este campo es requerido</strong>
+                               </code>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group has-feedback" ng-class="{ 'has-success' : contactUsForm.message.$valid && (contactUsForm.message.$touched || contactUsForm.$submitted || contactUsForm.message.$dirty), 'has-error' : !contactUsForm.message.$valid && (contactUsForm.message.$touched || contactUsForm.$submitted || contactUsForm.message.$dirty) }" >
+                            <label for="name">
+                                Mensaje</label>
+                            <textarea ng-model="formData.message" name="message" id="message" class="form-control" minlength="10" rows="9" cols="25" required
+                                placeholder="Mensaje"></textarea>
+                            <div style="position:relative;font-size:14px;height:20px;text-align:center;" ng-messages="contactUsForm.message.$error" style="color:maroon" role="alert">
+                               <code ng-if="contactUsForm.message.$touched || contactUsForm.$submitted" ng-message="required">
+                                <strong>Este campo es requerido</strong>
+                               </code>
+                               <code ng-if="contactUsForm.message.$touched || contactUsForm.$submitted" ng-message="minlength">
+                                <strong>Debe tener al menos 10 carateres</strong>
+                               </code>
+                             </div>                        
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <input ng-disabled="!contactUsForm.$valid" type="submit" class="btn btn-primary pull-right" id="btnContactUs" value="Enviar Mensaje">
+                            
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div>
+            <legend><h2><span class="glyphicon glyphicon-globe"></span> Nuestras oficinas</h2></legend>
+            <label>Venezuela</label>
+            <address>
+                <strong>Fractal Software, C.A.</strong><br>
+                Lecheria, Anzoategui 6016<br>
+                CR 3 con Calle 3, <br>
+                C.C. Vista al Mar, Nivel 2 , Ofic 2-1 <br>
+                Sector Casco central
+                <hr>
+                <abbr title="Phone">
+                     <i class="fa fa-phone"></i></abbr>
+                 (786) 401-9338 ( English )<br>
+                <abbr title="Phone">
+                     <i class="fa fa-phone"></i></abbr>
+                 (414) 093-4140 ( Español )
+            </address>
+
+            </div>
+        </div>
+    </div>
+</div>

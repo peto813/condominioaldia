@@ -1,0 +1,94 @@
+
+<head>
+	<style type="text/css">
+
+/*	.input-group-addon{
+		background-color: #F4D300;
+	}
+	form[name='contactUsForm']{
+		border-radius: 5px;
+		background-color: #F4F3F2;
+		padding:25px;
+
+	}
+	.validationDiv{
+		height:20px;
+	}*/
+	.panel-warning{
+		color:black;
+	}
+
+	button[name="backButton"]{
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	.center-button{
+		margin:0 auto;
+	}
+
+.blow-up{
+    -webkit-transition: all 0.75s ease; /* Safari and Chrome */
+    -moz-transition: all 0.75s ease; /* Firefox */
+    -ms-transition: all 0.75s ease; /* IE 9 */
+    -o-transition: all 0.75s ease; /* Opera */
+    transition: all 0.75s ease;
+}
+
+.blow-up:hover {
+    -webkit-transform:scale(1.05); /* Safari and Chrome */
+    -moz-transform:scale(1.05); /* Firefox */
+    -ms-transform:scale(1.05); /* IE 9 */
+    -o-transform:scale(1.05); /* Opera */
+     transform:scale(1.05);
+}
+
+
+	</style>
+</head>
+
+<h1 class="text-center">Preguntas Frecuentes</h1>
+
+<div class="text-center center-button">
+	<a href="#/landing_page"><button type="button" class="btn btn-lg btn-default blow-up" name="backButton">
+		<i class="fa fa-home"></i><span style="margin-left:5px;">Volver</span>
+	</button></a>
+</div>
+
+
+  <uib-accordion close-others="oneAtATime">
+<!--     <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+      This content is straight in the template.
+    </div> -->
+    <div uib-accordion-group class="panel-default" heading="[[item.pregunta]]" ng-repeat="item in faq">
+      [[item.respuesta]]
+    </div>
+<!--     <div uib-accordion-group class="panel-default" heading="Dynamic Body Content">
+      <p>The body of the uib-accordion group grows to fit the contents</p>
+      <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+      <div ng-repeat="item in items">{{item}}</div>
+    </div>
+    <div uib-accordion-group class="panel-default" heading="Custom template" template-url="group-template.html">
+      Hello
+    </div>
+    <div uib-accordion-group class="panel-default" is-open="status.isCustomHeaderOpen" template-url="group-template.html">
+      <uib-accordion-heading>
+        Custom template with custom header template <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
+      </uib-accordion-heading>
+      World
+    </div>
+    <div uib-accordion-group class="panel-danger" heading="Delete account">
+      <p>Please, to delete your account, click the button below</p>
+      <button class="btn btn-danger">Delete</button>
+    </div>
+    <div uib-accordion-group class="panel-default" is-open="status.open">
+      <uib-accordion-heading>
+        I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+      </uib-accordion-heading>
+      This is just some content to illustrate fancy headings.
+    </div>
+  -->
+  </uib-accordion>
+</div>
+
+

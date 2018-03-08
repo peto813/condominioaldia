@@ -1,0 +1,224 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load humanize %}
+{% load template_filters %}
+
+
+{% block extrastyle %}
+
+<head>
+	<link rel="stylesheet" type="text/css" href="/static/css/mainlib.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style type="text/css">
+		#successMsg{
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.panel.panel-default{
+			width:75%;
+			margin: 0 auto;
+			max-width: 650px;
+		}
+		.load-button{
+			cursor:pointer;
+		}
+
+		#sample{
+			margin-bottom:10px;
+		}
+		.fa-times{
+			color:red;
+		}
+		.fa-check{
+			color:green;
+		}
+	</style>
+	<title>Carga CSV</title>
+</head>
+{% endblock %}
+{% block content %}
+<body>
+	<div class="container-fluid">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="text-center">{% trans 'Load properties via CSV' %}</h2>
+				<h4 class="text-center">{{condominio.user.get_full_name|title}}</h4>
+			</div>
+			<div class="panel-body">
+				{% if success %}
+					<div class="text-center">
+						<i class="fa fa-check fa-5x"></i><span id="successMsg">{% trans 'Properties successfully uploaded' %}</span>
+					</div>
+				{% endif %}
+				<form method="post" action="." id="upLoadForm" enctype='multipart/form-data'>{% csrf_token %}
+
+				{% if guardar == True %}
+					<input type="hidden" name="post_type" value="guardar" style="visibility: none;">
+				{% else %}
+					<input type="hidden" name="post_type" value="verify" style="visibility: none;">
+				{% endif %}
+					
+				<h5>{{instructions}}</h5>
+
+				{% for field in form %}
+				    {% if field.errors %}
+				    	<p>{{ field.label }}-{{ field.errors }}</p>
+				    {% endif %}
+				{% endfor %}			
+
+	
+				
+					<div class="form-group load-button">
+						<div class="input-group">
+
+							<input type="text" name="filename" placeholder="Archivo" id="fileName" class="form-control" value="{{form.csv_file.value|default_if_none:''}}" disabled>
+							<div class="input-group-addon" onclick="clickFile()">
+								<i class="fa fa-file"></i>
+								{% trans 'Select file' %}
+							</div>
+						</div>
+
+						<!-- <button class="btn btn-primary" type="button" onclick="clickFile()"></button> -->
+					</div>
+
+					<input type="file" id="file1" value="{{form.csv_file.value|default_if_none:''}}" onchange="selectedFile(event)" name="csv_file" style="display:none">
+					<hr>
+			</div>
+			<div class="panel-footer">
+				<a href="{{ejemploCSV}}" type="button" class="btn btn-info">{% trans 'Download sample' %}</a>
+				<a href="/admin/condominioaldia_app/condominio/"><button class="btn btn-primary" type="button">{% trans 'Back' %}</button></a>
+				{% if guardar == True %}
+					<input type="submit" name="" class="btn btn-success pull-right" value="Guardar">
+				{% else %}
+					<input type="submit" name="" class="btn btn-success pull-right" value="Verificar">
+				{% endif %}
+				
+			</div>
+		</div>
+</form>
+
+	{% if messages %}
+		<div class="span12" style="margin-top: 20px;">
+		{% for message in messages %}
+		    <div class="alert alert-{{ message.tags }}">
+		        {{ message|safe }}
+		    </div>
+		{% endfor %}
+	</div>
+	{% endif %}
+
+		<hr>
+		
+		<div>
+			{% if table_list|length > 0 %}
+				{% if error_counter > 0 %}
+					<h3 class="text-center">
+					{% blocktrans %}You have {{ error_counter }} errors.{% endblocktrans %}
+					</h3>
+				{% endif %}
+			
+	        <table class="table table-condensed table-bordered" id ="condoinmuebletable">
+	           
+	          <thead>
+	            <tr>
+	            	<th class="text-center">{% trans 'E-mail' %}></th>
+	            	<th class="text-center">{% trans 'Names' %}</th>
+	            	<th class="text-center">{% trans 'Last name(s)' %}</th>
+	              	<th class="text-center">{% trans 'Property' %}</th>
+	              	<th class="text-center">{% trans 'Rented' %}</th>
+	              	<th class="text-center">{% trans 'Tenant' %}</th>
+	              	<th class="text-center">{% trans 'Board memer' %}</th>
+	              	<th class="text-center">{% trans 'Position' %}</th>
+	              	<th class="text-center">{% trans 'Fiscal number' %}</th>
+	              	<th class="text-center">{% trans 'Aliquot' %}</th>
+	              	<th class="text-center">{% trans 'Initial Balance' %}</th>
+	            </tr>
+	            <tr style="background-color:#F4F3F2;">
+	              <th class="text-center"><span class="badge">{{ table_list|length }} {% trans 'properties' %}</span></th>
+	              <th class="text-center">-</th>
+	              <th class="text-center">-</th>
+	              <th class="text-center">-</th>
+	              <th class="text-center">
+	              	{{ table_list|count_bool_queryset:'arrendado' }}/{{ table_list|length }}
+	              </th>
+	              <th class="text-center">-</th>
+	              <th class="text-center">
+	              	{{ table_list|count_bool_queryset:'junta_de_condominio' }}/{{ table_list|length }}
+	              </th>
+	              <th class="text-center">-</th>
+	              <th class="text-center">-</th>
+	              <th class="text-center">{{ table_list|sum_key:'alicuota'|intcomma:4 }} %</th>
+	              <th class="text-center">{{moneda}} {{ table_list|sum_key:'balanceinicial'|intcomma:4 }}</th>
+	            </tr>           
+	          </thead>
+	            <tbody>
+
+
+	              <!-- <tr ng-class="{ 'bg-danger' : inmueble.balanceinicial< 0, 'bg-success' : inmueble.balanceinicial >= 0}" class='inmueble' ng-repeat="inmueble in listaInmuebles| orderBy : 'nombre_inmueble'|customFilterInmueble:filter1:categories|filter:search|filter: (!disableFilter1 || '') && list_filter(filter1) as inmuebles"> -->
+	              {% for row in table_list %}
+		              {% if row.error_in_row == True %}
+		              <tr class="danger">
+		              	<td class="text-center">{{row.email}}</td>
+		              	<td colspan="10" class="text-center">{{row.error_message}}</td>
+		              </tr>
+		              
+		              {% else %}
+					<tr>
+						<td class="text-center">{{row.email}}</td>
+						<td class="text-center">{{row.first_name}}</td>
+						<td class="text-center">{{row.last_name}}</td>
+		                <td class="text-center">{{row.nombre_inmueble}}</td>
+
+						<td class="text-center">
+							{% if row.arrendado == True %}
+								<i class="fa fa-check fa-2x"></i>
+							{% else %}
+								<i class="fa fa-times fa-2x"></i>
+							{% endif %}
+						</td>
+						<td class="text-center">{{row.arrendatario}}</td>
+						<td class="text-center">
+							{% if row.junta_de_condominio == True %}
+								<i class="fa fa-check fa-2x"></i>
+							{% else %}
+								<i class="fa fa-times fa-2x"></i>
+							{% endif %}
+						</td>
+		                <td class="text-center">{{row.cargo}}</td>
+		                <td class="text-center">{{row.rif}}</td>
+		                <td class="text-center">{{row.alicuota}} %</td>
+		                <td class="text-center">{{moneda}} {{row.balanceinicial|intcomma:2}}</td>
+		           	</tr>
+		              {% endif %}
+	              {% endfor %}
+	            </tbody>
+	        </table> 
+        	{% endif %}		
+		</div>
+
+
+
+	</div>
+<script type="text/javascript">
+	function clickFile(){
+		document.getElementById('file1').click();
+
+	}
+	function selectedFile(event){
+		console.log(event)
+		var file_name  =  document.getElementById('file1').files[0].name
+		if(file_name.split('.')[1] == 'csv'){
+			document.getElementById('fileName').value =file_name;
+		}else{
+			alert('Solo se acepta archivo con extension txt ( *.csv  )')
+		}
+		
+	}
+
+
+
+</script>
+</body>
+{% endblock %}

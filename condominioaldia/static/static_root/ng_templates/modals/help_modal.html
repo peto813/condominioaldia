@@ -1,0 +1,32 @@
+<head>
+	<style type="text/css">
+		.help_content button{
+			margin:0 auto;
+			display:block;
+		}
+		.modal-footer label{
+			padding-top: 5px;
+			margin-left: 5px;
+		}
+	</style>
+</head>
+<form ng-submit="accept()" name="tipsForm" novalidate>
+	<div class="modal-header">
+		<h3 class="text-center">Menu de ayuda</h3>
+	</div>
+	<div class="modal-body help_content">
+		<p>
+			Puede presionar la tecla <b>F1</b> en cualquier momento para ver el menu de ayuda en cada pantalla o buscar el siguiente boton en su pantalla:
+		</p>
+		<button type="button" class="btn btn-info btn-lg">
+			<i class="fa fa-question"></i>
+		</button>
+
+		
+	</div>
+	<div class="modal-footer">
+		<input class="pull-left" type="checkbox" style="padding-bottom: 10px;" name="dontShow" ng-model="dontShow">
+		<label class="pull-left">No mostrar mas</label>
+		<button type="submit" class="btn btn-primary">Aceptar</button>
+	</div>
+</form>

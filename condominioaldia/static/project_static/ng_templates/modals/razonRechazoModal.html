@@ -1,0 +1,16 @@
+<form ng-submit="rechazarPago()" name="rechazoForm" novalidate>
+	<div class="modal-header">
+		<h3 class="text-center">Razon de rechazo</h3>
+	</div>
+	<div class="modal-body">
+		<label class="sr-only" for="razon_rechazo">Razon rechazo</label>
+		<textarea placeholder="¿Razon de rechazo?" id="razon_rechazo" class="form-control" name="razon_rechazo" ng-model="ingresoData.razon_rechazo" max ="250" required></textarea><br>
+		<label class="pull-right">Restan [[250-ingresoData.razon_rechazo.length]] caracteres</label><br>
+	</div>
+	<div class="modal-footer">
+		<input type="submit" value="Aceptar" class="btn btn-danger" ng-disabled="!rechazoForm.$valid">
+		<button type="button" class="btn btn-default" ng-click="cancel()">Cerrar</button>
+	</div>
+</form>
+
+

@@ -1,0 +1,215 @@
+<head>
+  <style type="text/css">
+    .fa-check{
+      color: green;
+    }
+    .well {
+      background: rgb(251,245,215)!important;
+    }
+
+
+    @media only screen and (max-width: 768px) {
+      input{
+        text-align: center;
+      }
+    }
+
+  </style>
+</head>
+<form ng-submit="crearResidente()" class="center-block" name = "formCondoInmueble" id="formCondoInmueble" novalidate>
+      <div  class="modal-header text-center">
+        <h3 ng-if="tipo=='agregar'" style="font-weight:bold;">Registro de Inmueble</h3>
+        <h3 ng-if="tipo=='modificar'" style="font-weight:bold;">Modificacion de Inmueble</h3>
+      </div>
+      <div class="modal-body">
+          <div class="well">
+          <ul class="fa-ul">
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              Balance inicial <b>negativo implica deuda</b>. De la misma forma, balance inicial <b>positivo implica saldo a favor.</b>
+            </li>
+            <li><i class="fa-li fa fa-check"></i>
+              Solo podra modificar los valores financieros de aquellos inmuebles que no se les ha generado relacion de gastos.
+            </li>
+          </ul>
+
+<!--             <p class="text-center">Balance inicial <b>negativo implica deuda</b>. De la misma forma, balance inicial <b>positivo implica saldo a favor.</b></p> -->
+          </div>
+            
+
+          <div class="form-group has-feedback" ng-class="{ 'has-success' : formCondoInmueble.email.$valid && (formCondoInmueble.email.$touched || formCondoInmueble.$submitted||formCondoInmueble.email.$dirty), 'has-error' : !formCondoInmueble.email.$valid && (formCondoInmueble.email.$touched || formCondoInmueble.$submitted||formCondoInmueble.email.$dirty) }">
+            <label for="email" class="sr-only"></label>
+            <input type="email" name="email" ng-model="residenteForm.email" placeholder="Correo Electronico" class="form-control" id="email" ng-blur="checkInquilino()">
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : formCondoInmueble.email.$valid && (formCondoInmueble.email.$dirty||formCondoInmueble.email.$touched), 'glyphicon-remove': (formCondoInmueble.email.$invalid && (formCondoInmueble.email.$dirty || formCondoInmueble.$submitted||formCondoInmueble.email.$touched )) }"  aria-hidden="true"></span>
+
+          <div class="validationDiv text-center">
+            <div ng-messages="formCondoInmueble.email.$error" style="color:maroon" role="alert">
+               <code ng-if="formCondoInmueble.email.$touched || formCondoInmueble.$submitted" ng-message="required">
+                <strong>Ingrese un correo electronico</strong>
+               </code>
+            </div>
+            <div ng-messages="formCondoInmueble.email.$error" style="color:maroon" role="alert">
+               <code ng-if="formCondoInmueble.email.$touched || formCondoInmueble.$submitted" ng-message="email">
+                <strong>Correo invalido</strong>
+               </code>
+            </div>
+            <div ng-messages="formCondoInmueble.email.$error" style="color:maroon" role="alert">
+               <code ng-if="formCondoInmueble.email.$touched || formCondoInmueble.$submitted" ng-message="correoNoDisponible">
+                <strong>Correo no esta disponible.</strong>
+               </code>
+            </div>
+          </div>
+          </div>
+
+
+          <div class="form-group has-feedback" ng-class="{ 'has-success' : formCondoInmueble.rif.$valid && (formCondoInmueble.rif.$touched || formCondoInmueble.$submitted||formCondoInmueble.rif.$dirty), 'has-error' : !formCondoInmueble.rif.$valid && (formCondoInmueble.rif.$touched || formCondoInmueble.$submitted||formCondoInmueble.rif.$dirty) }">
+            <label for="rif" class="sr-only"></label>
+            <input type="text" name="rif" ng-pattern="pattern" ng-model="residenteForm.rif" placeholder="Cedula/Id (opcional)" class="form-control" id="rif">
+            <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : formCondoInmueble.rif.$valid && (formCondoInmueble.rif.$dirty||formCondoInmueble.rif.$touched), 'glyphicon-remove': (formCondoInmueble.rif.$invalid && (formCondoInmueble.rif.$dirty || formCondoInmueble.$submitted||formCondoInmueble.rif.$touched )) }" aria-hidden="true"></span>
+            <div class="validationDiv text-center">
+              <div ng-messages="formCondoInmueble.rif.$error" style="color:maroon" role="alert">
+                 <code ng-if="formCondoInmueble.rif.$touched || formCondoInmueble.$submitted" ng-message="required">
+                  <strong>Ingrese el [[nombre_registro_fiscal||'Registro fiscal']]</strong>
+                 </code>
+              </div>
+              <div ng-messages="formCondoInmueble.rif.$error" style="color:maroon" role="alert">
+                 <code ng-if="(formCondoInmueble.rif.$touched || formCondoInmueble.$submitted)" ng-message="pattern">
+                  <strong>Ingrese de la siguiente manera [[rif_format||'Registro fiscal']]</strong>
+                 </code>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="form-group has-feedback" ng-class="{ 'has-success' : formCondoInmueble.first_name.$valid && (formCondoInmueble.first_name.$touched || formCondoInmueble.$submitted||formCondoInmueble.first_name.$dirty), 'has-error' : !formCondoInmueble.first_name.$valid && (formCondoInmueble.first_name.$touched || formCondoInmueble.$submitted||formCondoInmueble.first_name.$dirty) }">
+                <label for="first_name" class="sr-only"></label>
+                <input type="text" name="first_name" ng-disabled="residente_encontrado==true" ng-model="residenteForm.first_name" maxlength="30" placeholder="Nombre(s)" class="form-control" id="first_name" required>
+                <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : formCondoInmueble.first_name.$valid && (formCondoInmueble.first_name.$dirty||formCondoInmueble.first_name.$touched), 'glyphicon-remove': (formCondoInmueble.first_name.$invalid && (formCondoInmueble.first_name.$dirty || formCondoInmueble.$submitted||formCondoInmueble.first_name.$touched )) }" aria-hidden="true"></span>
+              </div>        
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <div class="form-group has-feedback" ng-class="{ 'has-success' : formCondoInmueble.last_name.$valid && (formCondoInmueble.last_name.$touched || formCondoInmueble.$submitted||formCondoInmueble.last_name.$dirty), 'has-error' : !formCondoInmueble.last_name.$valid && (formCondoInmueble.last_name.$touched || formCondoInmueble.$submitted||formCondoInmueble.last_name.$dirty) }">
+                <label for="last_name" class="sr-only"></label>
+                <input type="text" name="last_name" ng-disabled="residente_encontrado==true" ng-model="residenteForm.last_name" maxlength="30" placeholder="Apellido(s)" class="form-control" id="last_name" required>
+                <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : formCondoInmueble.last_name.$valid && (formCondoInmueble.last_name.$dirty||formCondoInmueble.last_name.$touched), 'glyphicon-remove': (formCondoInmueble.last_name.$invalid && (formCondoInmueble.last_name.$dirty || formCondoInmueble.$submitted||formCondoInmueble.last_name.$touched )) }" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-8">
+              <div class="form-group has-feedback" ng-class="{ 'has-success' : formCondoInmueble.balanceinicial.$valid && (formCondoInmueble.balanceinicial.$touched || formCondoInmueble.$submitted||formCondoInmueble.balanceinicial.$dirty), 'has-error' : !formCondoInmueble.balanceinicial.$valid && (formCondoInmueble.balanceinicial.$touched || formCondoInmueble.$submitted||formCondoInmueble.balanceinicial.$dirty) }">
+                <label for="balanceinicial" class="sr-only"></label>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    [[userData.detalles_usuario.pais.moneda]]
+                  </span><!--string-to-number ui-number-mask-->
+                  <input ui-number-mask ui-negative-number ng-disabled="may_modify_inmueble==false" type="text" name="balanceinicial" ng-model="residenteForm.balanceinicial" placeholder="Balance Inicial" class="form-control" id="balanceinicial" required>
+                </div>
+                
+                <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : formCondoInmueble.balanceinicial.$valid && (formCondoInmueble.balanceinicial.$dirty||formCondoInmueble.balanceinicial.$touched), 'glyphicon-remove': (formCondoInmueble.balanceinicial.$invalid && (formCondoInmueble.balanceinicial.$dirty || formCondoInmueble.$submitted||formCondoInmueble.balanceinicial.$touched )) }" aria-hidden="true"></span>
+              </div>              
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <div class="form-group has-feedback" ng-class="{ 'has-success' : formCondoInmueble.alicuota.$valid && (formCondoInmueble.alicuota.$touched || formCondoInmueble.$submitted||formCondoInmueble.alicuota.$dirty), 'has-error' : !formCondoInmueble.alicuota.$valid && (formCondoInmueble.alicuota.$touched || formCondoInmueble.$submitted||formCondoInmueble.alicuota.$dirty) }">
+                <label for="alicuota" class="sr-only"></label>
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    %
+                  </span>
+                  <input ui-number-mask=4 type="text" max="100" step=".0001" name="alicuota"  ng-model="residenteForm.alicuota" placeholder="Alicuota" class="form-control" id="alicuota" max-alicuota="total_inmuebles" required> <!--max-alicuota="total_inmuebles"-->
+                </div>
+                <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : formCondoInmueble.alicuota.$valid && (formCondoInmueble.alicuota.$dirty||formCondoInmueble.alicuota.$touched), 'glyphicon-remove': (formCondoInmueble.alicuota.$invalid && (formCondoInmueble.alicuota.$dirty || formCondoInmueble.$submitted||formCondoInmueble.alicuota.$touched )) }" aria-hidden="true"></span>
+                <div class="validationDiv text-center">
+                  <div ng-messages="formCondoInmueble.alicuota.$error" style="color:maroon" role="alert">
+                     <code ng-if="formCondoInmueble.alicuota.$touched || formCondoInmueble.$submitted" ng-message="required">
+                      <strong>Obligatorio</strong>
+                     </code>
+                  </div>
+
+                  <div ng-messages="formCondoInmueble.alicuota.$error" style="color:maroon" role="alert">
+                     <code ng-if="formCondoInmueble.alicuota.$touched || formCondoInmueble.$submitted" ng-message="maxAlicuota">
+                      <strong>Excede el maximo ([[100-total_inmuebles|number:2]]) </strong>
+                     </code>
+                  </div>
+                </div>          
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-12">
+              <div class="form-group has-feedback" ng-class="{ 'has-success' : formCondoInmueble.nombre_inmueble.$valid && (formCondoInmueble.nombre_inmueble.$touched || formCondoInmueble.$submitted||formCondoInmueble.nombre_inmueble.$dirty), 'has-error' : !formCondoInmueble.nombre_inmueble.$valid && (formCondoInmueble.nombre_inmueble.$touched || formCondoInmueble.$submitted||formCondoInmueble.nombre_inmueble.$dirty) }">
+                <label for="nombre_inmueble" class="sr-only"></label>
+    <!-- 
+                <input ng-if="tipo=='agregar'" type="text" name="nombre_inmueble" ng-model="residenteForm.nombre_inmueble" placeholder="Nombre del Inmueble" class="form-control" id="nombre_inmueble" black-list="listaInmuebles" required> -->
+                <!--ng-if="tipo=='modificar'"-->
+                <input type="text" name="nombre_inmueble" ng-model="residenteForm.nombre_inmueble" ng-disabled="may_modify_inmueble==false" placeholder="Nombre del Inmueble" black-list="listaInmuebles" exception ="exception" class="form-control" id="nombre_inmueble" required>
+
+                <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok' : formCondoInmueble.nombre_inmueble.$valid && (formCondoInmueble.nombre_inmueble.$dirty||formCondoInmueble.nombre_inmueble.$touched), 'glyphicon-remove': (formCondoInmueble.nombre_inmueble.$invalid && (formCondoInmueble.nombre_inmueble.$dirty || formCondoInmueble.$submitted||formCondoInmueble.nombre_inmueble.$touched )) }" aria-hidden="true"></span>
+                
+                <div class="validationDiv text-center">
+                  <div ng-messages="formCondoInmueble.nombre_inmueble.$error" style="color:maroon" role="alert">
+                     <code ng-if="formCondoInmueble.nombre_inmueble.$touched || formCondoInmueble.$submitted" ng-message="blackList">
+                      <strong>Este inmueble ya esta asignado a otro propietario</strong>
+                     </code>
+                  </div>
+                </div>
+              </div>       
+            </div>
+<!--             <div class="col-xs-12 col-sm-9">
+              <select class="form-control" ng-model=""></select>
+            </div> -->
+          </div>
+
+
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <div class="form-group has-feedback" ng-class="{ 'has-success' : formCondoInmueble.arrendatario.$valid && (formCondoInmueble.arrendatario.$touched || formCondoInmueble.$submitted||formCondoInmueble.arrendatario.$dirty), 'has-error' : !formCondoInmueble.arrendatario.$valid && (formCondoInmueble.arrendatario.$touched || formCondoInmueble.$submitted||formCondoInmueble.arrendatario.$dirty) }">
+      <label for="arrendado">¿Arrendado?</label>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <input ng-disabled="residenteForm.junta_de_condominio" type="checkbox" ng-change="resetField('arrendado','arrendatario')" ng-false-value="false" name="arrendado" id="arrendado" ng-model="residenteForm.arrendado">
+        </span>
+        <label class="sr-only" for="arrendatario">Arrendatario</label>
+        <input type="text" placeholder="Arrendatario" ng-model="residenteForm.arrendatario" name="arrendatario" id="arrendatario" class="form-control" ng-required="residenteForm.arrendado==true" ng-disabled="!residenteForm.arrendado||residenteForm.junta_de_condominio">
+      </div>
+        <div class="validationDiv text-center">
+          <div ng-messages="formCondoInmueble.arrendatario.$error" style="color:maroon" role="alert">
+             <code ng-if="formCondoInmueble.arrendatario.$touched || formCondoInmueble.$submitted" ng-message="required">
+              <strong>Este campo es requerido.</strong>
+             </code>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+    <div class="form-group has-feedback" ng-class="{ 'has-success' : formCondoInmueble.cargo.$valid && (formCondoInmueble.cargo.$touched || formCondoInmueble.$submitted||formCondoInmueble.cargo.$dirty), 'has-error' : !formCondoInmueble.cargo.$valid && (formCondoInmueble.cargo.$touched || formCondoInmueble.$submitted||formCondoInmueble.cargo.$dirty) }">
+      <label for="junta_de_condominio">¿Junta de condominio?</label>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <input ng-disabled="residenteForm.arrendado" type="checkbox" ng-change="resetField('junta_de_condominio','cargo')" ng-false-value="false" name="junta_de_condominio" id="junta_de_condominio" ng-model="residenteForm.junta_de_condominio">   
+        </span>
+        <label class="sr-only" for="cargo">Cargo</label>
+        <input type="text"  placeholder="Cargo" ng-model="residenteForm.cargo" name="cargo" id="cargo" class="form-control" ng-required="residenteForm.junta_de_condominio" ng-disabled="!residenteForm.junta_de_condominio||residenteForm.arrendado">
+      </div>
+        <div class="validationDiv text-center">
+          <div ng-messages="formCondoInmueble.cargo.$error" style="color:maroon" role="alert">
+             <code ng-if="formCondoInmueble.cargo.$touched || formCondoInmueble.$submitted" ng-message="required">
+              <strong>Este campo es requerido.</strong>
+             </code>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+      <div class="modal-footer">
+        <input ng-if="tipo=='agregar'" type="submit" id='agregaralista' value="Agregar" class="btn btn-success btn-block" ng-disabled="!formCondoInmueble.$valid||formCondoInmueble.$submitted">
+        <input ng-if="tipo=='modificar'" type="submit" id='agregaralista' value="Modificar" class="btn btn-success btn-block" ng-disabled="!formCondoInmueble.$valid||formCondoInmueble.$pristine">
+        <button type="button" class="btn btn-default btn-block" ng-click="cancel()">Cerrar</button>
+      </div>
+</form>

@@ -1,0 +1,1 @@
+{% load account %}{% load i18n %}{% blocktrans %} {{condominio_name}} has registered as an afilliate condo to your account! {% endblocktrans %}

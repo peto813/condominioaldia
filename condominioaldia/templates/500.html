@@ -1,0 +1,20 @@
+{% extends 'base_error.html' %}
+{% block css %}
+		<style type="text/css">
+			body{
+				background-color: white;
+				padding-top:70px;
+				font-family: "Times New Roman", Georgia, Serif;
+			}
+			p{
+				margin:0px;
+			}
+		</style>
+		<title>Server Error</title>
+{% endblock css %}
+{% block body %}
+
+	<p style="text-align: center;font-size: 180px;font-weight: bold;">500</p>
+	<p style="text-align: center;font-size: 40px;">Server Error</p>
+	<p style="text-align: center;font-size: 22px;margin-top: 20px;">The server encountered and internal error and was unable to complete your request. <a href="/">Go back</a></p>
+{% endblock body %}

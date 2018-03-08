@@ -1,0 +1,10 @@
+{% load account %}{% load i18n %}{% blocktrans %} 
+Dear {{recipient_name}},
+
+{{condominio_name}} is chargin you for : {{cobranza_subject}} in the amount of {{currency}} {{monto}}. To register a payment please login to your account at:
+
+{{site_url}}
+
+Thank you for using {{site_name}}!
+
+{% endblocktrans %}

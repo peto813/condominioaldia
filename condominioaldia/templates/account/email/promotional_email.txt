@@ -1,0 +1,34 @@
+{% load account %}{% load i18n %}{% blocktrans %}
+Welcome {{recipient_name}}!,
+
+We would like to extend our invitation for you to join us in our newest condominium management web application: 
+
+{{site_name}}
+
+Check out some of our key features!
+
+Condominiums:
+
+* Manage condominium finances.
+* Create polls.
+* Virtual bill board.
+* Bulk messaging.
+* Process automation.
+
+Owners:
+
+* Access to condominium financial history.
+* Online payments.
+* Manage all properties in one interface.
+* Mini blog.
+* Reduced corruption with condominium funds.
+
+Affiliates:
+
+* Earn money every month with our affiliate business plan.
+* Three different plans help you maximize your earnings.
+* Keep track of your earnings with our dedicated interface.
+
+Visit us today at : {{url}}
+
+{% endblocktrans %}

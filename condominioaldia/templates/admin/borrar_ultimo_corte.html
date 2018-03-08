@@ -1,0 +1,74 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load humanize %}
+{% load template_filters %}
+
+
+{% block extrastyle %}
+
+<head>
+	<link rel="stylesheet" type="text/css" href="/static/css/mainlib.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style type="text/css">
+		#successMsg{
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.panel.panel-default{
+			width:75%;
+			margin: 0 auto;
+			max-width: 650px;
+		}
+		.load-button{
+			cursor:pointer;
+		}
+
+		#sample{
+			margin-bottom:10px;
+		}
+		.fa-times{
+			color:red;
+		}
+		.fa-check{
+			color:green;
+		}
+	</style>
+	<title>{% trans 'Delete last cut' %}V</title>
+</head>
+{% endblock %}
+{% block content %}
+<body>
+	<div class="container-fluid">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="text-center">{% trans 'Are you sure you want to delete the last cut?' %}</h2>
+
+			</div>
+			<div class="panel-body">
+			<form action="/admin/confirmarborrarCorte/" method="post">{% csrf_token %}
+			    <div>
+			        <input type="hidden" name="condominio" value="my_action" />
+			        <input type="submit" value="Confirm" />
+			    </div>
+			</form>
+	</div>
+<script type="text/javascript">
+	function clickFile(){
+		document.getElementById('file1').click();
+
+	}
+	function selectedFile(event){
+		console.log(event)
+		var file_name  =  document.getElementById('file1').files[0].name
+		if(file_name.split('.')[1] == 'csv'){
+			document.getElementById('fileName').value =file_name;
+		}else{
+			alert('Solo se acepta archivo con extension txt ( *.csv  )')
+		}
+		
+	}
+</script>
+</body>
+{% endblock %}

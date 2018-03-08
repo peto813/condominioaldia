@@ -1,0 +1,175 @@
+
+<head>
+  <style type="text/css">
+      .arrendatario{
+        font-size: 12px;
+      }
+
+      .fa-cog .fa{
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+      .fa-ban{
+        color:red;
+      }
+      #pollsTable, #pollsTable th{
+        text-align: center;
+
+      }
+      caption{
+        font-weight: bold;
+      }
+      .fa-cog{
+        cursor: pointer;
+      }
+      .fa-check-circle-o{
+        font-size: 1.6em;
+        color:green;
+      }
+      input[type="text"],input[type="number"]{        
+        font-size: 14px;
+      }
+      .button-row{
+        margin-bottom: 10px;
+      }
+/*      #searchElement{
+        max-width: 190px;
+      }*/
+      .captionDiv{
+        margin:5px;
+      }
+
+      .table-responsive{
+        overflow-y: initial;
+      }
+
+      @media (max-width: 767px) {
+          .table-responsive .dropdown-menu {
+              position: static !important;
+          }
+
+      }
+      @media (min-width: 768px) {
+          .table-responsive {
+              overflow: visible;
+          }
+      }
+
+      .panel-body .form-group{
+        max-width: 300px;
+      }
+      #totalMonto{
+        background-color: gold;
+      }
+
+  </style>
+</head>
+<div class="main-content">
+      <div class="panel panel-default">
+      
+      <div class="panel-heading" style="height:inherit;">
+        <div class="row">
+        <h2 class="text-center" style="margin-left:15px;">Encuestas </h2>
+        <h4 class="text-center">( [[active_month|date:'MMMM yyyy'|capitalize]] )</h4>
+          </div><!--row-->
+      </div><!--panel-heading-->
+      
+
+      <div class="panel-body">
+        <div class="row button-row">
+           <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+              <button ng-if="userData.user_type == 'condominio'" title="Registrar encuesta" class="btn btn-success" ng-click="addPoll()" type="button">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </button>
+<!--               <button title="Refrescar lista" class="btn btn-info" ng-click="refresh()" type="button">
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+              </button> -->
+              <button ng-click="open1()" title="Buscar por mes" class="btn btn-info" type="button">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </button>  
+              <help-element></help-element>
+
+        <p class="input-group">
+          <input type="text" show-button-bar ="false" ng-change="queryDate()" uib-datepicker-popup="[[format]]" ng-model="dt" is-open="popup1.opened"  datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-show="false">
+        </p>
+
+          
+          </div>
+          <div class="col-xs-12 col-sm-5 col-md-4 col-lg-7">
+            <search list="polls" url ="[[url]]"></search>
+          </div>
+
+        </div>
+
+        <div class="table-responsive panel panel-default">
+
+        <table class="table table-condensed table-bordered" id ="pollsTable">
+           
+          <thead>
+            <tr>
+              <th>Acciones</th>
+              <th>Inicio</th>
+              <th>Restante</th>
+              <th>Titulo</th>
+
+            </tr>
+
+          </thead>
+            <tbody>
+              <tr ng-if="polls.length==0" class="warning">
+                <td colspan="4">
+                  No hay encuestas para este periodo.
+                </td>
+              </tr>
+              <tr ng-if="polls.length>0" ng-repeat="poll in polls">
+                <td>
+                  <span uib-dropdown on-toggle="toggled(open)">
+                    <span href id="simple-dropdown" uib-dropdown-toggle>
+                      <i title="acciones" class="fa fa-cog fa-2x" aria-hidden="true"></i>
+                    </span>
+                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                      <li>
+                        <a ng-click ="verDetalles(poll)" href>
+                        <i class="fa fa-search"></i>
+                          Ver detalles
+                        </a>
+                        <a ng-if="poll.cerrado ==false" ng-click ="aprobarEgreso(poll)" href
+                        >
+                        <i class="fa fa-pencil"></i>
+                          Modificar
+                        </a>
+                        <a ng-if="poll.has_voted==false&&userData.user_type == 'inquilino'" ng-click ="vote(poll)" href>
+                        <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
+                          Votar
+                        </a>
+                        <a ng-if="poll.has_voted==true&&userData.user_type == 'inquilino'" style="cursor:default;"  ng-disabled="poll.has_voted==true">
+                         <i class="fa fa-check-circle-o"></i> Ya voto 
+                        </a>
+                        <a ng-if="userData.user_type == 'condominio'&&!poll.ballot_close_timestamp" ng-click ="delPoll(poll)" href>
+                        <i class="fa fa-ban"></i>
+                          Eliminar
+                        </a><!--ng-if="poll.cerrado ==false"-->
+                      </li>
+                    </ul>
+                  </span>
+                </td>
+                <td>[[poll.start|date:'MMMM dd, yyyy'|capitalize]]</td>
+                <td>
+                  [[pollStatus(poll)]]
+                </td>
+                <td>[[poll.question|capitalize ]]</td>
+              </tr>
+            </tbody>
+        </table>       
+        </div>
+
+      </div><!--panel body-->
+    </div><!--panel-warning-->
+</div>
+  
+  
+
+
+
+
+

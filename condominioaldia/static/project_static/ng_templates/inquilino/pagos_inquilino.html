@@ -1,0 +1,112 @@
+<head>
+	<style type="text/css">
+
+      .table-responsive{
+        overflow-y: initial;
+      }
+
+	@media (max-width: 768px) {
+	    .table-responsive .dropdown-menu {
+	        position: static !important;
+	    }
+
+	}
+
+	@media (min-width: 768px) {
+	    .table-responsive {
+	        overflow: visible;
+	    }
+	}
+      .fa-cog{
+        cursor: pointer;
+      }
+	</style>
+</head>
+
+<div class="main-content">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="text-center">Pagos</h2>
+				<h4 class="text-center">[[active_month|date:'MMMM yyyy'|capitalize]]</h4>
+			</div>
+			<div class="panel-body">
+	        <div class="row button-row">
+
+	           <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+
+	              <button title="Registrar pago" class="btn btn-success" ng-click="agregarPagoModal()" type="button">
+	                <i class="fa fa-university" aria-hidden="true"></i>
+	              </button>
+<!-- 	              <button title="Refrescar lista" class="btn btn-info" ng-click="refresh()" type="button">
+	                <i class="fa fa-refresh" aria-hidden="true"></i>
+	              </button> -->
+	              <button ng-click="open1()" title="Buscar por mes" class="btn btn-info" type="button">
+	                <i class="fa fa-calendar" aria-hidden="true"></i>
+	              </button>  
+	            </div>
+
+	        <p class="input-group">
+	          <input type="text" show-button-bar ="false" ng-change="queryDate()" uib-datepicker-popup="[[format]]" ng-model="dt" is-open="popup1.opened" datepicker-popup="MM/yyyy"  datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-show="false">
+	        </p>
+
+	          
+	          </div>
+
+
+	        </div>
+	        	<div class="table-responsive">
+					<table class="table table-bordered table-condensed">
+						<thead>
+							<tr>
+								<th class="text-center">Acciones</th>
+								<th class="text-center">Asunto</th>
+								<th class="text-center">Fecha</th>
+								<th class="text-center">Tipo</th>
+								<th class="text-center">Estado</th>
+								<th class="text-center">Monto</th>
+							</tr>
+							<tr>
+								<th class="text-center">
+									<span class="badge">[[pagos.length]]</span>
+								</th>
+								<th class="text-center">-</th>
+								<th class="text-center">-</th>
+								<th class="text-center">-</th>
+								<th class="text-center">-</th>
+								<th class="text-center">
+									[[userData.detalles_usuario.pais.moneda]] [[pagos|sumKeys:'monto'|number:2]]
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="pago in pagos">
+								<td align="center">
+				                  <span uib-dropdown on-toggle="toggled(open)">
+				                    <span href id="simple-dropdown" uib-dropdown-toggle>
+				                      <i title="acciones" class="fa fa-cog fa-2x" aria-hidden="true"></i>
+				                    </span>
+				                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+				                      <li>
+				                        <a ng-click ="verIngreso(pago)" href>Ver detalles</a>
+
+				                      </li>
+				                    </ul>
+				                  </span>
+								</td>
+								<td align="center">
+									[[pago.cobranza_description|capitalize]]
+								</td>
+								<td align="center">[[pago.created|date:'medium']]</td>
+								
+								<td align="center">[[pago.tipo_de_pago|capitalize]]</td>
+								<td align="center">[[getEstado(pago)]]</td>
+								<td align="center">[[moneda]] [[pago.monto|number:'2']]</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+  </div>
+</div>
+
+

@@ -1,0 +1,60 @@
+[
+    { "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "alberto",
+            "password": "pbkdf2_sha256$36000$GKOMrhv8Tsxr$yCv1BKEI6hKxCJpF+voR98LbRqBvjAeiPXSaeNG0+2w=",
+            "is_superuser": true,
+            "is_staff": true,
+            "is_active": true,
+            "first_name": "Einstein",
+            "last_name": "Millan",
+            "email" : "peto813@gmail.com"
+        }
+    },
+    { "model": "condominioaldia_app.paises",
+        "pk": 1,
+        "fields": {
+            "nombre": "Venezuela",
+            "moneda": "Bs.",
+            "activo": true,
+            "nombre_registro_fiscal": "RIF",
+            "rif_regex": "^[JEGVjegv][0-9.,$;]+$",
+            "rif_placeholder": "RIF ( JXXXXXXXXXXX  )",
+            "rif_format": "J123456789",
+            "iva": 0.125
+        }
+    },
+    { "model": "condominioaldia_app.bancoscondominioaldia",
+        "pk": 1,
+        "fields": {
+            "pais": "Venezuela",
+            "titular": "Fractal Software, C.A.",
+            "nro_cuenta": "01340262142623025724",
+            "banco": "Banesco",
+            "informacion_adicional": "Cuenta Juridica de Venezuela,"
+        }
+    },
+    { "model": "condominioaldia_app.payment_method",
+        "pk": 1,
+        "fields": {
+            "nombre": "Deposito/Transferencia"
+        }
+    },
+    { "model": "condominioaldia_app.payment_method_detail",
+        "pk": 1,
+        "fields": {
+            "activo": true,
+            "metodo_pago":1,
+            "pais":"Venezuela"
+        }
+    },
+    { "model": "condominioaldia_app.talonario",
+        "pk": 1,
+        "fields": {
+            "pais": "Venezuela",
+            "nro_control_desde": 1,
+            "nro_control_hasta":100
+        }
+    }
+]

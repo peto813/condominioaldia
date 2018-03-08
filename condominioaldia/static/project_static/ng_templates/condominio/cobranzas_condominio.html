@@ -1,0 +1,166 @@
+
+<head>
+  <style type="text/css">
+      .fa-cog .fa{
+        font-size: 1.5em;
+      }
+
+      input[name="search"]{        
+        border-radius: 15px;
+        border-right:none;
+      }
+      .fa-ban{
+        color:white;
+        font-weight: bold;
+      }
+
+      .arrendatario{
+        font-size: 12px;
+      }
+      #alertModal{
+        text-align: center;
+        font-size: 14px;
+      }
+      #egresosTable, #egresosTable th{
+        text-align: center;
+
+      }
+      caption{
+        font-weight: bold;
+      }
+      .fa-cog{
+        cursor: pointer;
+      }
+      input[type="text"],input[type="number"]{        
+        font-size: 14px;
+      }
+      .button-row{
+        margin-bottom: 10px;
+      }
+
+      .captionDiv{
+        margin:5px;
+      }
+
+      .table-responsive{
+        overflow-y: initial;
+      }
+
+      @media (max-width: 767px) {
+          .table-responsive .dropdown-menu {
+              position: static !important;
+          }
+
+      }
+      @media (min-width: 768px) {
+          .table-responsive {
+              overflow: visible;
+          }
+      }
+      @media (max-width: 768px) {
+        #searchForm{
+          margin-bottom: 10px;
+        }
+
+      }
+      .panel-body .form-group{
+        max-width: 300px;
+      }
+      #totalMonto{
+        background-color: rgb(255,240,89);
+      }
+
+  </style>
+</head>
+<div class="main-content">
+      <div class="panel panel-default">
+      
+      <div class="panel-heading">
+        <h2 class="text-center">Cobranzas</h2>
+        <h4 class="text-center">( [[active_month|date:'MMMM yyyy':'UTC'|capitalize]] )</h4>
+      </div><!--panel-heading-->
+      
+
+      <div class="panel-body">
+        <div class="row button-row">
+           <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+              <button  ng-if="userData.user_type == 'condominio'" title="Registrar Cobranza" class="btn btn-success" ng-click="agregarCobranza()" type="button">
+                <i class="fa fa-share-square-o" aria-hidden="true"></i>
+              </button>
+              <button  title="Cancelar (Debe seleccionar al menos uno" ng-disabled="any_checked()" class="btn btn-danger" ng-click="cancelar()" type="button">
+                <i class="fa fa-ban"  aria-hidden="true"></i>
+              </button>
+              <button ng-click="open1()" title="Buscar por mes" class="btn btn-info" type="button">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </button>  
+              <help-element></help-element>
+
+        <p class="input-group">
+          <input type="text" show-button-bar ="false" ng-change="queryDate()" uib-datepicker-popup="[[format]]" ng-model="dt" is-open="popup1.opened"  datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-show="false">
+        </p>
+
+          
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-3">
+              <div class="input-group" id="searchElement">
+                <input type="text" name="search" id="search" placeholder="Buscar" class="form-control" ng-model="searchData.search">     
+                <span class="input-group-addon" style="border-radius: 0 15px 15px 0;background: transparent;"><i class="fa fa-search" aria-hidden="true"></i></span>
+              </div>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-md-2">
+          <select class="form-control" ng-model="searchData.list_filter">
+            <option value="">Todos</option>
+            <option value="retrasados">Retrasados</option>
+            <option value="relacion">Cobrar prox. corte</option>
+            <option value="inmediato">Cobrar inmediatamente</option>
+            <option value="una">Una vez</option>
+            <option value="mensual">Mensual</option>
+            <option ng-repeat="category in categories">[[category.name]]</option>
+          </select>
+
+          </div>
+        </div>
+
+        <div class="table-responsive panel panel-default">
+
+        <table class="table table-condensed table-bordered" id ="egresosTable">
+           
+          <thead>
+            <tr>
+            	<th>-</th>
+<!--             	<th>Accion</th>
+ -->            <th>Asunto</th>
+              	<th>Destinatarios</th>
+              	<th>Monto/%</th>
+                <th>Cobrar</th>
+                <th>Recurrencia</th>
+<!--               	<th>Creado</th>
+              	<th>Estado</th> -->
+            </tr>
+          </thead>
+            <tbody><!--ng-class="{'danger':cobranza.pagado!=true, 'success':cobranza.pagado==true}"-->
+              <tr ng-repeat="cobranza in cobranzas_data|cobranzaCustomFilter:searchData.search|cobranzaCustomListFilter:searchData.list_filter|orderBy:'-created'">
+                <td><input type="checkbox" ng-if="cobranza.editable==true" ng-disabled="cobranza.pagado==true" ng-model="cobranza.checked"></td>
+                <td>[[cobranza.asunto|capitalize]]</td>
+                <!-- <td>[[getRecipients(cobranza)]]</td> -->
+                <td>[[cobranza.recipiente|capfirstlettereachword]]</td>
+                <td>[[getCobranzaMonto(cobranza)]]</td>
+                <td>[[getChargeType(cobranza)|capitalize]]</td>
+                <td>[[getRecurrence(cobranza)]]</td>
+<!--                 <td>[[cobranza.created|date:'short']]</td>
+                <td>[[cobranza.estado|capitalize]]</td> -->
+              </tr>
+            </tbody>
+        </table>       
+        </div>
+
+      </div><!--panel body-->
+    </div><!--panel-warning-->
+</div>
+  
+  
+
+
+
+
+

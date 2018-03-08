@@ -1,0 +1,2528 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-29 19:40-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: condominioaldia/settings/base.py:163 condominioaldia/settings/local.py:161
+#: condominioaldia/settings/production.py:166
+#: condominioaldia/settings_old.py:163
+msgid "English"
+msgstr "Inglés"
+
+#: condominioaldia/settings/base.py:164 condominioaldia/settings/local.py:162
+#: condominioaldia/settings/production.py:167
+#: condominioaldia/settings_old.py:164
+msgid "Portuguese"
+msgstr "Portugués"
+
+#: condominioaldia/settings/base.py:165 condominioaldia/settings/local.py:163
+#: condominioaldia/settings/production.py:168
+#: condominioaldia/settings_old.py:165
+msgid "Italian"
+msgstr "Italiano"
+
+#: condominioaldia/settings/base.py:166 condominioaldia/settings/local.py:164
+#: condominioaldia/settings/production.py:169
+#: condominioaldia/settings_old.py:166
+msgid "French"
+msgstr "Francés"
+
+#: condominioaldia/settings/base.py:167 condominioaldia/settings/local.py:165
+#: condominioaldia/settings/production.py:170
+#: condominioaldia/settings_old.py:167
+msgid "Spanish"
+msgstr "Español"
+
+#: condominioaldia_app/admin.py:35
+msgid "Control Panel"
+msgstr "Panel de control"
+
+#: condominioaldia_app/admin.py:55 condominioaldia_app/models.py:260
+#: condominioaldia_app/models.py:303 condominioaldia_app/models.py:351
+#: condominioaldia_app/models.py:700
+msgid "condominium"
+msgstr "condominio"
+
+#: condominioaldia_app/admin.py:57 condominioaldia_app/models.py:194
+msgid "owner"
+msgstr "propietario"
+
+#: condominioaldia_app/admin.py:59 condominioaldia_app/models.py:917
+msgid "affiliate"
+msgstr "afiliado"
+
+#: condominioaldia_app/admin.py:61
+msgid "Staff"
+msgstr "Administrador"
+
+#: condominioaldia_app/admin.py:63
+msgid "user type"
+msgstr "tipo de usuario"
+
+#: condominioaldia_app/admin.py:70
+msgid "Resend confirmation E-mail"
+msgstr "Reenviar correo de confirmación"
+
+#: condominioaldia_app/admin.py:127
+msgid "Oops your affiliate account was not approved"
+msgstr "Oops su condominio no fue aprobado"
+
+#: condominioaldia_app/admin.py:128 condominioaldia_app/admin.py:485
+msgid "Dear "
+msgstr "Estimado(a) "
+
+#: condominioaldia_app/admin.py:177
+msgid "Condo has payed"
+msgstr "El Condominio ha pagado"
+
+#: condominioaldia_app/admin.py:224
+msgid "Condo payment was not modified due to no modifications."
+msgstr ""
+"El pago del condominio no fue modificado debido a que no hizo modificaciones."
+
+#: condominioaldia_app/admin.py:357
+msgid "Owner"
+msgstr "Propietario"
+
+#: condominioaldia_app/admin.py:400
+msgid "Delete last cut."
+msgstr "Borrar ultimo corte"
+
+#: condominioaldia_app/admin.py:404
+msgid "Select a single condominium for CSV uploads."
+msgstr "Seleccione un solo condominio para cargas CSV."
+
+#: condominioaldia_app/admin.py:408
+msgid "Upload properties via CSV"
+msgstr "Cargar inmuebles via CSV"
+
+#: condominioaldia_app/admin.py:484
+msgid "Oops your condominium was not approved"
+msgstr "Oops su condominio no fue aprobado"
+
+#: condominioaldia_app/bills.py:32 condominioaldia_app/bills.py:127
+#: condominioaldia_app/bills.py:205
+msgid "Must provide a month"
+msgstr "Debe proporcionar un mes."
+
+#: condominioaldia_app/bills.py:137 condominioaldia_app/bills.py:214
+msgid "Could not find corresponding condominium bill."
+msgstr "No se pudo encontrar la factura de condominio correspondiente."
+
+#: condominioaldia_app/bills.py:169 condominioaldia_app/bills.py:282
+msgid "Permission denied"
+msgstr "Permiso denegado"
+
+#: condominioaldia_app/bills.py:174 condominioaldia_app/bills.py:285
+msgid "Bill does not exist"
+msgstr "Factura no existe"
+
+#: condominioaldia_app/bills.py:322
+#, python-format
+msgid "%s bill"
+msgstr "factura de %s"
+
+#: condominioaldia_app/forms.py:121 condominioaldia_app/forms.py:200
+#: condominioaldia_app/forms.py:202
+msgid "This field is required."
+msgstr "Este campo es requerido."
+
+#: condominioaldia_app/forms.py:129 condominioaldia_app/forms.py:151
+msgid "Setting payed to true requires payment proof."
+msgstr "Aprobacion del pago requiere el comprobante de pago."
+
+#: condominioaldia_app/forms.py:144
+msgid "You need to accept or reject this payment."
+msgstr "Debe aceptar o rechazar este pago."
+
+#: condominioaldia_app/forms.py:147
+msgid "You need to provide a reason for rejection."
+msgstr "Debe proporcionar una razon de rechazo."
+
+#: condominioaldia_app/forms.py:166
+msgid "End control number must be greater than begin control number."
+msgstr ""
+"El número de control final debe ser mayor que el número de control inicial."
+
+#: condominioaldia_app/forms.py:170 condominioaldia_app/forms.py:173
+msgid "Another bill book already contains bills in this range."
+msgstr "Otro libro de facturas ya contiene facturas en este rango."
+
+#: condominioaldia_app/forms.py:187
+msgid "You must provide the cause of rejection."
+msgstr "Debe proporcionar la causa del rechazo."
+
+#: condominioaldia_app/forms.py:191 condominioaldia_app/models.py:247
+#: condominioaldia_app/models.py:265 templates/upload_inmuebles_csv.html:126
+msgid "E-mail"
+msgstr "Correo electronico"
+
+#: condominioaldia_app/forms.py:193 condominioaldia_app/models.py:262
+#: condominioaldia_app/models.py:530
+msgid "Name"
+msgstr "Nombre"
+
+#: condominioaldia_app/forms.py:205
+msgid "Please select a file."
+msgstr "Seleccione un archivo"
+
+#: condominioaldia_app/forms.py:223
+msgid "Condominiun does not exist."
+msgstr "Condominio no existe"
+
+#: condominioaldia_app/forms.py:233
+msgid "Wrong format type"
+msgstr "Tipo de archivo invalido."
+
+#: condominioaldia_app/forms.py:245
+msgid "Property percentages in file can not add over 100%."
+msgstr "Los porcentajes no pueden sumar mas de 100"
+
+#: condominioaldia_app/middleware.py:39
+msgid "Please register receipt book(s)."
+msgstr "Por favor registre un talonario de factura(s)."
+
+#: condominioaldia_app/models.py:87
+msgid "This email already exists."
+msgstr "Ya existe este correo electrónico."
+
+#: condominioaldia_app/models.py:99 condominioaldia_app/models.py:823
+msgid "user"
+msgstr "usuario"
+
+#: condominioaldia_app/models.py:102 condominioaldia_app/models.py:173
+#: condominioaldia_app/models.py:820 templates/upload_inmuebles_csv.html:134
+msgid "Fiscal number"
+msgstr "Numero fiscal"
+
+#: condominioaldia_app/models.py:103 condominioaldia_app/models.py:288
+#: condominioaldia_app/models.py:338
+msgid "country"
+msgstr "país"
+
+#: condominioaldia_app/models.py:104
+msgid "state"
+msgstr "estado"
+
+#: condominioaldia_app/models.py:105
+msgid "municipality"
+msgstr "municipio"
+
+#: condominioaldia_app/models.py:106
+msgid "parish"
+msgstr "parroquia"
+
+#: condominioaldia_app/models.py:107
+msgid "address"
+msgstr "dirección"
+
+#: condominioaldia_app/models.py:108 condominioaldia_app/models.py:248
+#: condominioaldia_app/models.py:827
+msgid "phone 1"
+msgstr "telefono1 "
+
+#: condominioaldia_app/models.py:109 condominioaldia_app/models.py:249
+#: condominioaldia_app/models.py:828
+msgid "phone 2"
+msgstr "telefono 2"
+
+#: condominioaldia_app/models.py:110 condominioaldia_app/models.py:376
+#: condominioaldia_app/models.py:822
+msgid "Approved"
+msgstr "Aprobado"
+
+#: condominioaldia_app/models.py:111 condominioaldia_app/models.py:829
+msgid "Approval date"
+msgstr "Fecha de aprobacion"
+
+#: condominioaldia_app/models.py:112 condominioaldia_app/models.py:826
+#: condominioaldia_app/models.py:939
+msgid "You must select a file"
+msgstr "Debe seleccionar un archivo"
+
+#: condominioaldia_app/models.py:112 condominioaldia_app/models.py:826
+msgid "fiscal number image"
+msgstr "imagen de numero fiscal"
+
+#: condominioaldia_app/models.py:114 condominioaldia_app/models.py:824
+msgid "Terms"
+msgstr "Términos"
+
+#: condominioaldia_app/models.py:115
+#, python-format
+msgid "Condominiums will be deactivated when percentage falls below %s"
+msgstr ""
+"Los condominios se desactivaran cuando el porcentaje caiga por debajo de %s"
+
+#: condominioaldia_app/models.py:116 condominioaldia_app/models.py:830
+msgid "Rejection cause"
+msgstr "Causa de rechazo"
+
+#: condominioaldia_app/models.py:117
+msgid "service charge"
+msgstr "cargo por servicio"
+
+#: condominioaldia_app/models.py:172
+msgid "User"
+msgstr "Usuario"
+
+#: condominioaldia_app/models.py:174
+msgid "Phone 1"
+msgstr "Telefono 1"
+
+#: condominioaldia_app/models.py:175
+msgid "Phone 2"
+msgstr "Telefono 2"
+
+#: condominioaldia_app/models.py:187
+msgid "percentage representation"
+msgstr "porcentaje de representación"
+
+#: condominioaldia_app/models.py:188
+msgid "leased"
+msgstr "arrendado"
+
+#: condominioaldia_app/models.py:189 condominioaldia_app/models.py:388
+#: templates/upload_inmuebles_csv.html:131
+msgid "Tenant"
+msgstr "Arrendatario"
+
+#: condominioaldia_app/models.py:190
+msgid "initial balance"
+msgstr "balance inicial"
+
+#: condominioaldia_app/models.py:191
+msgid "board position"
+msgstr "cargo en la junta"
+
+#: condominioaldia_app/models.py:192
+msgid "Condominium"
+msgstr "Condominioo"
+
+#: condominioaldia_app/models.py:193
+msgid "current debt"
+msgstr "deuda actual"
+
+#: condominioaldia_app/models.py:195
+msgid "Property name"
+msgstr "Nombre del inmueble"
+
+#: condominioaldia_app/models.py:196
+msgid "board member"
+msgstr "miembro de la junta"
+
+#: condominioaldia_app/models.py:198 condominioaldia_app/models.py:354
+#: condominioaldia_app/models.py:531 condominioaldia_app/models.py:545
+#: condominioaldia_app/models.py:568 condominioaldia_app/models.py:678
+#: condominioaldia_app/models.py:769
+msgid "Created"
+msgstr "Creado"
+
+#: condominioaldia_app/models.py:215
+msgid "No owner assigned"
+msgstr "Sin propietario"
+
+#: condominioaldia_app/models.py:233
+msgid "country name"
+msgstr "nombre del país"
+
+#: condominioaldia_app/models.py:234
+msgid "Currency"
+msgstr "Moneda"
+
+#: condominioaldia_app/models.py:235
+msgid "Active"
+msgstr "Activo"
+
+#: condominioaldia_app/models.py:236
+msgid "Fiscal number acronym"
+msgstr "Siglas de numero fiscal"
+
+#: condominioaldia_app/models.py:237
+msgid "fiscal number rexex"
+msgstr "regex de numero fiscal"
+
+#: condominioaldia_app/models.py:238
+msgid "placeholder text"
+msgstr "texto de placeholder"
+
+#: condominioaldia_app/models.py:239
+msgid "Fiscal number format"
+msgstr "Formato de numero fiscal"
+
+#: condominioaldia_app/models.py:240 condominioaldia_app/models.py:664
+msgid "sales tax"
+msgstr "impuesto de venta"
+
+#: condominioaldia_app/models.py:241
+msgid "company name"
+msgstr "nombre de la empresa"
+
+#: condominioaldia_app/models.py:242
+msgid "company fiscal number"
+msgstr "numero fiscal de la empresa"
+
+#: condominioaldia_app/models.py:243
+msgid "company address"
+msgstr "dirección de la empresa"
+
+#: condominioaldia_app/models.py:244
+msgid "company state"
+msgstr "estado"
+
+#: condominioaldia_app/models.py:245
+msgid "company city"
+msgstr "ciudad de la empresa"
+
+#: condominioaldia_app/models.py:246
+msgid "zip code"
+msgstr "codigo zip"
+
+#: condominioaldia_app/models.py:252
+msgid "Country"
+msgstr "País"
+
+#: condominioaldia_app/models.py:253
+msgid "Countries"
+msgstr "Paises"
+
+#: condominioaldia_app/models.py:261
+msgid "Job title"
+msgstr "Oficio"
+
+#: condominioaldia_app/models.py:263
+msgid "Mobile"
+msgstr "Mobil"
+
+#: condominioaldia_app/models.py:264
+msgid "Office number"
+msgstr "Numero de oficina"
+
+#: condominioaldia_app/models.py:267
+msgid "Yellow page"
+msgstr "Página amarilla"
+
+#: condominioaldia_app/models.py:268
+msgid "Yellow pages"
+msgstr "Páginas amarillas"
+
+#: condominioaldia_app/models.py:276
+msgid "question"
+msgstr "pregunta"
+
+#: condominioaldia_app/models.py:277
+msgid "answer"
+msgstr "respuesta"
+
+#: condominioaldia_app/models.py:279
+msgid "Faq"
+msgstr "pregunta frecuente"
+
+#: condominioaldia_app/models.py:280
+msgid "Faq's"
+msgstr "preguntas frecuentes"
+
+#: condominioaldia_app/models.py:289 condominioaldia_app/models.py:698
+#: condominioaldia_app/models.py:787 condominioaldia_app/models.py:989
+#: condominioaldia_app/models.py:1002
+msgid "name"
+msgstr "nombre"
+
+#: condominioaldia_app/models.py:290
+msgid "bank_code"
+msgstr "codigo_banco"
+
+#: condominioaldia_app/models.py:291
+msgid "pre_fill_prefix"
+msgstr "prefijo_pre_llenado"
+
+#: condominioaldia_app/models.py:292
+msgid "swift"
+msgstr "swift"
+
+#: condominioaldia_app/models.py:293
+msgid "iban"
+msgstr "iban"
+
+#: condominioaldia_app/models.py:297
+msgid "Bank"
+msgstr "Banco"
+
+#: condominioaldia_app/models.py:298
+msgid "Banks"
+msgstr "Bancos"
+
+#: condominioaldia_app/models.py:304 condominioaldia_app/models.py:339
+#: condominioaldia_app/models.py:913
+msgid "account owner"
+msgstr "titular de la cuenta"
+
+#: condominioaldia_app/models.py:305 condominioaldia_app/models.py:340
+#: condominioaldia_app/models.py:914
+msgid "Acount number"
+msgstr "Numero de cuenta"
+
+#: condominioaldia_app/models.py:306 condominioaldia_app/models.py:341
+#: condominioaldia_app/models.py:757 condominioaldia_app/models.py:847
+#: condominioaldia_app/models.py:915
+msgid "bank"
+msgstr "banco"
+
+#: condominioaldia_app/models.py:308 condominioaldia_app/models.py:342
+#: condominioaldia_app/models.py:916
+msgid "aditional information"
+msgstr "información adicional"
+
+#: condominioaldia_app/models.py:309 condominioaldia_app/models.py:310
+msgid "balance"
+msgstr "balance"
+
+#: condominioaldia_app/models.py:311
+msgid "initial balance date"
+msgstr "fecha balance inicial"
+
+#: condominioaldia_app/models.py:312
+msgid "editable"
+msgstr "editable"
+
+#: condominioaldia_app/models.py:318
+msgid "Condominium bank account"
+msgstr "Cuenta bancaria del condominio"
+
+#: condominioaldia_app/models.py:319
+msgid "Condominium bank accounts"
+msgstr "Cuentas bancarias de los condominios"
+
+#: condominioaldia_app/models.py:346
+msgid "Condominioaldia account"
+msgstr "Cuenta Condominioaldia"
+
+#: condominioaldia_app/models.py:347
+msgid "Condominioaldia accounts"
+msgstr "Bancos de Condominioaldia"
+
+#: condominioaldia_app/models.py:352 condominioaldia_app/models.py:745
+#: condominioaldia_app/models.py:755
+msgid "title"
+msgstr "titulo"
+
+#: condominioaldia_app/models.py:353 condominioaldia_app/models.py:701
+msgid "description"
+msgstr "descripcion"
+
+#: condominioaldia_app/models.py:356
+msgid "Announcement"
+msgstr "Anuncio"
+
+#: condominioaldia_app/models.py:357
+msgid "Announcements"
+msgstr "Anuncios"
+
+#: condominioaldia_app/models.py:364
+msgid "Owner payment"
+msgstr "Pago de propietario"
+
+#: condominioaldia_app/models.py:365
+msgid "Normal income"
+msgstr "Ingreso normal"
+
+#: condominioaldia_app/models.py:366
+msgid "Refund"
+msgstr "Reembolso"
+
+#: condominioaldia_app/models.py:367
+msgid "Charges/Penalties"
+msgstr "Cargos/Multas"
+
+#: condominioaldia_app/models.py:368
+msgid "Interest"
+msgstr "interés"
+
+#: condominioaldia_app/models.py:375
+msgid "Not evaluated"
+msgstr "No ha sido evaluado"
+
+#: condominioaldia_app/models.py:377
+msgid "Rejected"
+msgstr "Rechazado"
+
+#: condominioaldia_app/models.py:384 templates/upload_inmuebles_csv.html:129
+msgid "Property"
+msgstr "Propiedad"
+
+#: condominioaldia_app/models.py:385
+msgid "Posted by"
+msgstr "Cargado por"
+
+#: condominioaldia_app/models.py:386 condominioaldia_app/models.py:396
+#: condominioaldia_app/models.py:576
+msgid "bill date"
+msgstr "fecha de facturación"
+
+#: condominioaldia_app/models.py:387
+msgid "Payment status"
+msgstr "Estado de pago"
+
+#: condominioaldia_app/models.py:389
+msgid "Credited bank"
+msgstr "Banco acreditado"
+
+#: condominioaldia_app/models.py:390
+msgid "This field states wheter the month is no longer editable"
+msgstr "Este campo dice si el mes ya no es editable"
+
+#: condominioaldia_app/models.py:390
+msgid "Period closed"
+msgstr "Periodo cerrado"
+
+#: condominioaldia_app/models.py:391
+msgid "Proof"
+msgstr "Prueba"
+
+#: condominioaldia_app/models.py:392 condominioaldia_app/models.py:507
+msgid "Payment date"
+msgstr "Fecha de pago"
+
+#: condominioaldia_app/models.py:393
+msgid "Credited account"
+msgstr "Cuenta acreditada"
+
+#: condominioaldia_app/models.py:394
+msgid "Details"
+msgstr "Detalles"
+
+#: condominioaldia_app/models.py:395
+msgid "Close date"
+msgstr "Fecha de cierra"
+
+#: condominioaldia_app/models.py:396 condominioaldia_app/models.py:512
+#: condominioaldia_app/models.py:572
+msgid "This represents the monthly period"
+msgstr "Esto representa el período mensual"
+
+#: condominioaldia_app/models.py:397 condominioaldia_app/models.py:487
+#: condominioaldia_app/models.py:501 condominioaldia_app/models.py:502
+#: condominioaldia_app/models.py:665 condominioaldia_app/models.py:746
+#: condominioaldia_app/models.py:756 condominioaldia_app/models.py:852
+#: condominioaldia_app/models.py:1021
+msgid "amount"
+msgstr "monto"
+
+#: condominioaldia_app/models.py:398
+msgid "Check Number"
+msgstr "Número de cheque"
+
+#: condominioaldia_app/models.py:399 condominioaldia_app/models.py:567
+msgid "Reference number"
+msgstr "Número de referencia"
+
+#: condominioaldia_app/models.py:400
+msgid "Payer name"
+msgstr "Nombre del pagador"
+
+#: condominioaldia_app/models.py:401
+msgid "Rejection reason"
+msgstr "Razon de rechazo"
+
+#: condominioaldia_app/models.py:402
+msgid "Payer fiscal number"
+msgstr "numero fiscal del pagador"
+
+#: condominioaldia_app/models.py:403
+msgid "Income type"
+msgstr "Tipo de ingreso"
+
+#: condominioaldia_app/models.py:408
+msgid "Condominium Income"
+msgstr "Ingreso de condominio"
+
+#: condominioaldia_app/models.py:409
+msgid "Condominium Incomes"
+msgstr "Ingresos de condominio"
+
+#: condominioaldia_app/models.py:469
+msgid "Image"
+msgstr "Imagen"
+
+#: condominioaldia_app/models.py:481
+msgid "payment"
+msgstr "pagos"
+
+#: condominioaldia_app/models.py:486
+msgid "Percentage of expenses"
+msgstr "porcentaje de egresos"
+
+#: condominioaldia_app/models.py:490
+msgid "one-time"
+msgstr "una vez"
+
+#: condominioaldia_app/models.py:491
+msgid "monthly"
+msgstr "mensual"
+
+#: condominioaldia_app/models.py:494
+msgid "charge-now"
+msgstr "cobrar ahora"
+
+#: condominioaldia_app/models.py:495
+msgid "show in next bill"
+msgstr "mostrar en proximo corte"
+
+#: condominioaldia_app/models.py:499 condominioaldia_app/models.py:548
+msgid "recipient"
+msgstr "destinatario"
+
+#: condominioaldia_app/models.py:509 condominioaldia_app/models.py:553
+msgid "subject"
+msgstr "asunto"
+
+#: condominioaldia_app/models.py:512
+msgid "cobranza date"
+msgstr "fecha de cobranza"
+
+#: condominioaldia_app/models.py:514
+msgid "Condominium payment order"
+msgstr "orden de pago de condominio"
+
+#: condominioaldia_app/models.py:515
+msgid "Condominium payment orders"
+msgstr "ordenes de pagos de condominios"
+
+#: condominioaldia_app/models.py:538
+msgid "Every property"
+msgstr "Todas las propiedades"
+
+#: condominioaldia_app/models.py:539
+msgid "Debt free propierties"
+msgstr "Propiedades sin deuda"
+
+#: condominioaldia_app/models.py:540
+msgid "Properties with debt"
+msgstr "Propiedades con deuda"
+
+#: condominioaldia_app/models.py:541
+msgid "Particular property"
+msgstr "Propiedad particular"
+
+#: condominioaldia_app/models.py:542
+msgid "Board members"
+msgstr "miembros de la junta"
+
+#: condominioaldia_app/models.py:543
+msgid "Exclude board members"
+msgstr "Excluir a los miembros de la junta"
+
+#: condominioaldia_app/models.py:547 condominioaldia_app/models.py:555
+msgid "message"
+msgstr "mensaje"
+
+#: condominioaldia_app/models.py:549
+msgid "recipient description"
+msgstr "Descripción del destinatario"
+
+#: condominioaldia_app/models.py:549
+msgid "Whom the message was intented for?"
+msgstr "¿A quién se dirigía el mensaje?"
+
+#: condominioaldia_app/models.py:550
+msgid "sender"
+msgstr "remitente"
+
+#: condominioaldia_app/models.py:556
+msgid "messages"
+msgstr "mensajes"
+
+#: condominioaldia_app/models.py:563
+msgid "All owners"
+msgstr "Todos los propietarios"
+
+#: condominioaldia_app/models.py:564
+msgid "Particular owners"
+msgstr "Propietarios particulares"
+
+#: condominioaldia_app/models.py:566
+msgid "debtors"
+msgstr "deudores"
+
+#: condominioaldia_app/models.py:572
+msgid "Bill date"
+msgstr "Fecha de facturación"
+
+#: condominioaldia_app/models.py:574
+msgid "closed"
+msgstr "cerrado"
+
+#: condominioaldia_app/models.py:575
+msgid "Cutoff date"
+msgstr "Fecha de corte"
+
+#: condominioaldia_app/models.py:577
+msgid "Invoice number"
+msgstr "Numero de factura"
+
+#: condominioaldia_app/models.py:578
+msgid "expense type"
+msgstr "tipo de gasto"
+
+#: condominioaldia_app/models.py:582
+msgid "Condominium expense"
+msgstr "Egreso de condominio"
+
+#: condominioaldia_app/models.py:583
+msgid "Condominium expenses"
+msgstr "Egresos de condomino"
+
+#: condominioaldia_app/models.py:656
+msgid "quantity"
+msgstr "cantidad"
+
+#: condominioaldia_app/models.py:657 condominioaldia_app/models.py:849
+#: condominioaldia_app/models.py:988 condominioaldia_app/models.py:1019
+msgid "created"
+msgstr "creado"
+
+#: condominioaldia_app/models.py:658
+msgid "control number"
+msgstr "número de control"
+
+#: condominioaldia_app/models.py:659 condominioaldia_app/models.py:676
+msgid "control number begin"
+msgstr "número de control comienza"
+
+#: condominioaldia_app/models.py:660 condominioaldia_app/models.py:677
+msgid "control number end"
+msgstr "número de control termina"
+
+#: condominioaldia_app/models.py:661
+msgid "fiscal number"
+msgstr "número fiscal"
+
+#: condominioaldia_app/models.py:662
+msgid "payer name"
+msgstr "nombre del pagador"
+
+#: condominioaldia_app/models.py:663
+msgid "sub-total"
+msgstr "sub-total"
+
+#: condominioaldia_app/models.py:668 condominioaldia_app/models.py:850
+msgid "bill"
+msgstr "factura"
+
+#: condominioaldia_app/models.py:669
+msgid "Bills"
+msgstr "Facturas"
+
+#: condominioaldia_app/models.py:681
+msgid "Receipt book"
+msgstr "Talonario de facturas"
+
+#: condominioaldia_app/models.py:682
+msgid "Receipt books"
+msgstr "Talonarios de facturas"
+
+#: condominioaldia_app/models.py:692
+msgid "condominium service fee"
+msgstr "cargo de servicio a condominio"
+
+#: condominioaldia_app/models.py:699
+msgid "checkbook bills"
+msgstr "talonario de facturas"
+
+#: condominioaldia_app/models.py:702 condominioaldia_app/models.py:719
+msgid "month"
+msgstr "mes"
+
+#: condominioaldia_app/models.py:703 condominioaldia_app/models.py:1022
+msgid "Payed by condominium"
+msgstr "Pagado por condominio"
+
+#: condominioaldia_app/models.py:705
+msgid "Determines if Condominium will be charged."
+msgstr "Determina si el condominio pagara."
+
+#: condominioaldia_app/models.py:707
+msgid "condominium invoice"
+msgstr "factura de condominio"
+
+#: condominioaldia_app/models.py:708
+msgid "condominium invoices"
+msgstr "facturas de condominio"
+
+#: condominioaldia_app/models.py:714
+msgid "previous balance"
+msgstr "deuda anterior"
+
+#: condominioaldia_app/models.py:715
+msgid "payments"
+msgstr "pagos"
+
+#: condominioaldia_app/models.py:718
+msgid "property"
+msgstr "propiedad"
+
+#: condominioaldia_app/models.py:721
+msgid "new balance"
+msgstr "balance nuevo"
+
+#: condominioaldia_app/models.py:722
+msgid "payment requests"
+msgstr "requerimientos de pago"
+
+#: condominioaldia_app/models.py:724
+msgid "owner invoice"
+msgstr "factura del propietario"
+
+#: condominioaldia_app/models.py:725
+msgid "owner invoices"
+msgstr "facturas del propietario"
+
+#: condominioaldia_app/models.py:744 condominioaldia_app/models.py:754
+msgid "receipt"
+msgstr "recibo"
+
+#: condominioaldia_app/models.py:750
+msgid "Extra Column"
+msgstr "Columna adicional"
+
+#: condominioaldia_app/models.py:751
+msgid "Extra Columns"
+msgstr "Columnas adicionales"
+
+#: condominioaldia_app/models.py:762
+msgid "Condo extra quote"
+msgstr "Columna extra de factura del condominio"
+
+#: condominioaldia_app/models.py:763
+msgid "Condo extra quotes"
+msgstr "Columnas extra de facturas del condominio"
+
+#: condominioaldia_app/models.py:768 condominioaldia_app/models.py:991
+msgid "active"
+msgstr "activo"
+
+#: condominioaldia_app/models.py:775
+msgid "Payment method for country"
+msgstr "Metodo de pago para país"
+
+#: condominioaldia_app/models.py:776
+msgid "Payment methods for country"
+msgstr "Metodos de pago para país"
+
+#: condominioaldia_app/models.py:781
+msgid "Deposit-Transfer"
+msgstr "Deposito-Transferencia"
+
+#: condominioaldia_app/models.py:782
+msgid "Credit Card"
+msgstr "Tarjeta de Crédito"
+
+#: condominioaldia_app/models.py:790
+msgid "Payment Method"
+msgstr "Metodo de pago"
+
+#: condominioaldia_app/models.py:791
+msgid "Payment Methods"
+msgstr "Metodos de pago"
+
+#: condominioaldia_app/models.py:813
+msgid "Blog Entry"
+msgstr "Entrada de Blog"
+
+#: condominioaldia_app/models.py:814
+msgid "Blog Entries"
+msgstr "Paises"
+
+#: condominioaldia_app/models.py:836
+msgid "Affiliate"
+msgstr "Afiliado"
+
+#: condominioaldia_app/models.py:837
+#: templates/account/email/promotional_email.html:73
+msgid "Affiliates"
+msgstr "Afiliados"
+
+#: condominioaldia_app/models.py:846
+msgid "approved"
+msgstr "aprobado"
+
+#: condominioaldia_app/models.py:848
+msgid "proof"
+msgstr "prueba"
+
+#: condominioaldia_app/models.py:851
+msgid "approval date"
+msgstr "fecha de aprobacion"
+
+#: condominioaldia_app/models.py:854
+msgid "rejection reason"
+msgstr "Razon de rechazo"
+
+#: condominioaldia_app/models.py:855
+msgid "payment method"
+msgstr "metodo de pago"
+
+#: condominioaldia_app/models.py:856
+msgid "last modified"
+msgstr "última modificación"
+
+#: condominioaldia_app/models.py:857
+msgid "expense"
+msgstr "gasto"
+
+#: condominioaldia_app/models.py:860 condominioaldia_app/models.py:889
+#: condominioaldia_app/models.py:1024
+msgid "condominium payment"
+msgstr "pago de condominio"
+
+#: condominioaldia_app/models.py:861
+msgid "condominium payments"
+msgstr "pagos de condominios"
+
+#: condominioaldia_app/models.py:897 condominioaldia_app/tests.py:146
+msgid "condominium payment of service fee"
+msgstr "pagos de condominios por servicio"
+
+#: condominioaldia_app/models.py:919
+msgid "Affiliate bank account"
+msgstr "Cuenta bancaria del afiliado"
+
+#: condominioaldia_app/models.py:920
+msgid "Affiliate bank accounts"
+msgstr "Cuentas bancarias de los afiliados"
+
+#: condominioaldia_app/models.py:924
+msgid "Awaiting payment from condominium"
+msgstr "Aguardando el pago del condominio"
+
+#: condominioaldia_app/models.py:925
+msgid "Preparing payment"
+msgstr "Preparando el pago"
+
+#: condominioaldia_app/models.py:926
+msgid "Payed"
+msgstr "Pagado"
+
+#: condominioaldia_app/models.py:934
+msgid "affiliate name"
+msgstr "nombre del afiliado"
+
+#: condominioaldia_app/models.py:936
+msgid "status"
+msgstr "estado"
+
+#: condominioaldia_app/models.py:938
+msgid "Affiliate payment issued"
+msgstr "Pago del afiliado emitido"
+
+#: condominioaldia_app/models.py:938
+msgid ""
+"This can be checked ONLY after the condominium has payeed the pertaining "
+"bill."
+msgstr ""
+"Esto puede comprobarse SOLAMENTE después de que el condominio haya pagado la "
+"factura."
+
+#: condominioaldia_app/models.py:939
+msgid "payment proof"
+msgstr "comprobante de pago"
+
+#: condominioaldia_app/models.py:947
+msgid ""
+"You may only pay comission if the related condominium bill has been payed."
+msgstr ""
+"Sólo puede pagar la comisión si se ha pagado la factura del condominio "
+"correspondiente."
+
+#: condominioaldia_app/models.py:974
+msgid "Affiliate Income"
+msgstr "Ingresos del afiliado"
+
+#: condominioaldia_app/models.py:975
+msgid "Affiliates Income"
+msgstr "Ingresos de los afiliados"
+
+#: condominioaldia_app/models.py:981
+msgid "--------"
+msgstr "--------"
+
+#: condominioaldia_app/models.py:982
+msgid "Facebook"
+msgstr "Facebook"
+
+#: condominioaldia_app/models.py:983
+msgid "Twitter"
+msgstr "Twitter"
+
+#: condominioaldia_app/models.py:984
+msgid "Google"
+msgstr "Google"
+
+#: condominioaldia_app/models.py:990
+msgid "link"
+msgstr "enlace"
+
+#: condominioaldia_app/models.py:994
+msgid "Social Link"
+msgstr "Enlace social"
+
+#: condominioaldia_app/models.py:995
+msgid "Social Links"
+msgstr "Enlaces sociales"
+
+#: condominioaldia_app/models.py:1006
+msgid "Property Category"
+msgstr "Categoria de la propiedad"
+
+#: condominioaldia_app/models.py:1007
+msgid "Property Categories"
+msgstr "Categotias de las propiedades"
+
+#: condominioaldia_app/models.py:1020
+msgid "file"
+msgstr "arcvhio"
+
+#: condominioaldia_app/models.py:1023
+msgid "case closed"
+msgstr "caso cerrado"
+
+#: condominioaldia_app/models.py:1026
+msgid "Property upload request"
+msgstr "Requerimiento de carga de inmuebles"
+
+#: condominioaldia_app/models.py:1027
+msgid "Property upload requests"
+msgstr "Requerimientos de carga de inmuebles"
+
+#: condominioaldia_app/permissions.py:23
+#: condominioaldia_app/permissions.py:148
+msgid "Your condominium is being evaluated by our analysts"
+msgstr "Su condominio esta siendo evaluado por nuestros analistas"
+
+#: condominioaldia_app/serializers.py:41
+msgid "Invalid password"
+msgstr "Contraseña Invalida"
+
+#: condominioaldia_app/serializers.py:53
+msgid "E-mail does not exist"
+msgstr "Correo no existe"
+
+#: condominioaldia_app/serializers.py:90
+msgid "Image too large."
+msgstr "Imagen demasiado grande."
+
+#: condominioaldia_app/serializers.py:135
+msgid "User account is disabled."
+msgstr "Cuenta de usario desactivada."
+
+#: condominioaldia_app/serializers.py:139
+msgid "Unable to log in with provided credentials."
+msgstr "No puede ingresar con las credenciales proporcionadas."
+
+#: condominioaldia_app/serializers.py:149
+msgid "You have not verified your E-mail, please check your inbox"
+msgstr "No ha verificado su correo, por favor revise su buzón"
+
+#: condominioaldia_app/serializers.py:152
+msgid "Your condominium is being evaluated by our analysts!"
+msgstr "Su condominio esta siendo evaluado por nuestros analistas"
+
+#: condominioaldia_app/serializers.py:155
+msgid "Your affiliation is being evaluated by our analysts!"
+msgstr "Su afiliación esta siendo evaluada por nuestros analistas"
+
+#: condominioaldia_app/serializers.py:159
+msgid "This owner contains no properties affiliated to it."
+msgstr "Este propietario no contiene propiedades afiliadas."
+
+#: condominioaldia_app/serializers.py:195
+msgid "Wrong user type."
+msgstr "Tipo de usuario incorrecto."
+
+#: condominioaldia_app/serializers.py:206
+msgid "Poll is not active."
+msgstr "La encuesta no está activa."
+
+#: condominioaldia_app/serializers.py:209
+msgid "User does not correspond to property."
+msgstr "El usuario no corresponde a la propiedad."
+
+#: condominioaldia_app/serializers.py:213
+msgid "You have already voted in this poll."
+msgstr "Ya votaste en esta encuesta."
+
+#: condominioaldia_app/serializers.py:247
+msgid "You should add at least one contact number"
+msgstr "Debe agregar al menos un numero de contacto"
+
+#: condominioaldia_app/serializers.py:333
+msgid "Percentages must not sum over 100"
+msgstr "Los porcentajes no pueden sumar mas de 100"
+
+#: condominioaldia_app/serializers.py:335
+msgid "This value can not be greater than 100"
+msgstr "Este valor no puede ser superior a 100"
+
+#: condominioaldia_app/serializers.py:340
+msgid "Condominium can not be an owner"
+msgstr "Condominio no puede ser propietario"
+
+#: condominioaldia_app/serializers.py:345
+msgid "Invalid email."
+msgstr "Correo invalido."
+
+#: condominioaldia_app/serializers.py:358
+#: condominioaldia_app/serializers.py:361
+#: condominioaldia_app/serializers.py:1583
+#: condominioaldia_app/serializers.py:1586
+msgid "This property already belongs to another owner."
+msgstr "Este inmueble pertenece a otro propietario."
+
+#: condominioaldia_app/serializers.py:371
+#: condominioaldia_app/serializers.py:373
+#: condominioaldia_app/serializers.py:375
+#: condominioaldia_app/serializers.py:1599
+msgid "Only owners can be part of the condominium board"
+msgstr "Solo propietarios pueden ser parte de la junta de condominio"
+
+#: condominioaldia_app/serializers.py:430
+msgid ""
+"You may not modify initial balance once you have generated an expense report."
+msgstr ""
+"No se puede modificar el balance inicial de un inmueble una vez se haya "
+"generado una relacion de cuotas para el mismo."
+
+#: condominioaldia_app/serializers.py:614
+msgid "This bank has a month bill associated with it, edition is not allowed."
+msgstr "Esste banco tiene una corte asociado.No se puede editar"
+
+#: condominioaldia_app/serializers.py:661
+msgid "Regular payment"
+msgstr "Pago normal"
+
+#: condominioaldia_app/serializers.py:684
+msgid "accepted"
+msgstr "aceptado"
+
+#: condominioaldia_app/serializers.py:688
+msgid "rejected"
+msgstr "rechazado"
+
+#: condominioaldia_app/serializers.py:733
+#: condominioaldia_app/serializers.py:913
+msgid "N/A"
+msgstr "N/A"
+
+#: condominioaldia_app/serializers.py:751
+msgid "You must specify a billing date pertaining to a valid period"
+msgstr "Debe especificar una fecha de facturacion perteneciente al periodo"
+
+#: condominioaldia_app/serializers.py:767
+#: condominioaldia_app/serializers.py:936 condominioaldia_app/views.py:2433
+msgid ""
+"Your account is overdue, please pay the amount in full in order to restore "
+"complete service."
+msgstr ""
+"Su cuenta está atrasada, por favor, pague la cantidad en su totalidad con el "
+"fin de restaurar servicio completo."
+
+#: condominioaldia_app/serializers.py:774
+msgid "You must specify the check bank's name."
+msgstr "Debe especificar el nombre del banco emisor del cheque"
+
+#: condominioaldia_app/serializers.py:777
+msgid "You must specify the check number."
+msgstr "Debe especificar el numero de cheque"
+
+#: condominioaldia_app/serializers.py:796
+msgid "This payment request already has already has a payment."
+msgstr "Este requerimiento de pago ya contiene un pago."
+
+#: condominioaldia_app/serializers.py:805
+msgid "This income has already been evaluated."
+msgstr "Este ingreso ya ha sido evaluado."
+
+#: condominioaldia_app/serializers.py:833
+msgid "Not a valid affiliate."
+msgstr "No es un afiliado válido."
+
+#: condominioaldia_app/serializers.py:839
+msgid "You must accept terms and conditions"
+msgstr "Debe aceptar los términos y condiciones"
+
+#: condominioaldia_app/serializers.py:846
+msgid "Invalid country"
+msgstr "Pais inválido"
+
+#: condominioaldia_app/serializers.py:852
+msgid "This user already exists"
+msgstr "Este usuario ya existe"
+
+#: condominioaldia_app/serializers.py:860
+msgid "This fiscal number belonds to another user."
+msgstr "Este numero fiscal ya esta en uso."
+
+#: condominioaldia_app/serializers.py:870
+msgid "You must provide a country id."
+msgstr "Debe proporcionar un ID de país."
+
+#: condominioaldia_app/serializers.py:877
+msgid "Passwords do not match"
+msgstr "Las contraseñas no coinciden"
+
+#: condominioaldia_app/serializers.py:943
+msgid "Bill date is out of valid billing period."
+msgstr "La fecha de factura está fuera del período de facturación válido."
+
+#: condominioaldia_app/serializers.py:1013
+msgid "Category: "
+msgstr "Categoria: "
+
+#: condominioaldia_app/serializers.py:1080
+msgid "You must specify a property."
+msgstr "Debe especificar una propiedad"
+
+#: condominioaldia_app/serializers.py:1085
+msgid "You must specify an amount."
+msgstr "Debe especificar un monto."
+
+#: condominioaldia_app/serializers.py:1090
+msgid "You must specify a percentage."
+msgstr "Debe especificar un porcentaje."
+
+#: condominioaldia_app/serializers.py:1093
+msgid ""
+"Can not charge immediately, must wait for period to end in order to get "
+"total expenses."
+msgstr ""
+"No puede cobrar de inmediat, debe esperar que el periodo termine para "
+"obtener todos los egresos."
+
+#: condominioaldia_app/serializers.py:1099
+#, python-format
+msgid ""
+"There are properties already being charged with %s. Please exclude them to "
+"prevent duplicates or delete existing charge."
+msgstr ""
+"Existen propiedades que ya estan siendo cobradas %s. por favor excluyalas "
+"para evitar duplicados or elimine la cobranza existente."
+
+#: condominioaldia_app/serializers.py:1134
+msgid "Start date can not be before today."
+msgstr "La fecha de inicio no puede ser antes de hoy."
+
+#: condominioaldia_app/serializers.py:1142
+msgid "Maximum poll period is 7 days."
+msgstr "El periodo máximo de encuesta es de 7 días."
+
+#: condominioaldia_app/serializers.py:1145
+msgid "Minimum poll period is one day."
+msgstr "El período mínimo de encuesta es de un día."
+
+#: condominioaldia_app/serializers.py:1148
+msgid "Poll end time must be greater than start time."
+msgstr "El tiempo de fin de la encuesta debe ser mayor que la hora de inicio."
+
+#: condominioaldia_app/serializers.py:1377
+msgid "Bill has already been payed"
+msgstr "Esta factura ya ha sido pagada"
+
+#: condominioaldia_app/serializers.py:1510
+msgid "file too large."
+msgstr "archivo demasiado grande."
+
+#: condominioaldia_app/serializers.py:1512
+msgid "invalid file type."
+msgstr "tipo de archivo invalido."
+
+#: condominioaldia_app/serializers.py:1520
+msgid "You have a new property upload request."
+msgstr "Tiene un nuevo requerimiento de carga de inmuebles."
+
+#: condominioaldia_app/serializers.py:1521
+msgid "A condominium needs its properties to be uploaded"
+msgstr "Un condominio requiere que sus propiedades sean cargadas"
+
+#: condominioaldia_app/serializers.py:1521
+msgid ""
+"A condominium requires that its properties be uploaded, go to the user admin "
+"and provide a quote."
+msgstr ""
+"Un condominio requiere que sus propiedades sean cargadas, ingrese al "
+"administrador y provea una cotizacion."
+
+#: condominioaldia_app/serializers.py:1546
+msgid "An account for this country is already registered."
+msgstr "Una cuenta para este país ya está registrada."
+
+#: condominioaldia_app/serializers.py:1569
+msgid "This value can not be negative"
+msgstr "Este valor no puede ser negativo"
+
+#: condominioaldia_app/tasks.py:144
+#, python-format
+msgid "%s_bill.pdf"
+msgstr "%s_bill.pdf"
+
+#: condominioaldia_app/tasks.py:201
+#, python-format
+msgid "%s_expenses.pdf"
+msgstr "%s_expenses.pdf"
+
+#: condominioaldia_app/tasks.py:232
+#, python-format
+msgid "%s_summary.pdf"
+msgstr "%s_summary.pdf"
+
+#: condominioaldia_app/utils.py:166
+msgid "activated"
+msgstr "activo"
+
+#: condominioaldia_app/utils.py:166
+msgid "temporarily limited"
+msgstr "Temporalmente limitada"
+
+#: condominioaldia_app/validators.py:11
+msgid "This category name is not allowed."
+msgstr "Este nombre de categoria no esta permitido."
+
+#: condominioaldia_app/views.py:133
+msgid "No bills exist."
+msgstr "No existen facturas."
+
+#: condominioaldia_app/views.py:181
+msgid "Last cut succesfully reversed."
+msgstr "Ultimo corte anulado exitosamente."
+
+#: condominioaldia_app/views.py:278
+msgid "Marketting E-mail"
+msgstr "Correo Electronico de Mercadeo"
+
+#: condominioaldia_app/views.py:415
+msgid "Bulk upload properties"
+msgstr "Cargar inmuebles masivamente"
+
+#: condominioaldia_app/views.py:468
+msgid ""
+"This confirmation link is expired. If you try to login you will be sent a "
+"new confirmation link."
+msgstr ""
+"Este enlace de confirmacion esta vencido. Si intenta ingresar le sera "
+"enviado un nuevo enlace de confirmacion."
+
+#: condominioaldia_app/views.py:474
+msgid "E-mail verified"
+msgstr "Correo Electronico verificado"
+
+#: condominioaldia_app/views.py:480
+msgid "New condominium needs approval"
+msgstr "Un nuevo condominio requiere aprobación"
+
+#: condominioaldia_app/views.py:480
+msgid ""
+"Please enter the admin panel; condominiums section and verify a new "
+"condominiums information; approve or reject at discretion"
+msgstr ""
+"Por favor ingrese al panel de administración; en la sección de condominios "
+"verifique un nuevo condominio; apruebe o rechace a discreción"
+
+#: condominioaldia_app/views.py:482
+msgid "New affiliate needs approval"
+msgstr "Un nuevo afiliado requiere aprobación"
+
+#: condominioaldia_app/views.py:482
+msgid ""
+"Please enter the admin panel; affiliates section and verify a new affiliate "
+"information; approve or reject at discretion"
+msgstr ""
+"Por favor ingrese al panel de administración; en la sección de afiliados "
+"verifique un nuevo afiliado; apruebe o rechace a discreción"
+
+#: condominioaldia_app/views.py:485
+msgid "New affiliate or condo needs approval"
+msgstr "Un nuevo afiliado o condominio requiere aprobación"
+
+#: condominioaldia_app/views.py:490
+msgid "This E-mail confirmation link is invalid."
+msgstr "Este enlace de confirmacion de correo electronico es invalido."
+
+#: condominioaldia_app/views.py:588
+msgid "You have a new payment awaiting approval."
+msgstr "Tiene un nuevo pago pendiente de aprobación."
+
+#: condominioaldia_app/views.py:589
+msgid ""
+"Go to the condominioaldia admin panel and check a verify a deposit/transfer "
+"that you may have."
+msgstr ""
+"Vaya al panel de administración de condominioaldia y marque una verificación "
+"de un depósito / transferencia que pueda tener."
+
+#: condominioaldia_app/views.py:1717
+msgid "fiscal number already in use"
+msgstr "este numero fiscal ya esta en uso"
+
+#: condominioaldia_app/views.py:1719
+msgid "fiscal number available"
+msgstr "numero fiscal disponible"
+
+#: condominioaldia_app/views.py:1726
+msgid "email already in use"
+msgstr "correo electronico en uso"
+
+#: condominioaldia_app/views.py:1728
+msgid "email available"
+msgstr "correo electronico disponible"
+
+#: condominioaldia_app/views.py:1743
+msgid "inmuebles not part of your condominium."
+msgstr "Estos inmuebles no son parte de su condominio."
+
+#: condominioaldia_app/views.py:1761
+msgid "You have no inmuebles registered for this condominium."
+msgstr "No ha registrado inmuebles para este condominio."
+
+#: condominioaldia_app/views.py:1772
+msgid "Password reset e-mail has been sent."
+msgstr "Correo de restauración de contraseña enviado"
+
+#: condominioaldia_app/views.py:2096
+msgid ""
+"Thank you for your inquiry, we will get back to you as soon as possible!"
+msgstr ""
+"Gracias por su interes, ¡Nos pondremos en contacto tan pronto sea posible!"
+
+#: condominioaldia_app/views.py:2219
+msgid "Condominioaldia administrative fee"
+msgstr "Tasa administrativa de condominioaldia"
+
+#: condominioaldia_app/views.py:2396
+msgid ""
+"Month expenses analysis can only be generated when the next month has begun."
+msgstr ""
+"El análisis de los gastos mensuales sólo puede ser generado cuando el mes "
+"siguiente ha comenzado."
+
+#: condominioaldia_app/views.py:2430
+msgid "You have unverified payments pending."
+msgstr "Tiene pendientes pagos no revisados."
+
+#: condominioaldia_app/views.py:2438
+msgid ""
+"You have properties that don't have owners assigned. Go to inmuebles section "
+"and assing owners"
+msgstr ""
+"Usted tiene propiedades que no tienen propietarios asignados. Ingrese a la "
+"sección de inmuebles y asigne propietarios a todos los inmuebles."
+
+#: condominioaldia_app/views.py:2710
+msgid ""
+"Thank you for your request, we will contact you via E-mail with further "
+"instructions."
+msgstr ""
+"Gracias por su requerimiento, le estaremos contactanco via correo "
+"electronico con instrucciones a seguir."
+
+#: templates/account/email/account_restored_message.txt:1
+#, python-format
+msgid ""
+"\n"
+"Dear %(name)s, \n"
+"\n"
+"Your account has been restored.You may now take advantage of all of the "
+"services we have to offer.\n"
+"\n"
+"If you have any questions, feel free to ask by using our live chat!\n"
+"\n"
+"Thank you for using %(site_name)s\n"
+msgstr ""
+"\n"
+"Estimado(a) %(name)s, \n"
+"\n"
+"Tu cuenta ha sido restaurada. Ahora puedes aprovechar todos los servicios "
+"que tenemos para ofrecer.\n"
+"\n"
+"Si tiene alguna pregunta, no dude en preguntar a través de nuestro chat en "
+"vivo!\n"
+"\n"
+"Gracias por usar %(site_name)s\n"
+
+#: templates/account/email/account_restored_subject.txt:1
+#, python-format
+msgid "Your account has been %(status)s!"
+msgstr "Su cuenta ha sido %(status)s!"
+
+#: templates/account/email/account_suspended_message.txt:1
+#, python-format
+msgid ""
+"\n"
+"Dear %(name)s, \n"
+"\n"
+"It seems that your account has been temporarily limited due to some delay "
+"with your payments in an amount of %(currency)s %(monto)s. Please login to "
+"your account and use any of our preferred payment solutions to get you up "
+"and running again.\n"
+"\n"
+"If you have any questions, feel free to ask by using our live chat!\n"
+"\n"
+"Thank you for using %(site_name)s\n"
+msgstr ""
+"\n"
+"Estimado(a) %(name)s, \n"
+"\n"
+"Parece que su cuenta se ha limitado temporalmente debido a algún retraso con "
+"sus pagos en una cantidad de %(currency)s %(monto)s. Inicie sesión en su "
+"cuenta y utilice cualquiera de nuestras soluciones de pago preferidas para "
+"para ponerlo en marcha nuevamente.\n"
+"\n"
+"Si tiene alguna pregunta, no dude en preguntar a través de nuestro chat en "
+"vivo!\n"
+"\n"
+"Gracias por usar %(site_name)s\n"
+
+#: templates/account/email/affiliate_approved_message.txt:1
+#, python-format
+msgid ""
+"\n"
+"Dear %(name)s, \n"
+"\n"
+"Your affiliate account has been approved by our analysts!, welcome to "
+"%(site_name)s; now you can enjoy our services by logging in.\n"
+"\n"
+"What are your next steps? \n"
+"\n"
+"1. Provide prospect condominiums with your affiliation link ( log into your "
+"account to obtain it).\n"
+"\n"
+"2. Once any condominium registers with your link you will receive a "
+"comission out of every payment we receive at the end of the billing period.\n"
+"\n"
+"If you have any questions, feel free to ask by using our live chat!\n"
+msgstr ""
+"\n"
+"Estimado(a) %(name)s, \n"
+"\n"
+"¡Su condominio ha sido aprobado por nuestros analistas!, bienvenido a "
+"%(site_name)s; desde ahora puede disfrutar de nuestros servicios ingresando "
+"a su cuenta.\n"
+"\n"
+"¿Cual es el proximo paso? \n"
+"\n"
+"1. Registre todos los inmuebles en su condominio hasta que la alicuota "
+"totalice 100%%, esto le dara acceso al resto de las funcionabilidades.\n"
+"\n"
+"2. Registre al menos una cuenta bancaria en la sección de  \"finanzas\" y "
+"luego \"bancos\".\n"
+"\n"
+"Si tiene alguna pregunta ¡No dude en plantearla mediante el chat!\n"
+
+#: templates/account/email/affiliate_approved_subject.txt:1
+msgid "Your affiliate account has been approved"
+msgstr "Su cuenta de afiliado ha sido aprobada"
+
+#: templates/account/email/affiliate_condo_message.txt:1
+#, python-format
+msgid ""
+"\n"
+"Dear %(affiliate)s, \n"
+"\n"
+"Condominium: %(condominio_name)s \n"
+"Fiscal Number : %(rif)s \n"
+"Country: %(pais)s\n"
+"\n"
+"Has registered as an affiliate condominium to your account. To view further "
+"details please login to your account at:\n"
+"\n"
+"%(site_url)s\n"
+"\n"
+"\n"
+"If you have any questions, feel free to ask by using our live chat!\n"
+msgstr ""
+"\n"
+"Estimado(a) %(affiliate)s, \n"
+"\n"
+"Condominio: %(condominio_name)s \n"
+"Nro Fiscal : %(rif)s \n"
+"Pais: %(pais)s\n"
+"\n"
+"Se ha registrado como afiliado a su cuenta. Para ver detalles adicionales "
+"por favor ingrese a su cuenta en:\n"
+"\n"
+"%(site_url)s\n"
+"\n"
+"\n"
+"Si tiene alguna pregunta, no dude en preguntar a través de nuestro chat en "
+"vivo!\n"
+
+#: templates/account/email/affiliate_condo_subject.txt:1
+#, python-format
+msgid ""
+" %(condominio_name)s has registered as an afilliate condo to your account! "
+msgstr " %(condominio_name) se ha registrado como afiliado a su cuenta! "
+
+#: templates/account/email/affiliate_new_income_message.txt:1
+#, python-format
+msgid ""
+"\n"
+"Dear %(affiliate)s, \n"
+"\n"
+"You have a new comission payment derived from %(condominio)s. As soon as we "
+"receive a payment from them we will schedule your comission in the amount of "
+"%(currency)s%(monto)s.  We will be letting you know via E-mail when the "
+"payment has been received and scheduled. To check the status of your "
+"comissions log into your account at: \n"
+"\n"
+"%(site_url)s\n"
+"\n"
+"If you have further questions, feel free to drop us an email or use our live "
+"chat!\n"
+"\n"
+"Thank you for using %(site_name)s\n"
+"\n"
+msgstr ""
+"\n"
+"Estimado(a) %(affiliate)s, \n"
+"\n"
+"Tiene una nueva comisión derivada de %(condominio)s. En cuanto recibamos el "
+"pago de parte de ellos, programaremos su comisión en la cantidad de "
+"%(currency)s%(monto)s. Le informaremos por correo electrónico cuando el pago "
+"ha sido recibido y programado. Para comprobar el estado de sus comisiónes "
+"ingrese a su cuenta en: \n"
+"\n"
+"%(site_url)s\n"
+"\n"
+"Si tiene más preguntas, no dude en enviarnos un correo electrónico o "
+"utilizar nuestro chat en vivo!\n"
+"\n"
+"Gracias por utilizar %(site_name)s\n"
+"\n"
+
+#: templates/account/email/affiliate_new_income_subject.txt:1
+#, python-format
+msgid "You have a new comission from %(condominio)s!"
+msgstr "Tienes una nueva comisión de %(condominio)s!"
+
+#: templates/account/email/affiliate_payment_sent_message.txt:1
+#, python-format
+msgid ""
+"\n"
+"Dear %(affiliate)s, \n"
+"\n"
+"An afilliate payment in the amount of %(currency)s %(monto)s has been sent "
+"to:\n"
+"\n"
+"Account holder : %(account_holder)s\n"
+"\n"
+"Bank : %(bank_name)s\n"
+"\n"
+"Account : %(account_number)s\n"
+"\n"
+"Country : %(country)s\n"
+"\n"
+"\n"
+"To check the status of your comissions log into your account at: \n"
+"\n"
+"%(site_url)s\n"
+"\n"
+"If you have further questions, feel free to drop us an email or use our live "
+"chat!\n"
+"\n"
+"Thank you for using %(site_name)s\n"
+"\n"
+msgstr ""
+"\n"
+"Estimado(a) %(affiliate)s, \n"
+"\n"
+"Se le ha enviado un pago por afiliacion por la cantidad de %(currency)s "
+"%(monto)sto:\n"
+"\n"
+"Titular de la cuenta : %(account_holder)s\n"
+"\n"
+"Banco : %(bank_name)s\n"
+"\n"
+"Cuenta : %(account_number)s\n"
+"\n"
+"País : %(country)s\n"
+"\n"
+"\n"
+"Para comprobar el estado de sus comisiones, inicie sesión en su cuenta en: \n"
+"\n"
+"%(site_url)s\n"
+"\n"
+"Si tiene más preguntas, no dude en enviarnos un correo electrónico o "
+"utilizar nuestro chat en vivo!\n"
+"\n"
+"Gracias por utilizar %(site_name)s\n"
+"\n"
+
+#: templates/account/email/affiliate_payment_sent_subject.txt:1
+msgid "Your payment was sent!"
+msgstr "Su pago se envió!"
+
+#: templates/account/email/cobranza_message.txt:1
+#, python-format
+msgid ""
+" \n"
+"Dear %(recipient_name)s,\n"
+"\n"
+"%(condominio_name)s is chargin you for : %(cobranza_subject)s in the amount "
+"of %(currency)s %(monto)s. To register a payment please login to your "
+"account at:\n"
+"\n"
+"%(site_url)s\n"
+"\n"
+"Thank you for using %(site_name)s!\n"
+"\n"
+msgstr ""
+" \n"
+"Estimado(a) %(recipient_name)s,\n"
+"\n"
+"%(condominio_name)s le esta cobrando por : %(cobranza_subject)s por un "
+"monto  de %(currency)s %(monto)s. Para registrar un pago va a su cuenta en:\n"
+"\n"
+"%(site_url)s\n"
+"\n"
+"Gracias por utilizar %(site_name)s!\n"
+"\n"
+
+#: templates/account/email/cobranza_subject.txt:1
+#, python-format
+msgid " You have a new payment request from %(condominio_name)s"
+msgstr "Tiene un nuevo requerimiento de pago de %(condominio_name)s"
+
+#: templates/account/email/condo_accept_pay_message.txt:1
+msgid ""
+"\n"
+"Dear %(inquilino|title)s, \n"
+"\n"
+"%(condominio_name|title)s has accepted your payment in the amount of "
+"%(moneda)s %(monto|intcomma:2)s. For any additional information please go "
+"to:\n"
+"\n"
+"%(site_url)s\n"
+"\n"
+"If you have any questions, feel free to ask by using our live chat!\n"
+msgstr ""
+"\n"
+"Estimado(a) %(inquilino|title)s, \n"
+"\n"
+"%(condominio_name)s ha aceptado su pago por la cantidad de %(moneda)s "
+"%(monto|intcomma:2)s. Para mas informacion vaya a:\n"
+"\n"
+"%(site_url)s\n"
+"\n"
+"Si tiene alguna pregunta, no dude en preguntar a través de nuestro chat en "
+"vivo!\n"
+
+#: templates/account/email/condo_accept_pay_subject.txt:1
+#, python-format
+msgid " %(condominio_name)s  has %(approval_status)s your payment! "
+msgstr " %(condominio_name)s  ha %(approval_status)s su pago! "
+
+#: templates/account/email/condo_approved_message.txt:1
+#, python-format
+msgid ""
+"\n"
+"Dear %(name)s, \n"
+"\n"
+"Your condominium has been approved by our analysts!, welcome to "
+"%(site_name)s; now you can enjoy our services by logging in.\n"
+"\n"
+"What are your next steps? \n"
+"\n"
+"1. Register all of the properties belonging to your administration until "
+"your percentage is 100%%, this will unlock the rest of the options.\n"
+"\n"
+"2. Register a bank account in the \"finance\" section under \"banks\".\n"
+"\n"
+"If you have any questions, feel free to ask by using our live chat!\n"
+msgstr ""
+"\n"
+"Estimado(a) %(name)s, \n"
+"\n"
+"¡Su condominio ha sido aprobado por nuestros analistas!, bienvenido a "
+"%(site_name)s; desde ahora puede disfrutar de nuestros servicios ingresando "
+"a su cuenta.\n"
+"\n"
+"¿Cual es el proximo paso? \n"
+"\n"
+"1. Registre todos los inmuebles en su condominio hasta que la alicuota "
+"totalice 100%%, esto le dara acceso al resto de las funcionabilidades.\n"
+"\n"
+"2. Registre al menos una cuenta bancaria en la sección de  \"finanzas\" y "
+"luego \"bancos\".\n"
+"\n"
+"Si tiene alguna pregunta ¡No dude en plantearla mediante el chat!\n"
+
+#: templates/account/email/condo_approved_subject.txt:1
+msgid "Your condominium has been approved"
+msgstr "Su condominio ha sido aprobado"
+
+#: templates/account/email/condo_reject_pay_message.txt:1
+#, python-format
+msgid ""
+"\n"
+"Dear %(inquilino)s, \n"
+"\n"
+"%(condominio_name)s has rejected your payment in the amount of %(moneda)s "
+"%(monto)s. The reason for the rejection is \"%(razon_rechazo)s\".\n"
+"\n"
+"For any additional information please go to:\n"
+"\n"
+"%(site_url)s\n"
+"\n"
+"If you have any questions, feel free to ask by using our live chat!\n"
+msgstr ""
+"\n"
+"Estimado(a) %(inquilino)s, \n"
+"\n"
+"%(condominio_name)s ha rechazado su pago por la cantidad de %(moneda)s "
+"%(monto)s. La razon es la siguiente: \"%(razon_rechazo)s\".\n"
+"\n"
+"Para mas información por favor vaya a:\n"
+"\n"
+"%(site_url)s\n"
+"\n"
+"Si tiene alguna pregunta, no dude en preguntar a través de nuestro chat en "
+"vivo!\n"
+
+#: templates/account/email/condominio_new_bill.txt:2
+#, python-format
+msgid "Dear %(condo_name)s,"
+msgstr "Estimado(a) %(condo_name)s,"
+
+#: templates/account/email/condominio_new_bill.txt:4
+#, python-format
+msgid ""
+"You have a new statement for %(month)s in the amount of %(currency)s "
+"%(monto)s. For further details please go to:\n"
+"\n"
+"%(site_url)s"
+msgstr ""
+"Tiene un nuevo estado de cuenta para el mes de %(month)s por un monto de "
+"%(currency)s %(monto)s. Para mas detalles vaya a:\n"
+"\n"
+"%(site_url)s"
+
+#: templates/account/email/condominio_new_bill.txt:8
+#: templates/account/email/propietario_new_bill.txt:9
+msgid "You may also pay online with our select payment methods!"
+msgstr "¡También puedes pagar en línea con nuestros métodos de pago selectos!"
+
+#: templates/account/email/condominio_new_bill.txt:10
+#: templates/account/email/propietario_new_bill.txt:11
+#, python-format
+msgid "Thanks for using %(site_name)s!"
+msgstr "Gracias por utilizar %(site_name)s!"
+
+#: templates/account/email/condominio_new_bill_subject.txt:1
+#, python-format
+msgid "%(site_name)s %(month)s bill!"
+msgstr "%(site_name)s factura de %(month)s!"
+
+#: templates/account/email/condominio_new_payment_message.txt:1
+#, python-format
+msgid ""
+"\n"
+"Dear %(condominio)s, \n"
+"\n"
+"%(inquilino)s has made a payment in the amount of %(currency)s %(monto)s. "
+"The payment needs to be reviewed and approved/rejected by you. Please login "
+"to %(site_name)s and go to the 'Income' section.\n"
+"\n"
+"Thank you for using %(site_name)s\n"
+"\n"
+msgstr ""
+"\n"
+"Estimado(a) %(condominio)s, \n"
+"\n"
+"%(inquilino)s ha hecho un pago por la cantidad de %(currency)s %(monto)s. "
+"Este pago debe ser aprobado/rechazado por usted. Por favor ingrese a "
+"%(site_name)s y vaya a la sección 'Ingresos'.\n"
+"\n"
+"Gracias por utilizar %(site_name)s\n"
+"\n"
+
+#: templates/account/email/condominio_new_payment_subject.txt:1
+#, python-format
+msgid "You have a new payment from %(inquilino)s!"
+msgstr "Usted tiene un nuevo pago de %(inquilino)s!"
+
+#: templates/account/email/credit_card_email.txt:1
+#, python-format
+msgid ""
+"\n"
+"Dear %(name)s, <br><br>\n"
+"\n"
+"We have charged your credit card ending in %(end_cc)s the amount of "
+"%(currency)s %(monto)s for %(description)s."
+msgstr ""
+"\n"
+"Estimado(a) %(name)s, <br><br>\n"
+"\n"
+"Se le ha cobrado a la tarjeta de credito terminando en %(end_cc)s la cantidad de "
+"%(currency)s %(monto)s por %(description)s."
+
+#: templates/account/email/credit_card_email.txt:7
+msgid "Thank you for using %(site_name)s."
+msgstr "Gracias por utilizar %(site_name)s!"
+
+#: templates/account/email/email_confirmation_message.txt:1
+#, python-format
+msgid ""
+"%(name)s welcome to %(site_name)s!\n"
+"\n"
+"After you have verified your email, one of our analysts will review your "
+"registration information and get back with you via email. In the mean time, "
+"feel free to explore our frequently asked questions section. \n"
+"\n"
+"Please click on the link below to verify your E-mail address: "
+"%(activate_url)s\n"
+msgstr ""
+"%(name)s bienvenido a %(site_name)s!\n"
+"\n"
+"Después de que verifique su correo electronico, uno de nuestros analistas "
+"revisará su información de registro lo contactará via correo electronico. "
+"Mientras tanto, sientase libre de explorar nuestra sección de preguntas mas "
+"frecuentes. \n"
+"\n"
+"Por favor siga el siguiente enlace para verificar su correo electronico: "
+"%(activate_url)s\n"
+
+#: templates/account/email/email_confirmation_message.txt:7
+#: templates/account/email/inquilino_email_confirmation_signup_message.txt:18
+#, python-format
+msgid ""
+"Thank you from %(site_name)s!\n"
+"%(site_domain)s"
+msgstr ""
+"Gracias desde %(site_name)s!\n"
+"%(site_domain)s"
+
+#: templates/account/email/email_confirmation_subject.txt:3
+msgid "Please Confirm Your E-mail Address"
+msgstr "Por favor Confirme su dirección de Correo Electrónico"
+
+#: templates/account/email/inquilino_email_confirmation_signup_message.txt:1
+#, python-format
+msgid ""
+"Welcome dear owner!\n"
+"\n"
+"You're receiving this e-mail because %(condominio)s has registered you with "
+"us in %(site_name)s. In a nutshell, we are a tool built to simplify "
+"everything related to your condominium. To name a few of our services:  your "
+"monthly bill online, check your condominiums expenses and income, "
+"participate in polls, etc. In other words,  you will have an efficient and "
+"more transparent administration; and best of all... paper free!.\n"
+"Feel free to explore the Frequently asked questions section, or contact us "
+"via live chat if you have any questions or comments.\n"
+msgstr ""
+"Bienvenido estimado propietario!\n"
+"\n"
+"Usted esta recibiendo este mensaje porque %(condominio)s lo ha registrado "
+"con nosotros en %(site_name)s. En pocas palabras, somos una herramienta "
+"diseñada para atender todos los aspectos de su condominio. Algunos de "
+"nuestros servicios son:  su balance mensual en linea, visualizar los "
+"movimientos contables de su condominio, participar en encuestas, etc. Es "
+"decir,  usted gozara de una mas administracion mas eficiente y transparente; "
+"pero sobre todo... libre de papel!.\n"
+"Sientase libre de explorar nuestra sección de preguntas frecuentes, o "
+"contactenos a través del chat si tiene preguntas o comentarios.\n"
+
+#: templates/account/email/inquilino_email_confirmation_signup_message.txt:7
+msgid "Ok, down to business! Your credentials are:"
+msgstr "Ok, ¡De vuelta al tema! Sus credenciales son:"
+
+#: templates/account/email/inquilino_email_confirmation_signup_message.txt:9
+msgid "Username :"
+msgstr "Usuario :"
+
+#: templates/account/email/inquilino_email_confirmation_signup_message.txt:11
+msgid "Password :"
+msgstr "Contraseña :"
+
+#: templates/account/email/inquilino_email_confirmation_signup_message.txt:13
+msgid ""
+"For your security, please change your password in your user settings panel "
+"as soon as possible."
+msgstr ""
+"Por su seguridad, cambie su contraseña en sus opciones de perfil lo mas "
+"pronto posible"
+
+#: templates/account/email/inquilino_email_confirmation_signup_message.txt:15
+#, python-format
+msgid ""
+"\n"
+"To complete your registration process, please click on the following link "
+"%(activate_url)s\n"
+msgstr ""
+"\n"
+"Para completar su proceso de registro, por favor haga click en el siguiente "
+"enlace %(activate_url)s\n"
+
+#: templates/account/email/password_reset_key_message.txt:1
+#, python-format
+msgid ""
+"Dear %(user)s,\n"
+"\n"
+"You're receiving this e-mail because you or someone else has requested a "
+"password for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the "
+"link below to reset your password."
+msgstr ""
+"Estimado(a) %(user)s,\n"
+"\n"
+"Esta recibiendo este mensaje porque usted o alguien mas ha solicitado un  "
+"una recuperación de contraseña.\n"
+"Puede ignorar este mensaje si no hizo tal solicitud. De lo contrario haga "
+"click en el siguiente enlace para reestablecer su contraseña."
+
+#: templates/account/email/password_reset_key_message.txt:8
+#, python-format
+msgid "In case you forgot, your username is %(user.email)s."
+msgstr "En caso de que haya olvidado, su usuario es %(user.email)s."
+
+#: templates/account/email/password_reset_key_message.txt:10
+#, python-format
+msgid ""
+"Thank you for using %(site_name)s!\n"
+"%(site_domain)s"
+msgstr ""
+"Gracias por utilizar %(site_name)s!\n"
+"%(site_domain)s"
+
+#: templates/account/email/password_reset_key_subject.txt:3
+msgid "Password Reset E-mail"
+msgstr "Correo Electronico de Restauracion de Contraseña"
+
+#: templates/account/email/promotional_email.html:7
+#: templates/account/email/promotional_email.html:32
+msgid "Welcome"
+msgstr "Bienvenido(a)"
+
+#: templates/account/email/promotional_email.html:25
+msgid "Condominum management web app"
+msgstr "Administrador de condominios"
+
+#: templates/account/email/promotional_email.html:33
+msgid ""
+"we would like to extend our invitation for you to join us in our newest "
+"condominium management web application."
+msgstr ""
+"le presentamos condominioaldia, la nueva plataforma para administracion y "
+"gestion de condominios."
+
+#: templates/account/email/promotional_email.html:34
+msgid "Visit us now"
+msgstr "Visitenos ahora"
+
+#: templates/account/email/promotional_email.html:43
+msgid "Condominiums"
+msgstr "Condominios"
+
+#: templates/account/email/promotional_email.html:45
+msgid "Manage finances"
+msgstr "Manejo de finanzas"
+
+#: templates/account/email/promotional_email.html:46
+msgid "Create polls"
+msgstr "Cree encuestas"
+
+#: templates/account/email/promotional_email.html:47
+msgid "Virtual billboard"
+msgstr "Cartelera virtual"
+
+#: templates/account/email/promotional_email.html:48
+msgid "Bulk messaging"
+msgstr "Mensajes masivos"
+
+#: templates/account/email/promotional_email.html:49
+msgid "Process automation"
+msgstr "Automatizacion"
+
+#: templates/account/email/promotional_email.html:57
+msgid "Owners"
+msgstr "Propietarios"
+
+#: templates/account/email/promotional_email.html:59
+msgid "View financial history"
+msgstr "Registro de finanzas"
+
+#: templates/account/email/promotional_email.html:60
+msgid "Online payments"
+msgstr "Pagos en linea"
+
+#: templates/account/email/promotional_email.html:61
+msgid "Manage all properties"
+msgstr "Manejo de propiedades"
+
+#: templates/account/email/promotional_email.html:62
+msgid "Mini blog"
+msgstr "Mini blog"
+
+#: templates/account/email/promotional_email.html:63
+msgid "Reduced corruption"
+msgstr "Transparencia en gestion"
+
+#: templates/account/email/promotional_email.html:75
+msgid "Earn money every month with our affiliate business plan"
+msgstr "Gane dinero con nuestro plan de negocios todos los meses"
+
+#: templates/account/email/promotional_email.html:76
+msgid "Three different plans help you maximize your earnings"
+msgstr "Tres planes distintos le maximizan sus ganancias"
+
+#: templates/account/email/promotional_email.html:77
+msgid "Keep track of your earnings with our dedicated interface"
+msgstr "Siga  sus ingresos con nuestra interface dedicada"
+
+#: templates/account/email/promotional_email.html:91
+msgid "All rights reserved."
+msgstr "Todos los derechos reservados"
+
+#: templates/account/email/promotional_email.txt:1
+#, python-format
+msgid ""
+"\n"
+"Welcome %(recipient_name)s!,\n"
+"\n"
+"We would like to extend our invitation for you to join us in our newest "
+"condominium management web application: \n"
+"\n"
+"%(site_name)s\n"
+"\n"
+"Check out some of our key features!\n"
+"\n"
+"Condominiums:\n"
+"\n"
+"* Manage condominium finances.\n"
+"* Create polls.\n"
+"* Virtual bill board.\n"
+"* Bulk messaging.\n"
+"* Process automation.\n"
+"\n"
+"Owners:\n"
+"\n"
+"* Access to condominium financial history.\n"
+"* Online payments.\n"
+"* Manage all properties in one interface.\n"
+"* Mini blog.\n"
+"* Reduced corruption with condominium funds.\n"
+"\n"
+"Affiliates:\n"
+"\n"
+"* Earn money every month with our affiliate business plan.\n"
+"* Three different plans help you maximize your earnings.\n"
+"* Keep track of your earnings with our dedicated interface.\n"
+"\n"
+"Visit us today at : %(url)s\n"
+"\n"
+msgstr ""
+"\n"
+"Bienvenido(a) %(recipient_name)s!,\n"
+"\n"
+"Nos gustaria extenderle la invitacion para que se nos una en nuestra mas "
+"reciente aplicacion web para administracion de condominios: \n"
+"\n"
+"%(site_name)s\n"
+"\n"
+"¡Echa un vistazo a algunas de nuestras características clave!\n"
+"\n"
+"Condominios:\n"
+"\n"
+"* Manejo de finanzas.\n"
+"* Encuestas.\n"
+"* Cartelera virtual.\n"
+"* Mensajes masivos.\n"
+"* Automatización.\n"
+"\n"
+"Owners:\n"
+"\n"
+"* Historico de finanzas.\n"
+"* Pagos en linea.\n"
+"* Manejo de propiedades.\n"
+"* Mini blog.\n"
+"* Transparencia en gestion.\n"
+"\n"
+"Afiliados:\n"
+"\n"
+"* Gane dinero con nuestro plan de negocios todos los meses.\n"
+"* Tres planes distintos le maximizan sus ganancias.\n"
+"* Siga  sus ingresos con nuestra interface dedicada.\n"
+"\n"
+"Visitenos ahora en: %(url)s\n"
+"\n"
+
+#: templates/account/email/propietario_new_bill.txt:2
+#, python-format
+msgid "Dear %(propietario_name)s,"
+msgstr "Estimado(a) %(propietario_name)s,"
+
+#: templates/account/email/propietario_new_bill.txt:4
+#, python-format
+msgid ""
+"Congratulations! you have no outstading debts with %(condo_name)s, in fact "
+"you have %(currency)s %(monto)s in your favor. If you have further inquiries "
+"regarding your account plase go to:"
+msgstr ""
+"Felicidades! no tiene ninguna deuda con %(condo_name)s, es mas usted tiene "
+"%(currency)s %(monto)s a su favor. Si tiene mas preguntas referentes a su "
+"cuenta por favor vaya a :"
+
+#: templates/account/email/propietario_new_bill.txt:4
+#, python-format
+msgid ""
+"You have a new condominium bill for %(condo_name)s for a total of "
+"%(currency)s %(monto)s. For further details go to:"
+msgstr ""
+"Tiene una nueva factura de conominio para %(condo_name)s por un total de "
+"%(currency)s %(monto)s. Para mas detalles vaya a:"
+
+#: templates/account/email/propietario_new_bill_subject.txt:1
+#, python-format
+msgid "%(condo_name)s %(month)s bill!"
+msgstr "%(condo_name)s factura de %(month)s!"
+
+#: templates/admin/base_site_old.html:3
+msgid "Django site admin"
+msgstr "Administrador de sitio django"
+
+#: templates/admin/base_site_old.html:6
+msgid "Django administration"
+msgstr "Administracion de django"
+
+#: templates/admin/borrar_ultimo_corte.html:38
+msgid "Delete last cut"
+msgstr "Borrar ultimo corte"
+
+#: templates/admin/borrar_ultimo_corte.html:46
+msgid "Are you sure you want to delete the last cut?"
+msgstr "¿Esta seguro(a) que desea borrar el ultimo corte?"
+
+#: templates/admin/condominioaldia_app/custom_index.html:20
+#: templates/admin/index_old.html:20
+#, python-format
+msgid "Models in the %(name)s application"
+msgstr "Modelos en applicacion %(name)s"
+
+#: templates/admin/condominioaldia_app/custom_index.html:31
+#: templates/admin/index_old.html:31
+msgid "Add"
+msgstr "Sumar"
+
+#: templates/admin/condominioaldia_app/custom_index.html:37
+#: templates/admin/index_old.html:37
+msgid "Change"
+msgstr "Cambiar"
+
+#: templates/admin/condominioaldia_app/custom_index.html:49
+msgid "Tools"
+msgstr "Herramientas"
+
+#: templates/admin/condominioaldia_app/custom_index.html:52
+msgid "Send marketting E-mail"
+msgstr "Reenviar correo de mercadeo"
+
+#: templates/admin/condominioaldia_app/custom_index.html:53
+#: templates/admin/condominioaldia_app/custom_index.html:57
+msgid "Go"
+msgstr "Ir"
+
+#: templates/admin/condominioaldia_app/custom_index.html:56
+msgid "Dummy link"
+msgstr "Enlace falso"
+
+#: templates/admin/condominioaldia_app/custom_index.html:63
+#: templates/admin/index_old.html:53
+msgid "You don't have permission to edit anything."
+msgstr "Usted no tiene permiso para editar nada."
+
+#: templates/admin/condominioaldia_app/custom_index.html:71
+#: templates/admin/index_old.html:61
+msgid "Recent actions"
+msgstr "Acciones recientes"
+
+#: templates/admin/condominioaldia_app/custom_index.html:72
+#: templates/admin/index_old.html:62
+msgid "My actions"
+msgstr "Mis acciones"
+
+#: templates/admin/condominioaldia_app/custom_index.html:76
+#: templates/admin/index_old.html:66
+msgid "None available"
+msgstr "Ninguno disponible"
+
+#: templates/admin/condominioaldia_app/custom_index.html:90
+#: templates/admin/index_old.html:80
+msgid "Unknown content"
+msgstr "Contenido desconocido"
+
+#: templates/admin/condominioaldia_app/marketting_email.html:62
+msgid "Email successfully sent"
+msgstr "Correo electronico enviado"
+
+#: templates/admin/condominioaldia_app/marketting_email.html:75
+msgid "Send"
+msgstr "Enviar"
+
+#: templates/admin/condominioaldia_app/marketting_email.html:78
+msgid "Bulk send via CSV"
+msgstr "Enviar en masa via CSV"
+
+#: templates/admin/condominioaldia_app/marketting_email.html:82
+msgid "Download sample CSV"
+msgstr "Descargar CSV ejemplo"
+
+#: templates/registration/password_reset_complete.html:4
+msgid "Your password has been set. You may go ahead and"
+msgstr "Su contrasela ha sido establecida. Puede continuar e"
+
+#: templates/registration/password_reset_complete.html:4
+msgid "sign in"
+msgstr "ingresar"
+
+#: templates/registration/password_reset_complete.html:4
+msgid "now"
+msgstr "ahora"
+
+#: templates/registration/password_reset_confirm.html:73
+#: templates/registration/password_reset_confirm.html:77
+#: templates/registration/password_reset_confirm.html:94
+msgid "Change password"
+msgstr "Cambiar contraseña"
+
+#: templates/registration/password_reset_confirm.html:98
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
+"El enlace de reestablecimiento de contraseña es inválido, posiblemente ya ha "
+"sido utilizado. Por favor solitice un reestablecimiento de contraseña "
+"nuevamente."
+
+#: templates/registration/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Esta recibiendo este correo electronico porque solicito un reestablecimiento "
+"de contraseña para su cuenta en %(site_name)s."
+
+#: templates/registration/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr "Por favor vaya a la siguiente pagina y seleccione una nueva contraseña"
+
+#: templates/registration/password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr "Su usuario, en caso de que haya olvidado"
+
+#: templates/registration/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr "Gracias por utilizar nuestra pagina!"
+
+#: templates/registration/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "el equipo de %(site_name)s"
+
+#: templates/upload_inmuebles_csv.html:46
+msgid "Load properties via CSV"
+msgstr "Cargar inmuebles via CSV"
+
+#: templates/upload_inmuebles_csv.html:52
+msgid "Properties successfully uploaded"
+msgstr "Propiedades cargas exitosamente"
+
+#: templates/upload_inmuebles_csv.html:79
+msgid "Select file"
+msgstr "Seleccione un archivo"
+
+#: templates/upload_inmuebles_csv.html:90
+msgid "Download sample"
+msgstr "Descargar ejemplo"
+
+#: templates/upload_inmuebles_csv.html:91
+msgid "Back"
+msgstr "Atras"
+
+#: templates/upload_inmuebles_csv.html:118
+#, python-format
+msgid "You have %(error_counter)s errors."
+msgstr "Usted tiene %(error_counter)s errores."
+
+#: templates/upload_inmuebles_csv.html:127
+msgid "Names"
+msgstr "Nombres"
+
+#: templates/upload_inmuebles_csv.html:128
+msgid "Last name(s)"
+msgstr "Apellido(s)"
+
+#: templates/upload_inmuebles_csv.html:130
+msgid "Rented"
+msgstr "Alquilado"
+
+#: templates/upload_inmuebles_csv.html:132
+msgid "Board memer"
+msgstr "Miembros de la junta"
+
+#: templates/upload_inmuebles_csv.html:133
+msgid "Position"
+msgstr "cargo en la junta"
+
+#: templates/upload_inmuebles_csv.html:135
+msgid "Aliquot"
+msgstr "Alicuota"
+
+#: templates/upload_inmuebles_csv.html:136
+msgid "Initial Balance"
+msgstr "Balance inicial"
+
+#: templates/upload_inmuebles_csv.html:139
+msgid "properties"
+msgstr "propiedades"
+
+#~ msgid "Payers fiscal number is required."
+#~ msgstr "El numero fiscal del pagador es requerido."
+
+#~ msgid "awaiting payment"
+#~ msgstr "esperando pago"
+
+#~ msgid "payment awaiting approval"
+#~ msgstr "pago esperando aprobación."
+
+#~ msgid "payed"
+#~ msgstr "pagado"
+
+#~ msgid "payment rejected"
+#~ msgstr "pago rechazado"
+
+#~ msgid "payment required"
+#~ msgstr "pago requerido"
+
+#~ msgid "condominium income"
+#~ msgstr "ingreso de condominio"
+
+#~ msgid "Condominioaldia"
+#~ msgstr "Condominioaldia"
+
+#~ msgid "Penalty charge"
+#~ msgstr "multa"
+
+#~ msgid "You have successfully verified your E-mail address."
+#~ msgstr "Ha verificado su direccion de correo electronico exitosamente."

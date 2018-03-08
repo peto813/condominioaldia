@@ -1,0 +1,1 @@
+{% load account %}{% load i18n %}{% blocktrans %}You have a new comission from {{condominio}}!{% endblocktrans %}

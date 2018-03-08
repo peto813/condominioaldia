@@ -1,0 +1,16 @@
+{% load account %}{% load humanize %}{% load staticfiles %}{% load i18n %}{% blocktrans %}
+Dear {{name}}, <br><br>
+
+We have charged your credit card ending in {{end_cc}} the amount of {{currency}} {{monto}} for {{description}}.{% endblocktrans %}<br><br>
+
+
+{% blocktrans %}Thank you for using {{site_name}}.{% endblocktrans %}<br><br><br>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td align="center">
+            {{email_voucher|safe}}
+        </td>
+    </tr>
+</table>
+					

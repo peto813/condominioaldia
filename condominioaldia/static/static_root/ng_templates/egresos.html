@@ -1,0 +1,209 @@
+
+<head>
+  <style type="text/css">
+      .fa-cog .fa{
+        font-size: 1.5em;
+      }
+      .fa-ban{
+        color:red;
+      }
+      .inactive{
+        background-color: #F1F1F1;
+        color:black;
+      }
+      .inactive a{
+        color:black;
+      }
+
+
+      #search{
+        max-width: 300px;
+        border-radius: 15px;
+        text-align: center;
+      }
+      .arrendatario{
+        font-size: 12px;
+      }
+      #alertModal{
+        text-align: center;
+        font-size: 14px;
+      }
+      #egresosTable, #egresosTable th{
+        text-align: center;
+
+      }
+      caption{
+        font-weight: bold;
+      }
+      .fa-cog{
+        cursor: pointer;
+      }
+      input[type="text"],input[type="number"]{        
+        font-size: 14px;
+      }
+      .button-row{
+        margin-bottom: 10px;
+      }
+
+      .captionDiv{
+        margin:5px;
+      }
+
+      .table-responsive{
+        overflow-y: initial;
+      }
+
+      @media (max-width: 767px) {
+          .table-responsive .dropdown-menu {
+              position: static !important;
+          }
+
+      }
+      @media (min-width: 768px) {
+          .table-responsive {
+              overflow: visible;
+          }
+      }
+      @media (max-width: 768px) {
+        #searchForm{
+          margin-bottom: 10px;
+        }
+
+      }
+      .panel-body .form-group{
+        max-width: 300px;
+      }
+      #totalMonto{
+        background-color: rgb(255,240,89);
+      }
+
+  </style>
+</head>
+<div class="main-content">
+
+      <div class="panel panel-default">
+      
+      <div class="panel-heading">
+        <h2 class="text-center">Egresos </h2>
+        <h4 class="text-center">( [[active_month|date:'MMMM yyyy':'UTC'|capitalize]] )</h4>
+      </div><!--panel-heading-->
+      
+
+      <div class="panel-body">
+
+<!--         <uib-tabset active="active">
+          <uib-tab index="0">
+            <uib-tab-heading>
+              <b>Por alicuota (Ley horizontal)</b>
+            </uib-tab-heading>
+          </uib-tab>
+
+          <uib-tab index="1" select="get_url()" classes="inactive">
+            <uib-tab-heading>
+              Detallados
+            </uib-tab-heading>
+          </uib-tab>
+        </uib-tabset><br><br> -->
+
+
+        <div class="row button-row">
+           <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+              <button  ng-disabled="!can_post()" ng-if="userData.user_type == 'condominio'" title="Registrar egreso" class="btn btn-success" ng-click="EgresoModal()" type="button">
+                <i class="fa fa-share-square-o" aria-hidden="true"></i>
+              </button>
+              <button ng-if="egresos.length>0" title="Ver PDF" class="btn btn-info" ng-click="getEgresosPDF()" type="button">
+                <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+              </button>
+              <button ng-click="open1()" title="Buscar por mes" class="btn btn-info" type="button">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </button>  
+
+
+        <p class="input-group">
+          <input type="text" show-button-bar ="false" ng-change="queryDate()" uib-datepicker-popup="[[format]]" ng-model="dt" is-open="popup1.opened"  datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-show="false">
+        </p>
+
+          
+          </div>
+          <div class="col-xs-12 col-sm-5 col-md-4 col-lg-7">
+            <input type="text" class="form-control" placeholder="Buscar" name="search" ng-model="search" id="search">
+          </div>
+
+        </div>
+
+        <div class="table-responsive panel panel-default">
+
+        <table class="table table-condensed table-bordered" id ="egresosTable">
+           
+          <thead>
+            <tr>
+              <th>Acciones</th>
+              <th>Fecha</th>
+              <th>Banco</th>
+              <th>Tipo</th>
+
+              <th>Distribucion</th>
+              <th>Monto</th>
+            </tr>
+            <tr>
+
+              <th><span class="badge">[[egresos.length]]</span></th>
+              <th>-</th>
+              <th>-</th>
+              <th>-</th>
+              <th>-</th>
+              <th id="totalMonto"> [[filtered_egresos|sumKeys:'monto'|number:2|accounting:userData.detalles_usuario.pais.moneda]]</th>
+            </tr>   
+          </thead>
+            <tbody>
+              <tr ng-repeat="egreso in egresos | filter:search as filtered_egresos">
+                <td>
+                  <span uib-dropdown on-toggle="toggled(open)">
+                    <span href id="simple-dropdown" uib-dropdown-toggle>
+                      <i title="acciones" class="fa fa-cog fa-2x" aria-hidden="true"></i>
+                    </span>
+                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                      <li>
+                        <a ng-click ="verDetalles(egreso)" href>
+                        <i class="fa fa-search"></i>
+                         Ver detalles
+                        </a>
+                        <a ng-if="egreso.cerrado ==false&&userData.user_type == 'condominio'" ng-click ="EgresoModal(egreso)" href>
+                        <i class="fa fa-pencil"></i>
+                         Modificar
+                        </a>
+
+                        <a ng-if="egreso.cerrado ==false&&userData.user_type == 'condominio'" ng-click ="eliminarEgreso(egreso)" href>
+                        <i class="fa fa-ban"></i>
+                        Eliminar
+                        </a>
+                      </li>
+                    </ul>
+                  </span>
+                </td>
+                <td>[[egreso.fecha_facturacion|date:'MMMM dd, yyyy'|capitalize]]</td>
+                <td>[[egreso.banco.banco|capitalize]]</td>
+                <td>[[egreso.tipo_egreso|capitalize]]</td>
+                <td>
+                  <div uib-popover="[[getMessage(egreso)]]" popover-trigger="'mouseenter'" style="cursor:pointer;">
+                    <i style="font-size: 1.25em;" ng-class="{ 'fa fa-users': egreso.deudores=='todos', 'fa fa-user': egreso.deudores=='particular'}"></i>
+                  [[egreso.deudores|debtor|capitalize]]                   
+                  </div>
+                </td>
+
+                <td>[[egreso.monto|number:2|accounting:userData.detalles_usuario.pais.moneda]]</td>
+              </tr>
+            </tbody>
+        </table>       
+        </div>
+
+      </div><!--panel body-->
+    </div><!--panel-warning-->
+</div>
+  
+  
+
+
+
+
+

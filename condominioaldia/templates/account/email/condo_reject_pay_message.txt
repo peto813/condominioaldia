@@ -1,0 +1,11 @@
+{% load account %}{% load i18n %}{% blocktrans %}
+Dear {{inquilino}}, 
+
+{{condominio_name}} has rejected your payment in the amount of {{moneda}} {{monto}}. The reason for the rejection is "{{razon_rechazo}}".
+
+For any additional information please go to:
+
+{{site_url}}
+
+If you have any questions, feel free to ask by using our live chat!
+{% endblocktrans %}

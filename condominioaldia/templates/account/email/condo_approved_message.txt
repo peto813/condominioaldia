@@ -1,0 +1,13 @@
+{% load account %}{% load i18n %}{% blocktrans %}
+Dear {{name}}, 
+
+Your condominium has been approved by our analysts!, welcome to {{site_name}}; now you can enjoy our services by logging in.
+
+What are your next steps? 
+
+1. Register all of the properties belonging to your administration until your percentage is 100%, this will unlock the rest of the options.
+
+2. Register a bank account in the "finance" section under "banks".
+
+If you have any questions, feel free to ask by using our live chat!
+{% endblocktrans %}

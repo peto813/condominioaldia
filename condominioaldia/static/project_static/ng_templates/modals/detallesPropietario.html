@@ -1,0 +1,45 @@
+ 
+            <h3 class="text-center">Detalles </h3>
+    
+
+          <div class="modal-body">
+            <table class="table table-user-information table-striped">
+                <tbody>
+                  <tr>
+                    <td>Nombre(s):</td>
+                    <td>[[ inmueble.inquilino.user.first_name | capfirstlettereachword]]</td>
+                  </tr>
+                  <tr>
+                    <td>Apellido(s):</td>
+                    <td>[[ inmueble.inquilino.user.last_name | capfirstlettereachword]]</td>
+                  </tr>
+                  <tr>
+                    <td>Rif:</td>
+                    <td>[[inmueble.inquilino.rif]]</td>
+                  </tr>
+                  <tr ng-if="inmueble.arrendatario">
+                    <td>Arrendatario:</td>
+                    <td>[[inmueble.arrendatario|capfirstlettereachword]]</td>
+                  </tr>           
+                  <tr>
+                    <td>Email</td>
+                    <td><a>[[ inmueble.inquilino.user.email ]]</a></td>
+                  </tr>
+                  <tr><td>Numero Telefonico</td>
+                    <td>[[ inmueble.inquilino.telefono1 ]]<br><br>[[ inmueble.inquilino.telefono2 ]]
+                    </td>
+                  </tr>
+                  <tr ng-if="inmueble.junta_de_condominio">
+                  <td>Miembro de junta:</td>
+                  <td>[[inmueble.cargo]]</td>
+                  </tr>                
+                </tbody>
+            </table>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger btn-block" ng-click="cancel()">Cerrar</button>
+          </div>
+
+
+

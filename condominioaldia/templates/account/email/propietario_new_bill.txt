@@ -1,0 +1,13 @@
+{% load i18n %}{% load humanize %}{% autoescape off %}
+{% blocktrans %}Dear {{propietario_name}},{% endblocktrans %}
+
+{% if actual_debt >= 0 %}{% blocktrans %}Congratulations! you have no outstading debts with {{condo_name}}, in fact you have {{currency}} {{monto}} in your favor. If you have further inquiries regarding your account plase go to:{% endblocktrans %}{% else %}{% blocktrans %}You have a new condominium bill for {{condo_name}} for a total of {{currency}} {{monto}}. For further details go to:{% endblocktrans %}{% endif %}
+
+
+{{site_url}}.
+
+{% trans "You may also pay online with our select payment methods!" %}
+
+{% blocktrans %}Thanks for using {{site_name}}!{% endblocktrans %}
+
+{% endautoescape %}
