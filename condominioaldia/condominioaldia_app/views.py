@@ -298,16 +298,16 @@ class CustomLoginView(LoginView):
     serializer_class = CustomLoginSerializer
 
 
-# class testView(TemplateView):
-#     template_name = "a.html"
-#     def get(self, request):
-#         ctx = {}
-#         from django.conf import settings
-#         ctx['STATIC_ROOT'] = settings.STATIC_ROOT
-#         ctx['STATICFILES_DIRS'] = settings.STATICFILES_DIRS
-#         ctx['MEDIA_ROOT'] = settings.MEDIA_ROOT
-#         ctx['STATIC_URL'] = settings.STATIC_URL
-#         return self.render_to_response(ctx)
+class testView(TemplateView):
+    template_name = "a.html"
+    def get(self, request):
+        ctx = {}
+        from django.conf import settings
+        ctx['STATIC_ROOT'] = settings.STATIC_ROOT
+        ctx['STATICFILES_DIRS'] = settings.STATICFILES_DIRS
+        ctx['MEDIA_ROOT'] = settings.MEDIA_ROOT
+        ctx['STATIC_URL'] = settings.STATIC_URL
+        return self.render_to_response(ctx)
 
 
 @method_decorator(staff_member_required, name='dispatch')

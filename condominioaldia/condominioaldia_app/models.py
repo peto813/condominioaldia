@@ -263,6 +263,7 @@ class Paginas_Amarillas(models.Model):
     mobil= models.CharField(max_length=15, default='', blank=True, null=True, verbose_name = _('Mobile'))
     fijo = models.CharField(max_length=15, default='', blank=True, null=True, verbose_name = _('Office number'))
     email = models.EmailField(null = True, verbose_name = _('E-mail'))
+    calificacion = models.IntegerField(null= True)
     class Meta:
         verbose_name = _('Yellow page')
         verbose_name_plural = _('Yellow pages')
