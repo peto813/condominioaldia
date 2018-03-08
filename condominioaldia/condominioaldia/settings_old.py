@@ -70,14 +70,14 @@ ROOT_URLCONF = 'condominioaldia.urls'
 
 #PROJECT EMAIL SETTINGS
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'peto813@gmail.com'
-EMAIL_HOST_PASSWORD = 'ou63ut14#'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 
+EMAIL_HOST_PASSWORD = 
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'webmaster@condominioaldia.net'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-ADMINS = (('Einstein Millan', 'peto813@gmail.com'), ('Einstein Millan', 'peto813@hotmail.com'))
+#ADMINS = 
 
 TEMPLATES = [
     {
@@ -104,18 +104,18 @@ WSGI_APPLICATION = 'condominioaldia.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 #condominioaldia_db
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'condominioaldia_db',
-        'USER': 'root',
-        'PASSWORD': 'ou63ut14',
-        'HOST': '127.0.0.1',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'condominioaldia_db',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'HOST': '127.0.0.1',
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         },
+#     }
+# }
 
 
 # DATABASES = {
