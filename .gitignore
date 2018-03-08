@@ -38,8 +38,8 @@ ehthumbs.db
 Thumbs.db
 
 #IGNORE FOLLOWING FOLDERS/FILES
-/home/einstein/condominioaldia/condominioaldia/condominioaldia
+/condominioaldia/condominioaldia
 /webfaction
 /env
-/home/einstein/condominioaldia/condominioaldia/static/static_root
-/home/einstein/condominioaldia/condominioaldia/static/media_root
+/condominioaldia/static/static_root
+/condominioaldia/static/media_root
