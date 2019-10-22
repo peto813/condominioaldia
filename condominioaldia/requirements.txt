@@ -25,7 +25,7 @@ nbformat==4.4.0
 oauthlib==2.0.2
 olefile==0.44
 packaging==16.8
-Pillow==4.1.0
+Pillow==6.2.0
 pyparsing==2.2.0
 PyPDF2==1.26.0
 python-dateutil==2.6.0
