@@ -27,7 +27,7 @@ olefile==0.44
 packaging==16.8
 Pillow==4.1.0
 pyparsing==2.2.0
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 python-dateutil==2.6.0
 python-openid==2.2.5
 pytz==2017.2
